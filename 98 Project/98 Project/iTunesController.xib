@@ -6,6 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="iTunesController">
             <connections>
+                <outlet property="albumLabel" destination="Uyq-lp-NQR" id="05a-dJ-ly7"/>
+                <outlet property="artistLabel" destination="0ZC-b2-dH7" id="aDK-W0-heo"/>
+                <outlet property="titleLabel" destination="6b3-Hi-dke" id="S67-vy-amf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,6 +25,9 @@
                     <state key="normal" title="Play/Pause">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="playPause:" destination="-1" eventType="touchUpInside" id="GgQ-vy-fUn"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9e-rH-eRs">
                     <rect key="frame" x="347" y="496" width="30" height="30"/>

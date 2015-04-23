@@ -12,6 +12,7 @@
 		001B87361AE856AB005D8A2B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 001B87351AE856AB005D8A2B /* Images.xcassets */; };
 		001B87391AE856AB005D8A2B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 001B87371AE856AB005D8A2B /* LaunchScreen.xib */; };
 		001B87451AE856AB005D8A2B /* _8_ProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 001B87441AE856AB005D8A2B /* _8_ProjectTests.m */; };
+		00A4CF791AE919AE00DBBE3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A4CF781AE919AE00DBBE3C /* Main.storyboard */; };
 		7B74E4611AE87B6F00B77FCC /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A4CF741AE875B800DBBE3C /* Spotify.framework */; };
 		7B74E4651AE87BCC00B77FCC /* SpotifyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B74E4631AE87BCC00B77FCC /* SpotifyController.m */; };
 		7B74E4661AE87BCC00B77FCC /* SpotifyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B74E4641AE87BCC00B77FCC /* SpotifyController.xib */; };
@@ -45,6 +46,8 @@
 		001B87441AE856AB005D8A2B /* _8_ProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _8_ProjectTests.m; sourceTree = "<group>"; };
 		00A4CF741AE875B800DBBE3C /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = "../ios-sdk-beta-7/Spotify.framework"; sourceTree = "<group>"; };
 		00A4CF761AE90F0F00DBBE3C /* QueueController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueController.h; sourceTree = "<group>"; };
+		00A4CF771AE918BD00DBBE3C /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		00A4CF781AE919AE00DBBE3C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7B74E4621AE87BCC00B77FCC /* SpotifyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpotifyController.h; path = ../SpotifyController.h; sourceTree = "<group>"; };
 		7B74E4631AE87BCC00B77FCC /* SpotifyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpotifyController.m; path = ../SpotifyController.m; sourceTree = "<group>"; };
 		7B74E4641AE87BCC00B77FCC /* SpotifyController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SpotifyController.xib; path = ../SpotifyController.xib; sourceTree = "<group>"; };
@@ -99,6 +102,7 @@
 		001B87271AE856AB005D8A2B /* 98 Project */ = {
 			isa = PBXGroup;
 			children = (
+				00A4CF771AE918BD00DBBE3C /* Config.h */,
 				7B74E4621AE87BCC00B77FCC /* SpotifyController.h */,
 				7B74E4631AE87BCC00B77FCC /* SpotifyController.m */,
 				00A4CF761AE90F0F00DBBE3C /* QueueController.h */,
@@ -110,6 +114,7 @@
 				7B74E4641AE87BCC00B77FCC /* SpotifyController.xib */,
 				001B872C1AE856AB005D8A2B /* AppDelegate.h */,
 				001B872D1AE856AB005D8A2B /* AppDelegate.m */,
+				00A4CF781AE919AE00DBBE3C /* Main.storyboard */,
 				001B87351AE856AB005D8A2B /* Images.xcassets */,
 				001B87371AE856AB005D8A2B /* LaunchScreen.xib */,
 				001B87281AE856AB005D8A2B /* Supporting Files */,
@@ -226,6 +231,7 @@
 				7B74E4711AE8BD0E00B77FCC /* QueueController.xib in Resources */,
 				7B74E4661AE87BCC00B77FCC /* SpotifyController.xib in Resources */,
 				7B74E4761AE8BD7E00B77FCC /* iTunesController.xib in Resources */,
+				00A4CF791AE919AE00DBBE3C /* Main.storyboard in Resources */,
 				001B87391AE856AB005D8A2B /* LaunchScreen.xib in Resources */,
 				001B87361AE856AB005D8A2B /* Images.xcassets in Resources */,
 			);

@@ -6,9 +6,21 @@
 //  Copyright (c) 2015 Kyle Tessier-Lavigne. All rights reserved.
 //
 
+//#import "Config.h"
 #import "SpotifyController.h"
+#import <Spotify/SPTDiskCache.h>
 
-@interface SpotifyController ()
+@interface SpotifyController () //<SPTAudioStreamingDelegate>
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *albumLabel;
+@property (weak, nonatomic) IBOutlet UILabel *artistLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *coverView;
+@property (weak, nonatomic) IBOutlet UIImageView *coverView2;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+
+//@property (nonatomic, strong) SPTAudioStreamingController *player;
+
 
 @end
 

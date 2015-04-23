@@ -10,14 +10,64 @@
 
 @interface iTunesController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *albumLabel;
+@property (weak, nonatomic) IBOutlet UILabel *artistLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *coverView;
+
+@property (nonatomic, strong) MPMusicPlayerController *musicPlayer;
+
 @end
 
 @implementation iTunesController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.titleLabel.text = @"Nothing Playing";
+    self.albumLabel.text = @"";
+    self.artistLabel.text = @"";
 }
+
+-(IBAction)playPause:(id)sender {
+    if ([self.musicPlayer playbackState] == MPMusicPlaybackStatePaused) {
+        [self.musicPlayer play];
+    } else if ([self.musicPlayer playbackState] == MPMusicPlaybackStatePlaying) {
+        [self.musicPlayer pause];
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self handleNewSession];
+}
+
+- (void)handleNewSession {
+
+    self.musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
+    
+    [self.musicPlayer setQueueWithQuery: [MPMediaQuery songsQuery]];
+    
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    
+    [notificationCenter
+     addObserver: self
+     selector:    @selector (handle_NowPlayingItemChanged:)
+     name:        MPMusicPlayerControllerNowPlayingItemDidChangeNotification
+     object:      self.musicPlayer];
+    
+    [notificationCenter
+     addObserver: self
+     selector:    @selector (handle_PlaybackStateChanged:)
+     name:        MPMusicPlayerControllerPlaybackStateDidChangeNotification
+     object:      self.musicPlayer];
+    
+    [self.musicPlayer beginGeneratingPlaybackNotifications];
+    
+    [self.musicPlayer setShuffleMode: MPMusicShuffleModeOff];
+    [self.musicPlayer setRepeatMode: MPMusicRepeatModeNone];
+
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
