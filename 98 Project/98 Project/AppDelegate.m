@@ -18,14 +18,30 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     // instantiate a music player
-    MPMusicPlayerController *myPlayer =
+    MPMusicPlayerController *musicPlayer =
     [MPMusicPlayerController applicationMusicPlayer];
     
     // assign a playback queue containing all media items on the device
-    [myPlayer setQueueWithQuery: [MPMediaQuery songsQuery]];
+    [musicPlayer setQueueWithQuery: [MPMediaQuery songsQuery]];
     
     // start playing from the beginning of the queue
-    [myPlayer play];
+    [musicPlayer play];
+    
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    
+    [notificationCenter
+     addObserver: self
+     selector:    @selector (handle_NowPlayingItemChanged:)
+     name:        MPMusicPlayerControllerNowPlayingItemDidChangeNotification
+     object:      musicPlayer];
+    
+    [notificationCenter
+     addObserver: self
+     selector:    @selector (handle_PlaybackStateChanged:)
+     name:        MPMusicPlayerControllerPlaybackStateDidChangeNotification
+     object:      musicPlayer];
+    
+    [musicPlayer beginGeneratingPlaybackNotifications];
     
     return YES;
 }
