@@ -4,25 +4,32 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
-        <!--QueueTab-->
-        <scene sceneID="dK8-nE-0eP">
+        <!--Queue-->
+        <scene sceneID="0ac-uT-H6x">
             <objects>
-                <viewController title="QueueTab" id="QE0-oh-lhC" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Of3-RJ-Knf"/>
-                        <viewControllerLayoutGuide type="bottom" id="zQ5-1k-x3e"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ui7-tN-I5A">
+                <tableViewController id="n29-pe-6kL" customClass="QueueController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="zJ0-Kf-hJy">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Queue" id="Qob-B3-t7p" userLabel="Queue"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5Zd-hf-2Ro" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="DFN-a2-Rvr">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DFN-a2-Rvr" id="VZ1-le-Nuw">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="n29-pe-6kL" id="C6X-Ow-sSY"/>
+                            <outlet property="delegate" destination="n29-pe-6kL" id="XN8-uP-Itn"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Queue" id="H6B-wv-3nD"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D8b-0O-wDG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-495" y="1427"/>
+            <point key="canvasLocation" x="-511" y="1501"/>
         </scene>
         <!--SpotifyView-->
         <scene sceneID="VlY-aj-YQ6">
@@ -46,7 +53,7 @@
         <!--iTunesView-->
         <scene sceneID="Ew9-Y7-yeq">
             <objects>
-                <viewController title="iTunesView" id="zRC-FK-NyO" sceneMemberID="viewController">
+                <viewController title="iTunesView" id="zRC-FK-NyO" customClass="iTunesController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="es1-xv-qe5"/>
                         <viewControllerLayoutGuide type="bottom" id="NS6-ip-CL8"/>
@@ -73,14 +80,14 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="QE0-oh-lhC" kind="relationship" relationship="viewControllers" id="qce-yk-1um"/>
+                        <segue destination="n29-pe-6kL" kind="relationship" relationship="viewControllers" id="obr-yN-9D5"/>
                         <segue destination="nWc-e4-3sW" kind="relationship" relationship="viewControllers" id="yjb-Df-5wc"/>
                         <segue destination="zRC-FK-NyO" kind="relationship" relationship="viewControllers" id="YjO-wk-A04"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HQt-MV-Mtt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-495" y="409"/>
+            <point key="canvasLocation" x="-821" y="537"/>
         </scene>
     </scenes>
 </document>
