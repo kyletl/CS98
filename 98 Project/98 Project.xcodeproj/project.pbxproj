@@ -44,6 +44,7 @@
 		001B87431AE856AB005D8A2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		001B87441AE856AB005D8A2B /* _8_ProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _8_ProjectTests.m; sourceTree = "<group>"; };
 		00A4CF741AE875B800DBBE3C /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = "../ios-sdk-beta-7/Spotify.framework"; sourceTree = "<group>"; };
+		00A4CF761AE90F0F00DBBE3C /* QueueController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueController.h; sourceTree = "<group>"; };
 		7B74E4621AE87BCC00B77FCC /* SpotifyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpotifyController.h; path = ../SpotifyController.h; sourceTree = "<group>"; };
 		7B74E4631AE87BCC00B77FCC /* SpotifyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpotifyController.m; path = ../SpotifyController.m; sourceTree = "<group>"; };
 		7B74E4641AE87BCC00B77FCC /* SpotifyController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SpotifyController.xib; path = ../SpotifyController.xib; sourceTree = "<group>"; };
@@ -100,6 +101,7 @@
 			children = (
 				7B74E4621AE87BCC00B77FCC /* SpotifyController.h */,
 				7B74E4631AE87BCC00B77FCC /* SpotifyController.m */,
+				00A4CF761AE90F0F00DBBE3C /* QueueController.h */,
 				7B74E46E1AE8BD0E00B77FCC /* QueueController.m */,
 				7B74E4721AE8BD7E00B77FCC /* iTunesController.h */,
 				7B74E4731AE8BD7E00B77FCC /* iTunesController.m */,

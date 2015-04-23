@@ -24,9 +24,6 @@
     // assign a playback queue containing all media items on the device
     [musicPlayer setQueueWithQuery: [MPMediaQuery songsQuery]];
     
-    // start playing from the beginning of the queue
-    [musicPlayer play];
-    
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     
     [notificationCenter
