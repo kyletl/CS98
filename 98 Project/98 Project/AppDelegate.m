@@ -14,12 +14,12 @@
 
 @implementation AppDelegate
 
+@synthesize musicPlayer;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     // instantiate a music player
-    MPMusicPlayerController *musicPlayer =
-    [MPMusicPlayerController applicationMusicPlayer];
+    musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
     
     // assign a playback queue containing all media items on the device
     [musicPlayer setQueueWithQuery: [MPMediaQuery songsQuery]];
@@ -39,6 +39,9 @@
      object:      musicPlayer];
     
     [musicPlayer beginGeneratingPlaybackNotifications];
+    
+    [musicPlayer setShuffleMode: MPMusicShuffleModeOff];
+    [musicPlayer setRepeatMode: MPMusicRepeatModeNone];
     
     return YES;
 }
@@ -63,6 +66,17 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[NSNotificationCenter defaultCenter]
+     removeObserver: self
+     name:           MPMusicPlayerControllerNowPlayingItemDidChangeNotification
+     object:         musicPlayer];
+    
+    [[NSNotificationCenter defaultCenter]
+     removeObserver: self
+     name:           MPMusicPlayerControllerPlaybackStateDidChangeNotification
+     object:         musicPlayer];
+    
+    [musicPlayer endGeneratingPlaybackNotifications];
 }
 
 @end
