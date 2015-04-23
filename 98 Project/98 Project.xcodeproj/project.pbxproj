@@ -9,12 +9,17 @@
 /* Begin PBXBuildFile section */
 		001B872B1AE856AB005D8A2B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 001B872A1AE856AB005D8A2B /* main.m */; };
 		001B872E1AE856AB005D8A2B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 001B872D1AE856AB005D8A2B /* AppDelegate.m */; };
-		001B87311AE856AB005D8A2B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 001B87301AE856AB005D8A2B /* ViewController.m */; };
-		001B87341AE856AB005D8A2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 001B87321AE856AB005D8A2B /* Main.storyboard */; };
 		001B87361AE856AB005D8A2B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 001B87351AE856AB005D8A2B /* Images.xcassets */; };
 		001B87391AE856AB005D8A2B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 001B87371AE856AB005D8A2B /* LaunchScreen.xib */; };
 		001B87451AE856AB005D8A2B /* _8_ProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 001B87441AE856AB005D8A2B /* _8_ProjectTests.m */; };
-		00A4CF751AE875B800DBBE3C /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A4CF741AE875B800DBBE3C /* Spotify.framework */; };
+		7B74E4611AE87B6F00B77FCC /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A4CF741AE875B800DBBE3C /* Spotify.framework */; };
+		7B74E4651AE87BCC00B77FCC /* SpotifyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B74E4631AE87BCC00B77FCC /* SpotifyController.m */; };
+		7B74E4661AE87BCC00B77FCC /* SpotifyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B74E4641AE87BCC00B77FCC /* SpotifyController.xib */; };
+		7B74E4681AE8825600B77FCC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B74E4671AE8825600B77FCC /* AVFoundation.framework */; };
+		7B74E4701AE8BD0E00B77FCC /* QueueController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B74E46E1AE8BD0E00B77FCC /* QueueController.m */; };
+		7B74E4711AE8BD0E00B77FCC /* QueueController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B74E46F1AE8BD0E00B77FCC /* QueueController.xib */; };
+		7B74E4751AE8BD7E00B77FCC /* iTunesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B74E4731AE8BD7E00B77FCC /* iTunesController.m */; };
+		7B74E4761AE8BD7E00B77FCC /* iTunesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B74E4741AE8BD7E00B77FCC /* iTunesController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,15 +38,21 @@
 		001B872A1AE856AB005D8A2B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		001B872C1AE856AB005D8A2B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		001B872D1AE856AB005D8A2B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		001B872F1AE856AB005D8A2B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		001B87301AE856AB005D8A2B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		001B87331AE856AB005D8A2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		001B87351AE856AB005D8A2B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		001B87381AE856AB005D8A2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		001B873E1AE856AB005D8A2B /* 98 ProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "98 ProjectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		001B87431AE856AB005D8A2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		001B87441AE856AB005D8A2B /* _8_ProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _8_ProjectTests.m; sourceTree = "<group>"; };
 		00A4CF741AE875B800DBBE3C /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = "../ios-sdk-beta-7/Spotify.framework"; sourceTree = "<group>"; };
+		7B74E4621AE87BCC00B77FCC /* SpotifyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpotifyController.h; path = ../SpotifyController.h; sourceTree = "<group>"; };
+		7B74E4631AE87BCC00B77FCC /* SpotifyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpotifyController.m; path = ../SpotifyController.m; sourceTree = "<group>"; };
+		7B74E4641AE87BCC00B77FCC /* SpotifyController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SpotifyController.xib; path = ../SpotifyController.xib; sourceTree = "<group>"; };
+		7B74E4671AE8825600B77FCC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		7B74E46E1AE8BD0E00B77FCC /* QueueController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueController.m; sourceTree = "<group>"; };
+		7B74E46F1AE8BD0E00B77FCC /* QueueController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QueueController.xib; sourceTree = "<group>"; };
+		7B74E4721AE8BD7E00B77FCC /* iTunesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunesController.h; sourceTree = "<group>"; };
+		7B74E4731AE8BD7E00B77FCC /* iTunesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTunesController.m; sourceTree = "<group>"; };
+		7B74E4741AE8BD7E00B77FCC /* iTunesController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = iTunesController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00A4CF751AE875B800DBBE3C /* Spotify.framework in Frameworks */,
+				7B74E4681AE8825600B77FCC /* AVFoundation.framework in Frameworks */,
+				7B74E4611AE87B6F00B77FCC /* Spotify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +78,7 @@
 		001B871C1AE856AB005D8A2B = {
 			isa = PBXGroup;
 			children = (
+				7B74E4671AE8825600B77FCC /* AVFoundation.framework */,
 				00A4CF741AE875B800DBBE3C /* Spotify.framework */,
 				001B87271AE856AB005D8A2B /* 98 Project */,
 				001B87411AE856AB005D8A2B /* 98 ProjectTests */,
@@ -85,11 +98,16 @@
 		001B87271AE856AB005D8A2B /* 98 Project */ = {
 			isa = PBXGroup;
 			children = (
+				7B74E4621AE87BCC00B77FCC /* SpotifyController.h */,
+				7B74E4631AE87BCC00B77FCC /* SpotifyController.m */,
+				7B74E46E1AE8BD0E00B77FCC /* QueueController.m */,
+				7B74E4721AE8BD7E00B77FCC /* iTunesController.h */,
+				7B74E4731AE8BD7E00B77FCC /* iTunesController.m */,
+				7B74E4741AE8BD7E00B77FCC /* iTunesController.xib */,
+				7B74E46F1AE8BD0E00B77FCC /* QueueController.xib */,
+				7B74E4641AE87BCC00B77FCC /* SpotifyController.xib */,
 				001B872C1AE856AB005D8A2B /* AppDelegate.h */,
 				001B872D1AE856AB005D8A2B /* AppDelegate.m */,
-				001B872F1AE856AB005D8A2B /* ViewController.h */,
-				001B87301AE856AB005D8A2B /* ViewController.m */,
-				001B87321AE856AB005D8A2B /* Main.storyboard */,
 				001B87351AE856AB005D8A2B /* Images.xcassets */,
 				001B87371AE856AB005D8A2B /* LaunchScreen.xib */,
 				001B87281AE856AB005D8A2B /* Supporting Files */,
@@ -203,7 +221,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				001B87341AE856AB005D8A2B /* Main.storyboard in Resources */,
+				7B74E4711AE8BD0E00B77FCC /* QueueController.xib in Resources */,
+				7B74E4661AE87BCC00B77FCC /* SpotifyController.xib in Resources */,
+				7B74E4761AE8BD7E00B77FCC /* iTunesController.xib in Resources */,
 				001B87391AE856AB005D8A2B /* LaunchScreen.xib in Resources */,
 				001B87361AE856AB005D8A2B /* Images.xcassets in Resources */,
 			);
@@ -223,8 +243,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				001B87311AE856AB005D8A2B /* ViewController.m in Sources */,
 				001B872E1AE856AB005D8A2B /* AppDelegate.m in Sources */,
+				7B74E4701AE8BD0E00B77FCC /* QueueController.m in Sources */,
+				7B74E4651AE87BCC00B77FCC /* SpotifyController.m in Sources */,
+				7B74E4751AE8BD7E00B77FCC /* iTunesController.m in Sources */,
 				001B872B1AE856AB005D8A2B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,14 +270,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		001B87321AE856AB005D8A2B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				001B87331AE856AB005D8A2B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		001B87371AE856AB005D8A2B /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -356,9 +370,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/kyletl/Desktop/Dartmouth/15S/CS98/ios-sdk-beta-7",
+					"/Users/tdc/Documents/CS98/ios-sdk-beta-7",
 				);
 				INFOPLIST_FILE = "98 Project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -370,9 +386,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/kyletl/Desktop/Dartmouth/15S/CS98/ios-sdk-beta-7",
+					"/Users/tdc/Documents/CS98/ios-sdk-beta-7",
 				);
 				INFOPLIST_FILE = "98 Project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
