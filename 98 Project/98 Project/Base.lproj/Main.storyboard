@@ -27,7 +27,7 @@
         <!--SpotifyView-->
         <scene sceneID="VlY-aj-YQ6">
             <objects>
-                <viewController title="SpotifyView" id="nWc-e4-3sW" sceneMemberID="viewController">
+                <viewController title="SpotifyView" id="nWc-e4-3sW" customClass="SpotifyController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eVk-Cq-qbB"/>
                         <viewControllerLayoutGuide type="bottom" id="nUi-p3-DXi"/>
