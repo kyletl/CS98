@@ -15,12 +15,9 @@
 		00A4CF791AE919AE00DBBE3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A4CF781AE919AE00DBBE3C /* Main.storyboard */; };
 		7B74E4611AE87B6F00B77FCC /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A4CF741AE875B800DBBE3C /* Spotify.framework */; };
 		7B74E4651AE87BCC00B77FCC /* SpotifyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B74E4631AE87BCC00B77FCC /* SpotifyController.m */; };
-		7B74E4661AE87BCC00B77FCC /* SpotifyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B74E4641AE87BCC00B77FCC /* SpotifyController.xib */; };
 		7B74E4681AE8825600B77FCC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B74E4671AE8825600B77FCC /* AVFoundation.framework */; };
 		7B74E4701AE8BD0E00B77FCC /* QueueController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B74E46E1AE8BD0E00B77FCC /* QueueController.m */; };
-		7B74E4711AE8BD0E00B77FCC /* QueueController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B74E46F1AE8BD0E00B77FCC /* QueueController.xib */; };
 		7B74E4751AE8BD7E00B77FCC /* iTunesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B74E4731AE8BD7E00B77FCC /* iTunesController.m */; };
-		7B74E4761AE8BD7E00B77FCC /* iTunesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B74E4741AE8BD7E00B77FCC /* iTunesController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,13 +47,10 @@
 		00A4CF781AE919AE00DBBE3C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7B74E4621AE87BCC00B77FCC /* SpotifyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpotifyController.h; path = ../SpotifyController.h; sourceTree = "<group>"; };
 		7B74E4631AE87BCC00B77FCC /* SpotifyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpotifyController.m; path = ../SpotifyController.m; sourceTree = "<group>"; };
-		7B74E4641AE87BCC00B77FCC /* SpotifyController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SpotifyController.xib; path = ../SpotifyController.xib; sourceTree = "<group>"; };
 		7B74E4671AE8825600B77FCC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7B74E46E1AE8BD0E00B77FCC /* QueueController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueController.m; sourceTree = "<group>"; };
-		7B74E46F1AE8BD0E00B77FCC /* QueueController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QueueController.xib; sourceTree = "<group>"; };
 		7B74E4721AE8BD7E00B77FCC /* iTunesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunesController.h; sourceTree = "<group>"; };
 		7B74E4731AE8BD7E00B77FCC /* iTunesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTunesController.m; sourceTree = "<group>"; };
-		7B74E4741AE8BD7E00B77FCC /* iTunesController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = iTunesController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,9 +103,6 @@
 				7B74E46E1AE8BD0E00B77FCC /* QueueController.m */,
 				7B74E4721AE8BD7E00B77FCC /* iTunesController.h */,
 				7B74E4731AE8BD7E00B77FCC /* iTunesController.m */,
-				7B74E4741AE8BD7E00B77FCC /* iTunesController.xib */,
-				7B74E46F1AE8BD0E00B77FCC /* QueueController.xib */,
-				7B74E4641AE87BCC00B77FCC /* SpotifyController.xib */,
 				001B872C1AE856AB005D8A2B /* AppDelegate.h */,
 				001B872D1AE856AB005D8A2B /* AppDelegate.m */,
 				00A4CF781AE919AE00DBBE3C /* Main.storyboard */,
@@ -228,9 +219,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B74E4711AE8BD0E00B77FCC /* QueueController.xib in Resources */,
-				7B74E4661AE87BCC00B77FCC /* SpotifyController.xib in Resources */,
-				7B74E4761AE8BD7E00B77FCC /* iTunesController.xib in Resources */,
 				00A4CF791AE919AE00DBBE3C /* Main.storyboard in Resources */,
 				001B87391AE856AB005D8A2B /* LaunchScreen.xib in Resources */,
 				001B87361AE856AB005D8A2B /* Images.xcassets in Resources */,
@@ -377,8 +365,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/kyletl/Desktop/Dartmouth/15S/CS98/ios-sdk-beta-7",
-					"/Users/tdc/Documents/CS98/ios-sdk-beta-7",
+					"../ios-sdk-beta-7",
 				);
 				INFOPLIST_FILE = "98 Project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -393,8 +380,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/kyletl/Desktop/Dartmouth/15S/CS98/ios-sdk-beta-7",
-					"/Users/tdc/Documents/CS98/ios-sdk-beta-7",
+					"../ios-sdk-beta-7",
 				);
 				INFOPLIST_FILE = "98 Project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

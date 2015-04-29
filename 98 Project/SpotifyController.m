@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Kyle Tessier-Lavigne. All rights reserved.
 //
 
-//#import "Config.h"
+#import "Config.h"
 #import "SpotifyController.h"
-#import <Spotify/SPTDiskCache.h>
+//#import <Spotify/SPTDiskCache.h>
 
 @interface SpotifyController () //<SPTAudioStreamingDelegate>
 

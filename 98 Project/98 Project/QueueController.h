@@ -8,6 +8,6 @@
 
 #import "UIKit/UIKit.h"
 
-@interface QueueController : UIViewController
+@interface QueueController : UITableViewController
 
 @end
