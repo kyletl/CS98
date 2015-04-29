@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mUD-v9-SbX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mUD-v9-SbX">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Spotify-->
         <scene sceneID="ZVC-Az-3Px">
             <objects>
                 <viewController id="jgc-p3-SMQ" customClass="SpotifyController" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="dX6-xv-wL5"/>
+                    <tabBarItem key="tabBarItem" title="Spotify" id="dX6-xv-wL5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i5c-jE-1xh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -43,7 +43,7 @@
             </objects>
             <point key="canvasLocation" x="-1626" y="-1384"/>
         </scene>
-        <!--Item-->
+        <!--Queue-->
         <scene sceneID="M37-J6-zQG">
             <objects>
                 <tableViewController id="x6b-yz-8vo" customClass="QueueController" sceneMemberID="viewController">
@@ -64,13 +64,13 @@
                             <outlet property="delegate" destination="x6b-yz-8vo" id="Ffs-1t-Nqd"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="pi1-QN-KY9"/>
+                    <tabBarItem key="tabBarItem" title="Queue" id="pi1-QN-KY9" userLabel="Queue"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PnM-30-JFH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-617" y="-2032"/>
         </scene>
-        <!--Item-->
+        <!--iTunes-->
         <scene sceneID="LWF-uy-enJ">
             <objects>
                 <viewController id="tsY-E4-WH1" customClass="iTunesController" sceneMemberID="viewController">
@@ -83,7 +83,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="dyV-XM-XXb"/>
+                    <tabBarItem key="tabBarItem" title="iTunes" id="dyV-XM-XXb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxn-Vp-Rfr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
