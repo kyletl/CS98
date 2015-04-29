@@ -34,41 +34,95 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="s66-gD-tVa" kind="relationship" relationship="viewControllers" id="nfV-Ad-Yd2"/>
                         <segue destination="jgc-p3-SMQ" kind="relationship" relationship="viewControllers" id="9hv-pm-3f0"/>
                         <segue destination="tsY-E4-WH1" kind="relationship" relationship="viewControllers" id="GHa-RZ-zAE"/>
-                        <segue destination="x6b-yz-8vo" kind="relationship" relationship="viewControllers" id="nfV-Ad-Yd2"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mxo-iD-WcK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1626" y="-1384"/>
         </scene>
-        <!--Queue-->
+        <!--Table View Controller-->
         <scene sceneID="M37-J6-zQG">
             <objects>
-                <tableViewController id="x6b-yz-8vo" customClass="QueueController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="v8W-ez-mCJ">
+                <tableViewController id="x6b-yz-8vo" userLabel="Table View Controller" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="v8W-ez-mCJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="WB2-Bx-yDK">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WB2-Bx-yDK" id="hGE-OW-ZTf">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                        <sections>
+                            <tableViewSection id="LHT-Qt-qrH">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="Eo6-0t-oiL" style="IBUITableViewCellStyleDefault" id="WB2-Bx-yDK">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WB2-Bx-yDK" id="hGE-OW-ZTf">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Shake It Off - Taylor Swift" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Eo6-0t-oiL">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="5xl-cH-lb2" style="IBUITableViewCellStyleDefault" id="nLO-De-TdK">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nLO-De-TdK" id="qhY-I0-tIy">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="You Belong With Me - Taylor Swift" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5xl-cH-lb2">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="cLL-ML-47K" style="IBUITableViewCellStyleDefault" id="iHc-tV-t02">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iHc-tV-t02" id="KGt-ix-VYl">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Love Story - Taylor Swift" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cLL-ML-47K">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
                         <connections>
                             <outlet property="dataSource" destination="x6b-yz-8vo" id="gYE-Af-2yP"/>
                             <outlet property="delegate" destination="x6b-yz-8vo" id="Ffs-1t-Nqd"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Queue" id="pi1-QN-KY9" userLabel="Queue"/>
+                    <navigationItem key="navigationItem" title="Queue" id="Qp1-EE-38L">
+                        <barButtonItem key="rightBarButtonItem" title="Player" id="KZw-lQ-0Oo">
+                            <connections>
+                                <segue destination="qw2-zR-Vu6" kind="presentation" id="qJe-lB-8Qs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PnM-30-JFH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-617" y="-2032"/>
+            <point key="canvasLocation" x="165" y="-2032"/>
+        </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="z1I-eP-k9a">
+            <objects>
+                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="qw2-zR-Vu6" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yHk-Sf-2Tg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="902" y="-2020"/>
         </scene>
         <!--iTunes-->
         <scene sceneID="LWF-uy-enJ">
@@ -88,6 +142,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxn-Vp-Rfr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-617" y="-1324"/>
+        </scene>
+        <!--Queue-->
+        <scene sceneID="NTT-4D-S4M">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s66-gD-tVa" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Queue" id="pi1-QN-KY9" userLabel="Queue"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vmz-RP-lAu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="x6b-yz-8vo" kind="relationship" relationship="rootViewController" id="Umv-oH-arS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U2i-7i-tm1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-617" y="-2032"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="8lQ-br-fHt">
+            <objects>
+                <viewController id="kL8-2S-v8S" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="O66-NE-V4v"/>
+                        <viewControllerLayoutGuide type="bottom" id="O5x-61-wMm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UVv-3W-FVs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wsU-bA-gPD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="195" y="-515"/>
         </scene>
     </scenes>
 </document>
