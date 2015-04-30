@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
 
+#define AppDelegateRef (AppDelegate *)[UIApplication sharedApplication].delegate
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
 @property (strong, nonatomic) MPMusicPlayerController *musicPlayer;
 
 @end
