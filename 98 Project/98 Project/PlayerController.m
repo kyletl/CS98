@@ -1,5 +1,5 @@
 //
-//  UIViewController_PlayerController.h
+//  UIViewController_PlayerController.m
 //  98 Project
 //
 //  Created by Kyle Tessier-Lavigne on 4/30/15.
@@ -7,6 +7,7 @@
 //
 
 #import "PlayerController.h"
+#import "AppDelegate.h"
 #import <UIKit/UIKit.h>
 
 @interface PlayerController ()
@@ -16,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *albumLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *coverView;
 
-@property (nonatomic, strong) MPMusicPlayerController *musicPlayer;
+@property (nonatomic, strong) MPMusicPlayerController *mMusicPlayer;
 
 @property (nonatomic, strong) MPMediaItem *nowPlaying;
 
@@ -24,62 +25,36 @@
 
 @implementation PlayerController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.titleLabel.text = @"Nothing Playing";
     self.artistLabel.text = @"";
     self.albumLabel.text = @"";
     self.nowPlaying = nil;
+    self.mMusicPlayer = (AppDelegateRef).musicPlayer;
+
 }
 
 -(IBAction)playPause:(id)sender {
-    if ([self.musicPlayer playbackState] == MPMusicPlaybackStatePaused) {
-        [self.musicPlayer play];
-    } else if ([self.musicPlayer playbackState] == MPMusicPlaybackStatePlaying) {
-        [self.musicPlayer pause];
+    if ([self.mMusicPlayer playbackState] == MPMusicPlaybackStatePaused) {
+        [self.mMusicPlayer play];
+    } else if ([self.mMusicPlayer playbackState] == MPMusicPlaybackStatePlaying) {
+        [self.mMusicPlayer pause];
     }
 }
 
 -(IBAction)next:(id)sender {
-    [self.musicPlayer skipToNextItem];
+    [self.mMusicPlayer skipToNextItem];
 }
 
 -(IBAction)previous:(id)sender {
-    [self.musicPlayer skipToPreviousItem];
+    [self.mMusicPlayer skipToPreviousItem];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self handleNewSession];
 }
-
-- (void)handleNewSession {
-    
-    self.musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
-    
-    [self.musicPlayer setQueueWithQuery: [MPMediaQuery songsQuery]];
-    
-    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-    
-    [notificationCenter
-     addObserver: self
-     selector:    @selector (handle_NowPlayingItemChanged:)
-     name:        MPMusicPlayerControllerNowPlayingItemDidChangeNotification
-     object:      self.musicPlayer];
-    
-    [notificationCenter
-     addObserver: self
-     selector:    @selector (handle_PlaybackStateChanged:)
-     name:        MPMusicPlayerControllerPlaybackStateDidChangeNotification
-     object:      self.musicPlayer];
-    
-    [self.musicPlayer beginGeneratingPlaybackNotifications];
-    
-    [self.musicPlayer setShuffleMode: MPMusicShuffleModeOff];
-    [self.musicPlayer setRepeatMode: MPMusicRepeatModeNone];
-    
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
