@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Spotify-->
         <scene sceneID="ZVC-Az-3Px">
             <objects>
-                <viewController id="jgc-p3-SMQ" customClass="SpotifyController" sceneMemberID="viewController">
+                <viewController id="jgc-p3-SMQ" userLabel="Spotify" customClass="SpotifyController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ndz-iF-MC6"/>
                         <viewControllerLayoutGuide type="bottom" id="S7l-8M-ag8"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="dX6-xv-wL5"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="dX6-xv-wL5" userLabel="Spotify"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i5c-jE-1xh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -43,10 +43,10 @@
             </objects>
             <point key="canvasLocation" x="-1626" y="-1384"/>
         </scene>
-        <!--Item-->
+        <!--Queue-->
         <scene sceneID="M37-J6-zQG">
             <objects>
-                <tableViewController id="x6b-yz-8vo" customClass="QueueController" sceneMemberID="viewController">
+                <tableViewController id="x6b-yz-8vo" userLabel="Queue" customClass="QueueController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="v8W-ez-mCJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,16 +64,16 @@
                             <outlet property="delegate" destination="x6b-yz-8vo" id="Ffs-1t-Nqd"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="pi1-QN-KY9"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="pi1-QN-KY9" userLabel="Queue"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PnM-30-JFH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-617" y="-2032"/>
         </scene>
-        <!--Item-->
+        <!--iTunes-->
         <scene sceneID="LWF-uy-enJ">
             <objects>
-                <viewController id="tsY-E4-WH1" customClass="iTunesController" sceneMemberID="viewController">
+                <viewController id="tsY-E4-WH1" userLabel="iTunes" customClass="iTunesController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iFj-Pi-A9G"/>
                         <viewControllerLayoutGuide type="bottom" id="tyg-qA-uBp"/>
@@ -83,7 +83,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="dyV-XM-XXb"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="dyV-XM-XXb" userLabel="iTunes"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxn-Vp-Rfr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
