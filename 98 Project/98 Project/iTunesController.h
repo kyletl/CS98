@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
 
-@interface iTunesController : UIViewController
+@interface iTunesController : UIViewController <MPMediaPickerControllerDelegate>
 
 @end
