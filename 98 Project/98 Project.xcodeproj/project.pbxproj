@@ -31,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		001096DE1AF1A9EE0013A2E7 /* AudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioController.h; path = ../AudioController.h; sourceTree = "<group>"; };
+		001096DF1AF1AD730013A2E7 /* AudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioController.m; sourceTree = "<group>"; };
 		001B87251AE856AB005D8A2B /* 98 Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "98 Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		001B87291AE856AB005D8A2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		001B872A1AE856AB005D8A2B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -96,6 +98,8 @@
 		001B87271AE856AB005D8A2B /* 98 Project */ = {
 			isa = PBXGroup;
 			children = (
+				001096DE1AF1A9EE0013A2E7 /* AudioController.h */,
+				001096DF1AF1AD730013A2E7 /* AudioController.m */,
 				00A4CF771AE918BD00DBBE3C /* Config.h */,
 				7B74E4621AE87BCC00B77FCC /* SpotifyController.h */,
 				7B74E4631AE87BCC00B77FCC /* SpotifyController.m */,
