@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>6A8BB8E2-2F6E-4DAE-AFC1-29F203A13F2C</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>98 Project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>A929FCFC3D3543197B213EA77C89C116E0733C60</key>
 		<string>https://github.com/kyletl/CS98.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>98 Project/98 Project.xcodeproj/project.xcworkspace</string>
+	<string>98 Project/98 Project.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>A929FCFC3D3543197B213EA77C89C116E0733C60</key>
