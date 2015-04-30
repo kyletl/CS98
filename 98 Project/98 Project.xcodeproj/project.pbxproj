@@ -98,9 +98,9 @@
 		001B87271AE856AB005D8A2B /* 98 Project */ = {
 			isa = PBXGroup;
 			children = (
+				00A4CF771AE918BD00DBBE3C /* Config.h */,
 				001096DE1AF1A9EE0013A2E7 /* AudioController.h */,
 				001096DF1AF1AD730013A2E7 /* AudioController.m */,
-				00A4CF771AE918BD00DBBE3C /* Config.h */,
 				7B74E4621AE87BCC00B77FCC /* SpotifyController.h */,
 				7B74E4631AE87BCC00B77FCC /* SpotifyController.m */,
 				00A4CF761AE90F0F00DBBE3C /* QueueController.h */,

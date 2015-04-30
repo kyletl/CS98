@@ -36,6 +36,14 @@
     }
 }
 
+-(IBAction)next:(id)sender {
+    [self.musicPlayer next];
+}
+
+-(IBAction)previous:(id)sender {
+    [self.musicPlayer previous];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self handleNewSession];

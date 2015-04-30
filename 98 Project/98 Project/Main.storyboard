@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Scd-RI-TcN">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -140,10 +141,10 @@
             </objects>
             <point key="canvasLocation" x="-529" y="216"/>
         </scene>
-        <!--View Controller-->
+        <!--Audio Controller-->
         <scene sceneID="8xz-pm-mAL">
             <objects>
-                <viewController id="kxg-WQ-GUn" sceneMemberID="viewController">
+                <viewController id="kxg-WQ-GUn" customClass="AudioController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uyI-yC-NJu"/>
                         <viewControllerLayoutGuide type="bottom" id="gZH-Bt-WkT"/>
@@ -151,12 +152,71 @@
                     <view key="view" contentMode="scaleToFill" id="hiD-y2-nMT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zLn-zs-xTM">
+                                <rect key="frame" x="150" y="64" width="300" height="300"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQq-fj-c8u" userLabel="Title">
+                                <rect key="frame" x="287" y="398" width="33" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPT-RJ-dc1" userLabel="Artist">
+                                <rect key="frame" x="283" y="427" width="41" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Album" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsk-tb-put" userLabel="Album">
+                                <rect key="frame" x="278" y="456" width="50" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNH-xF-qHA">
+                                <rect key="frame" x="260" y="485" width="86" height="30"/>
+                                <state key="normal" title="Play / Pause">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playPause:" destination="stb-Xt-z0A" eventType="touchUpInside" id="3pJ-Om-N8t"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbC-65-dat">
+                                <rect key="frame" x="381" y="485" width="30" height="30"/>
+                                <state key="normal" title="&gt;&gt;">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="next:" destination="stb-Xt-z0A" eventType="touchUpInside" id="VbV-FP-W3y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4k-pf-G3U">
+                                <rect key="frame" x="190" y="485" width="30" height="30"/>
+                                <state key="normal" title="&lt;&lt;">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="previous:" destination="stb-Xt-z0A" eventType="touchUpInside" id="lfZ-La-rGC"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lsk-tb-put" firstAttribute="leading" secondItem="hiD-y2-nMT" secondAttribute="leadingMargin" constant="263" id="gX0-cn-N2V"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="albumLabel" destination="lsk-tb-put" id="Dao-4K-zH0"/>
+                        <outlet property="artistLabel" destination="hPT-RJ-dc1" id="lCX-mR-SB3"/>
+                        <outlet property="coverView" destination="zLn-zs-xTM" id="BNM-Vt-W1f"/>
+                        <outlet property="titleLabel" destination="eQq-fj-c8u" id="Z46-jZ-tQJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="stb-Xt-z0A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-805" y="-1400"/>
+            <point key="canvasLocation" x="-835" y="-1384"/>
         </scene>
         <!--iTunes-->
         <scene sceneID="LWF-uy-enJ">
