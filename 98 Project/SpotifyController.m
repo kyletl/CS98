@@ -12,9 +12,9 @@
 
 @interface SpotifyController () //<SPTAudioStreamingDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *albumLabel;
-@property (weak, nonatomic) IBOutlet UILabel *artistLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *albumLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *artistLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *coverView;
 @property (weak, nonatomic) IBOutlet UIImageView *coverView2;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
