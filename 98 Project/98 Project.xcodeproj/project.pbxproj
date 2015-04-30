@@ -12,6 +12,7 @@
 		001B87361AE856AB005D8A2B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 001B87351AE856AB005D8A2B /* Images.xcassets */; };
 		001B87391AE856AB005D8A2B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 001B87371AE856AB005D8A2B /* LaunchScreen.xib */; };
 		001B87451AE856AB005D8A2B /* _8_ProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 001B87441AE856AB005D8A2B /* _8_ProjectTests.m */; };
+		006C12821AF1E84300DA0093 /* PlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 006C12811AF1E5B900DA0093 /* PlayerController.m */; };
 		00A4CF791AE919AE00DBBE3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A4CF781AE919AE00DBBE3C /* Main.storyboard */; };
 		7B74E4611AE87B6F00B77FCC /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A4CF741AE875B800DBBE3C /* Spotify.framework */; };
 		7B74E4651AE87BCC00B77FCC /* SpotifyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B74E4631AE87BCC00B77FCC /* SpotifyController.m */; };
@@ -31,8 +32,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		001096DE1AF1A9EE0013A2E7 /* AudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioController.h; path = ../AudioController.h; sourceTree = "<group>"; };
-		001096DF1AF1AD730013A2E7 /* AudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioController.m; sourceTree = "<group>"; };
 		001B87251AE856AB005D8A2B /* 98 Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "98 Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		001B87291AE856AB005D8A2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		001B872A1AE856AB005D8A2B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -43,6 +42,8 @@
 		001B873E1AE856AB005D8A2B /* 98 ProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "98 ProjectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		001B87431AE856AB005D8A2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		001B87441AE856AB005D8A2B /* _8_ProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _8_ProjectTests.m; sourceTree = "<group>"; };
+		006C12801AF1E58B00DA0093 /* PlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerController.h; sourceTree = "<group>"; };
+		006C12811AF1E5B900DA0093 /* PlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerController.m; sourceTree = "<group>"; };
 		00A4CF741AE875B800DBBE3C /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = "../ios-sdk-beta-7/Spotify.framework"; sourceTree = "<group>"; };
 		00A4CF761AE90F0F00DBBE3C /* QueueController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueController.h; sourceTree = "<group>"; };
 		00A4CF771AE918BD00DBBE3C /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
@@ -99,8 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				00A4CF771AE918BD00DBBE3C /* Config.h */,
-				001096DE1AF1A9EE0013A2E7 /* AudioController.h */,
-				001096DF1AF1AD730013A2E7 /* AudioController.m */,
+				006C12801AF1E58B00DA0093 /* PlayerController.h */,
+				006C12811AF1E5B900DA0093 /* PlayerController.m */,
 				7B74E4621AE87BCC00B77FCC /* SpotifyController.h */,
 				7B74E4631AE87BCC00B77FCC /* SpotifyController.m */,
 				00A4CF761AE90F0F00DBBE3C /* QueueController.h */,
@@ -248,6 +249,7 @@
 				7B74E4701AE8BD0E00B77FCC /* QueueController.m in Sources */,
 				7B74E4651AE87BCC00B77FCC /* SpotifyController.m in Sources */,
 				7B74E4751AE8BD7E00B77FCC /* iTunesController.m in Sources */,
+				006C12821AF1E84300DA0093 /* PlayerController.m in Sources */,
 				001B872B1AE856AB005D8A2B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

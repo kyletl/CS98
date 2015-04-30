@@ -10,6 +10,8 @@
 
 @interface iTunesController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *test;
+
 @end
 
 @implementation iTunesController
