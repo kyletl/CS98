@@ -7,11 +7,13 @@
 //
 
 #import "iTunesController.h"
+#import "AppDelegate.h"
 
 @interface iTunesController ()
 @property (weak, nonatomic) IBOutlet UIButton *pickerStart;
 @property (weak, nonatomic) MPMusicPlayerController *mMusicPlayer;
 @property (weak, nonatomic) IBOutlet UILabel *test;
+@property (weak, nonatomic) MPMediaItemCollection *mediaSelection;
 
 @end
 
@@ -52,45 +54,46 @@
     //    the user chose at least one song to play.
     if (collection) {
         
-        // If there's no playback queue yet...
-        if (userMediaItemCollection == nil) {
-            [self setUserMediaItemCollection: collection];
-            [self.mMusicPlayer setQueueWithItemCollection: userMediaItemCollection];
-            [self.mMusicPlayer play];
-            
-            // Obtain the music player's state so it can be restored after
-            //    updating the playback queue.
-        } else {
-            BOOL wasPlaying = NO;
-            if (musicPlayer.playbackState == MPMusicPlaybackStatePlaying) {
-                wasPlaying = YES;
-            }
-            
-            // Save the now-playing item and its current playback time.
-            MPMediaItem *nowPlayingItem        = musicPlayer.nowPlayingItem;
-            NSTimeInterval currentPlaybackTime = musicPlayer.currentPlaybackTime;
-            
-            // Combine the previously-existing media item collection with
-            //    the new one
-            NSMutableArray *combinedMediaItems =
-            [[userMediaItemCollection items] mutableCopy];
-            NSArray *newMediaItems = [mediaItemCollection items];
-            [combinedMediaItems addObjectsFromArray: newMediaItems];
-            
-            [self setUserMediaItemCollection:
-             [MPMediaItemCollection collectionWithItems:
-              (NSArray *) combinedMediaItems]];
-            
-            [musicPlayer setQueueWithItemCollection: userMediaItemCollection];
-            
-            // Restore the now-playing item and its current playback time.
-            musicPlayer.nowPlayingItem      = nowPlayingItem;
-            musicPlayer.currentPlaybackTime = currentPlaybackTime;
-            
-            if (wasPlaying) {
-                [musicPlayer play];
-            }
-        }
+//        // If there's no playback queue yet...
+//        if (userMediaItemCollection == nil) {
+////            [self setUserMediaItemCollection: collection];
+//            [self.mMusicPlayer setQueueWithItemCollection: userMediaItemCollection];
+        [self.mMusicPlayer setQueueWithItemCollection: collection];
+        [self.mMusicPlayer play];
+//            
+//            // Obtain the music player's state so it can be restored after
+//            //    updating the playback queue.
+//        } else {
+//            BOOL wasPlaying = NO;
+//            if (self.mMusicPlayer.playbackState == MPMusicPlaybackStatePlaying) {
+//                wasPlaying = YES;
+//            }
+//            
+//            // Save the now-playing item and its current playback time.
+//            MPMediaItem *nowPlayingItem        = self.mMusicPlayer.nowPlayingItem;
+//            NSTimeInterval currentPlaybackTime = self.mMusicPlayer.currentPlaybackTime;
+//            
+//            // Combine the previously-existing media item collection with
+//            //    the new one
+//            NSMutableArray *combinedMediaItems =
+//            [[userMediaItemCollection items] mutableCopy];
+//            NSArray *newMediaItems = [mediaItemCollection items];
+//            [combinedMediaItems addObjectsFromArray: newMediaItems];
+//            
+//            [self setUserMediaItemCollection:
+//             [MPMediaItemCollection collectionWithItems:
+//              (NSArray *) combinedMediaItems]];
+//            
+//            [self.mMusicPlayer setQueueWithItemCollection: userMediaItemCollection];
+//            
+//            // Restore the now-playing item and its current playback time.
+//            self.mMusicPlayer.nowPlayingItem      = nowPlayingItem;
+//            self.mMusicPlayer.currentPlaybackTime = currentPlaybackTime;
+//            
+//            if (wasPlaying) {
+//                [musicPlayer play];
+//            }
+//        }
     }
 }
 
