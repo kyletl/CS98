@@ -12,7 +12,6 @@
 @interface iTunesController ()
 @property (weak, nonatomic) IBOutlet UIButton *pickerStart;
 @property (weak, nonatomic) MPMusicPlayerController *mMusicPlayer;
-@property (weak, nonatomic) IBOutlet UILabel *test;
 @property (weak, nonatomic) MPMediaItemCollection *mediaSelection;
 
 @end

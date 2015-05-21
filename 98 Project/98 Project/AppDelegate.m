@@ -28,18 +28,18 @@
     
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     
-    [notificationCenter
-     addObserver: self
-     selector:    @selector (handle_NowPlayingItemChanged:)
-     name:        MPMusicPlayerControllerNowPlayingItemDidChangeNotification
-     object:      musicPlayer];
-    
-    [notificationCenter
-     addObserver: self
-     selector:    @selector (handle_PlaybackStateChanged:)
-     name:        MPMusicPlayerControllerPlaybackStateDidChangeNotification
-     object:      musicPlayer];
-    
+//    [notificationCenter
+//     addObserver: self
+//     selector:    @selector (handle_NowPlayingItemChanged:)
+//     name:        MPMusicPlayerControllerNowPlayingItemDidChangeNotification
+//     object:      musicPlayer];
+//    
+//    [notificationCenter
+//     addObserver: self
+//     selector:    @selector (handle_PlaybackStateChanged:)
+//     name:        MPMusicPlayerControllerPlaybackStateDidChangeNotification
+//     object:      musicPlayer];
+//    
     [musicPlayer beginGeneratingPlaybackNotifications];
     
     [musicPlayer setShuffleMode: MPMusicShuffleModeOff];

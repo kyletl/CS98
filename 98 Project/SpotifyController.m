@@ -8,7 +8,7 @@
 
 #import "Config.h"
 #import "SpotifyController.h"
-//#import <Spotify/SPTDiskCache.h>
+#import <Spotify/SPTDiskCache.h>
 
 @interface SpotifyController () //<SPTAudioStreamingDelegate>
 
