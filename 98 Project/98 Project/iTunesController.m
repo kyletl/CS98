@@ -18,6 +18,13 @@
 
 @implementation iTunesController
 
+
+- (IBAction)pickMusic:(id)sender {
+    if ([sender pickerStart]) {
+        
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.mMusicPlayer = (AppDelegateRef).musicPlayer;
@@ -38,13 +45,12 @@
 - (void) mediaPicker: (MPMediaPickerController *) mediaPicker
    didPickMediaItems: (MPMediaItemCollection *) collection {
     
-    [self dismissModalViewControllerAnimated: YES];
+    [self dismissViewControllerAnimated: YES completion:nil];
     [self updateQueueWithCollection: collection];
 }
 
 - (void) mediaPickerDidCancel: (MPMediaPickerController *) mediaPicker {
-    
-    [self dismissModalViewControllerAnimated: YES];
+    [self dismissViewControllerAnimated: YES completion:nil];
 }
 
 - (void) updateQueueWithCollection: (MPMediaItemCollection *) collection {

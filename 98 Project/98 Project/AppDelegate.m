@@ -18,28 +18,45 @@
 
 @synthesize musicPlayer;
 
+- (void)handle_NowPlayingItemChanged:(id)notification {
+//    MPMediaItem *currentSong = self.musicPlayer.nowPlayingItem;
+}
+
+- (void)handle_PlaybackStateChanged:(id)notification {
+    if ([musicPlayer playbackState] == MPMusicPlaybackStatePlaying) {
+//        change pause/play button to pause
+    }
+    if ([musicPlayer playbackState] == MPMusicPlaybackStatePaused) {
+//        change pause/play button to play
+    }
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
     // instantiate a music player
-    musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
+    musicPlayer = [MPMusicPlayerController systemMusicPlayer];
+    
+    if ([musicPlayer nowPlayingItem]) {
+        //update album artwork / UI
+    }
     
     // assign a playback queue containing all media items on the device
     [musicPlayer setQueueWithQuery: [MPMediaQuery songsQuery]];
     
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     
-//    [notificationCenter
-//     addObserver: self
-//     selector:    @selector (handle_NowPlayingItemChanged:)
-//     name:        MPMusicPlayerControllerNowPlayingItemDidChangeNotification
-//     object:      musicPlayer];
-//    
-//    [notificationCenter
-//     addObserver: self
-//     selector:    @selector (handle_PlaybackStateChanged:)
-//     name:        MPMusicPlayerControllerPlaybackStateDidChangeNotification
-//     object:      musicPlayer];
-//    
+    [notificationCenter
+     addObserver: self
+     selector:    @selector (handle_NowPlayingItemChanged:)
+     name:        MPMusicPlayerControllerNowPlayingItemDidChangeNotification
+     object:      musicPlayer];
+    
+    [notificationCenter
+     addObserver: self
+     selector:    @selector (handle_PlaybackStateChanged:)
+     name:        MPMusicPlayerControllerPlaybackStateDidChangeNotification
+     object:      musicPlayer];
+    
     [musicPlayer beginGeneratingPlaybackNotifications];
     
     [musicPlayer setShuffleMode: MPMusicShuffleModeOff];
