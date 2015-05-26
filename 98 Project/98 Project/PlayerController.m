@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;
 @property (weak, nonatomic) IBOutlet UILabel *albumLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *coverView;
+@property (weak, nonatomic) IBOutlet UISlider *trackSlider;
 
 @property (nonatomic, strong) MPMusicPlayerController *mMusicPlayer;
 
@@ -49,6 +50,10 @@
 
 -(IBAction)previous:(id)sender {
     [self.mMusicPlayer skipToPreviousItem];
+}
+
+- (IBAction)setTimelinePosition:(id)sender {
+    [self.mMusicPlayer setCurrentPlaybackTime: [self.trackSlider value]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

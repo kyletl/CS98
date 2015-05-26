@@ -117,7 +117,7 @@
                                 <rect key="frame" x="153" y="64" width="300" height="300"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQq-fj-c8u" userLabel="Title">
-                                <rect key="frame" x="287" y="398" width="33" height="21"/>
+                                <rect key="frame" x="287" y="372" width="33" height="21"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES"/>
                                 </accessibility>
@@ -126,7 +126,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Artist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPT-RJ-dc1" userLabel="Artist">
-                                <rect key="frame" x="283" y="427" width="41" height="21"/>
+                                <rect key="frame" x="283" y="401" width="41" height="21"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES"/>
                                 </accessibility>
@@ -135,7 +135,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Album" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Y0-YA-s2i">
-                                <rect key="frame" x="278" y="456" width="50" height="21"/>
+                                <rect key="frame" x="278" y="430" width="50" height="21"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES"/>
                                 </accessibility>
@@ -144,38 +144,48 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNH-xF-qHA">
-                                <rect key="frame" x="260" y="485" width="86" height="30"/>
+                                <rect key="frame" x="260" y="497" width="86" height="30"/>
                                 <state key="normal" title="Play / Pause">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="playPause:" destination="kxg-WQ-GUn" eventType="touchUpInside" id="Svq-vv-24g"/>
                                     <action selector="playPause:" destination="stb-Xt-z0A" eventType="touchUpInside" id="kvR-FC-mHh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4k-pf-G3U">
-                                <rect key="frame" x="190" y="485" width="30" height="30"/>
+                                <rect key="frame" x="190" y="497" width="30" height="30"/>
                                 <state key="normal" title="&lt;&lt;">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="previous:" destination="kxg-WQ-GUn" eventType="touchUpInside" id="HfV-8B-lb5"/>
                                     <action selector="previous:" destination="stb-Xt-z0A" eventType="touchUpInside" id="VgK-De-rMC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbC-65-dat">
-                                <rect key="frame" x="381" y="485" width="30" height="30"/>
+                                <rect key="frame" x="381" y="497" width="30" height="30"/>
                                 <state key="normal" title="&gt;&gt;">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="next:" destination="stb-Xt-z0A" eventType="touchUpInside" id="RwG-Rx-riW"/>
+                                    <action selector="next:" destination="kxg-WQ-GUn" eventType="touchUpInside" id="ugi-8U-t2C"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="9AX-JP-FtV">
+                                <rect key="frame" x="244" y="459" width="118" height="31"/>
+                                <connections>
+                                    <action selector="setTimelinePosition:" destination="kxg-WQ-GUn" eventType="valueChanged" id="VEw-dV-hg1"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="eQq-fj-c8u" secondAttribute="centerX" id="0Eh-Mr-drU"/>
                             <constraint firstItem="dbC-65-dat" firstAttribute="leading" secondItem="KNH-xF-qHA" secondAttribute="trailing" constant="35" id="82k-Wn-XRS"/>
                             <constraint firstAttribute="centerX" secondItem="zLn-zs-xTM" secondAttribute="centerX" id="Mmh-yV-Vu6"/>
+                            <constraint firstAttribute="centerX" secondItem="9AX-JP-FtV" secondAttribute="centerX" id="SEA-H6-DA5"/>
                             <constraint firstAttribute="centerX" secondItem="hPT-RJ-dc1" secondAttribute="centerX" id="nSl-Fp-A2j"/>
                             <constraint firstItem="KNH-xF-qHA" firstAttribute="leading" secondItem="C4k-pf-G3U" secondAttribute="trailing" constant="40" id="v5A-r9-1Jb"/>
                             <constraint firstAttribute="centerX" secondItem="7Y0-YA-s2i" secondAttribute="centerX" id="vas-Fi-ZjY"/>
@@ -187,6 +197,7 @@
                         <outlet property="artistLabel" destination="hPT-RJ-dc1" id="bNt-Pn-otb"/>
                         <outlet property="coverView" destination="zLn-zs-xTM" id="xXU-eG-239"/>
                         <outlet property="titleLabel" destination="eQq-fj-c8u" id="tbs-cf-C0C"/>
+                        <outlet property="trackSlider" destination="9AX-JP-FtV" id="5Lw-3t-8Hd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="stb-Xt-z0A" userLabel="First Responder" sceneMemberID="firstResponder"/>
