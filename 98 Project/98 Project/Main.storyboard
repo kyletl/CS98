@@ -173,19 +173,15 @@
                                     <action selector="next:" destination="kxg-WQ-GUn" eventType="touchUpInside" id="ugi-8U-t2C"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="9AX-JP-FtV">
-                                <rect key="frame" x="244" y="459" width="118" height="31"/>
-                                <connections>
-                                    <action selector="setTimelinePosition:" destination="kxg-WQ-GUn" eventType="valueChanged" id="VEw-dV-hg1"/>
-                                </connections>
-                            </slider>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="g5E-Xh-wn3">
+                                <rect key="frame" x="228" y="474" width="150" height="2"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="eQq-fj-c8u" secondAttribute="centerX" id="0Eh-Mr-drU"/>
                             <constraint firstItem="dbC-65-dat" firstAttribute="leading" secondItem="KNH-xF-qHA" secondAttribute="trailing" constant="35" id="82k-Wn-XRS"/>
                             <constraint firstAttribute="centerX" secondItem="zLn-zs-xTM" secondAttribute="centerX" id="Mmh-yV-Vu6"/>
-                            <constraint firstAttribute="centerX" secondItem="9AX-JP-FtV" secondAttribute="centerX" id="SEA-H6-DA5"/>
                             <constraint firstAttribute="centerX" secondItem="hPT-RJ-dc1" secondAttribute="centerX" id="nSl-Fp-A2j"/>
                             <constraint firstItem="KNH-xF-qHA" firstAttribute="leading" secondItem="C4k-pf-G3U" secondAttribute="trailing" constant="40" id="v5A-r9-1Jb"/>
                             <constraint firstAttribute="centerX" secondItem="7Y0-YA-s2i" secondAttribute="centerX" id="vas-Fi-ZjY"/>
@@ -197,7 +193,7 @@
                         <outlet property="artistLabel" destination="hPT-RJ-dc1" id="bNt-Pn-otb"/>
                         <outlet property="coverView" destination="zLn-zs-xTM" id="xXU-eG-239"/>
                         <outlet property="titleLabel" destination="eQq-fj-c8u" id="tbs-cf-C0C"/>
-                        <outlet property="trackSlider" destination="9AX-JP-FtV" id="5Lw-3t-8Hd"/>
+                        <outlet property="trackProgress" destination="g5E-Xh-wn3" id="8lY-3p-VCw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="stb-Xt-z0A" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -236,12 +232,12 @@
                     <navigationItem key="navigationItem" id="JyZ-3p-6Xn"/>
                     <connections>
                         <outlet property="pickerStart" destination="8tx-hV-tcH" id="0j1-3e-E8Q"/>
-                        <segue destination="x6b-yz-8vo" kind="show" identifier="updateQueueSegue" id="Giz-oO-ELi"/>
+                        <segue destination="x6b-yz-8vo" kind="showDetail" identifier="updateQueueSegue" id="ghn-iS-wh2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxn-Vp-Rfr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1639" y="-536"/>
+            <point key="canvasLocation" x="-1626" y="-542"/>
         </scene>
         <!--Queue-->
         <scene sceneID="NTT-4D-S4M">
@@ -264,6 +260,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Giz-oO-ELi"/>
+        <segue reference="ghn-iS-wh2"/>
     </inferredMetricsTieBreakers>
 </document>

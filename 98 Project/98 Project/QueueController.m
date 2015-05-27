@@ -22,7 +22,7 @@
     [super viewDidLoad];
     
     self.mMusicPlayer = (AppDelegateRef).musicPlayer;
-    self.playQueue = [[MPMediaItemCollection alloc] init];
+    self.playQueue = nil;
     self.freshQueueItems = [[NSArray alloc] init];
     
     
@@ -33,29 +33,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.playQueue count];
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear: animated];
+    if ([self.freshQueueItems count] > 0) {
+        [self updateQueueWithCollection: self.freshQueueItems];
+    }
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"queuedTrack" forIndexPath:indexPath];
-    
-    MPMediaItem *song = [[self.playQueue items] objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = song.title;
-    
-    return cell;
-}
 
-- (IBAction)unwind:(UIStoryboardSegue *) segue {
+- (IBAction)unwindFromPicker:(UIStoryboardSegue *) segue {
+    NSLog(@"got to unwind");
     if([segue.identifier isEqualToString: @"updateQueueSegue"]) {
+        NSLog(@"segue is %@", segue.identifier);
         [self updateQueueWithCollection: self.freshQueueItems];
     }
 }
@@ -63,14 +53,14 @@
 
 - (void) updateQueueWithCollection: (NSArray *) collection {
 
+    NSLog(@"made it to queue controller with %@", collection);
     // Add 'collection' to the music player's playback queue, but only if
     //    the user chose at least one song to play.
     if (collection) {
 
 //        // If there's no playback queue yet...
         if (self.playQueue == nil) {
-            [self setPlayQueue:
-             [[MPMediaItemCollection collectionWithItems: collection]];
+            self.playQueue = [[MPMediaItemCollection alloc] initWithItems:collection];
             [self.mMusicPlayer setQueueWithItemCollection: self.playQueue];
             [self.mMusicPlayer play];
 
@@ -110,6 +100,27 @@
 }
 
 
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.playQueue count];
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"queuedTrack" forIndexPath:indexPath];
+    
+    MPMediaItem *song = [[self.playQueue items] objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = song.title;
+    
+    return cell;
+}
 
 /*
 // Override to support conditional editing of the table view.

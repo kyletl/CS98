@@ -12,4 +12,6 @@
 
 @property NSArray *freshQueueItems;
 
+- (void) updateQueueWithCollection: (NSArray *) collection;
+
 @end

@@ -88,9 +88,13 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if([segue.identifier isEqualToString: @"updateQueueSegue"]) {
+        NSLog(@"in iTunes, segue id is %@", segue.identifier);
+//        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+//        QueueController *qController = (QueueController *)navController.topViewController;
         QueueController *qController = (QueueController *)segue.destinationViewController;
-        qController.freshQueueItems = self.mediaSelection.items;
-        self.mediaSelection = nil;
+        [qController updateQueueWithCollection: self.mediaSelection.items];
+//        qController.freshQueueItems = self.mediaSelection.items;
+//        self.mediaSelection = nil;
     }
 }
 
