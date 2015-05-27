@@ -222,7 +222,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="pickMusic:" destination="tsY-E4-WH1" eventType="touchUpInside" id="bkA-uW-Fhu"/>
+                                    <action selector="pickMusic:" destination="tsY-E4-WH1" eventType="touchUpInside" id="ZNJ-3v-Xfd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -235,7 +235,7 @@
                     <tabBarItem key="tabBarItem" title="iTunes" id="dyV-XM-XXb"/>
                     <navigationItem key="navigationItem" id="JyZ-3p-6Xn"/>
                     <connections>
-                        <outlet property="pickerStart" destination="8tx-hV-tcH" id="POa-7T-MfL"/>
+                        <outlet property="pickerStart" destination="8tx-hV-tcH" id="0j1-3e-E8Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxn-Vp-Rfr" userLabel="First Responder" sceneMemberID="firstResponder"/>

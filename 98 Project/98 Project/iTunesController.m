@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 
 @interface iTunesController ()
+
 @property (weak, nonatomic) IBOutlet UIButton *pickerStart;
 @property (weak, nonatomic) MPMusicPlayerController *mMusicPlayer;
 @property (weak, nonatomic) MPMediaItemCollection *mediaSelection;
@@ -20,7 +21,7 @@
 
 
 - (IBAction)pickMusic:(id)sender {
-    if ([sender pickerStart]) {
+    if (sender == self.pickerStart) {
         MPMediaPickerController *picker =
         [[MPMediaPickerController alloc]
          initWithMediaTypes: MPMediaTypeAnyAudio];
