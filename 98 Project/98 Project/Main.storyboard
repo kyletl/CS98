@@ -73,10 +73,10 @@
             </objects>
             <point key="canvasLocation" x="-1626" y="-1384"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Queue Controller-->
         <scene sceneID="M37-J6-zQG">
             <objects>
-                <tableViewController id="x6b-yz-8vo" userLabel="Table View Controller" sceneMemberID="viewController">
+                <tableViewController id="x6b-yz-8vo" userLabel="Queue Controller" customClass="QueueController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="v8W-ez-mCJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,7 +99,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PnM-30-JFH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-835" y="168"/>
+            <point key="canvasLocation" x="-1187" y="252"/>
         </scene>
         <!--Player Controller-->
         <scene sceneID="8xz-pm-mAL">
@@ -236,6 +236,7 @@
                     <navigationItem key="navigationItem" id="JyZ-3p-6Xn"/>
                     <connections>
                         <outlet property="pickerStart" destination="8tx-hV-tcH" id="0j1-3e-E8Q"/>
+                        <segue destination="x6b-yz-8vo" kind="show" identifier="updateQueueSegue" id="Giz-oO-ELi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxn-Vp-Rfr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -245,6 +246,7 @@
         <!--Queue-->
         <scene sceneID="NTT-4D-S4M">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U2i-7i-tm1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s66-gD-tVa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Queue" id="pi1-QN-KY9" userLabel="Queue"/>
                     <toolbarItems/>
@@ -257,9 +259,11 @@
                         <segue destination="x6b-yz-8vo" kind="relationship" relationship="rootViewController" id="Umv-oH-arS"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U2i-7i-tm1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-835" y="-552"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Giz-oO-ELi"/>
+    </inferredMetricsTieBreakers>
 </document>

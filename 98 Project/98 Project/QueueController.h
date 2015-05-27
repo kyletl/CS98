@@ -10,4 +10,6 @@
 
 @interface QueueController : UITableViewController
 
+@property NSArray *freshQueueItems;
+
 @end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import "QueueController.h"
 
 @interface iTunesController : UIViewController <MPMediaPickerControllerDelegate>
 
