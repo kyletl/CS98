@@ -35,7 +35,29 @@
     self.albumLabel.text = @"";
     self.nowPlaying = nil;
     self.mMusicPlayer = (AppDelegateRef).musicPlayer;
+    
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    
+    [notificationCenter
+     addObserver: self
+     selector:    @selector (handle_NowPlayingItemChanged:)
+     name:        MPMusicPlayerControllerNowPlayingItemDidChangeNotification
+     object:      self.mMusicPlayer];
+    
+    [notificationCenter
+     addObserver: self
+     selector:    @selector (handle_PlaybackStateChanged:)
+     name:        MPMusicPlayerControllerPlaybackStateDidChangeNotification
+     object:      self.mMusicPlayer];
+}
 
+-(void)handle_NowPlayingItemChanged:(id)notification {
+    self.nowPlaying = self.mMusicPlayer.nowPlayingItem;
+    [self updateUI];
+}
+
+-(void)handle_PlaybackStateChanged:(id)notification {
+    
 }
 
 -(IBAction)playPause:(id)sender {
@@ -54,11 +76,24 @@
     [self.mMusicPlayer skipToPreviousItem];
 }
 
-
+- (void)updateUI {
+    if (self.nowPlaying) {
+        self.titleLabel.text = self.nowPlaying.title;
+        self.artistLabel.text = self.nowPlaying.artist;
+        self.albumLabel.text = self.nowPlaying.albumTitle;
+        //        if (!self.coverView) {
+        //            [self.coverView initWithImage: [self.nowPlaying.artwork imageWithSize:]];
+        //      }
+    }
+}
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self updateUI];
 }
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

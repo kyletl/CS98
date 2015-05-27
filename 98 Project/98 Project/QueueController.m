@@ -35,9 +35,6 @@
 
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear: animated];
-    if ([self.freshQueueItems count] > 0) {
-        [self updateQueueWithCollection: self.freshQueueItems];
-    }
 }
 
 
@@ -63,7 +60,7 @@
             self.playQueue = [[MPMediaItemCollection alloc] initWithItems:collection];
             [self.mMusicPlayer setQueueWithItemCollection: self.playQueue];
             [self.mMusicPlayer play];
-
+            NSLog(@"queue was nil, now %@", self.playQueue);
         } else {
 //             Obtain the music player's state so it can be restored after
 //                updating the playback queue.
@@ -95,6 +92,7 @@
             if (wasPlaying) {
                 [self.mMusicPlayer play];
             }
+            NSLog(@"queue not nil, now %@", self.playQueue);
         }
     }
 }
