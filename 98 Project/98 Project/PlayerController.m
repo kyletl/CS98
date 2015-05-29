@@ -7,7 +7,6 @@
 //
 
 #import "PlayerController.h"
-#import "AppDelegate.h"
 
 @interface PlayerController ()
 
@@ -16,8 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *albumLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *coverView;
 @property (weak, nonatomic) IBOutlet UIProgressView *trackProgress;
-
-
+@property (weak, nonatomic) IBOutlet UIButton *playPauseButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
 @property (nonatomic, strong) MPMusicPlayerController *mMusicPlayer;
 
@@ -57,8 +56,14 @@
 }
 
 -(void)handle_PlaybackStateChanged:(id)notification {
-    
+    MPMusicPlaybackState currentState = [self.mMusicPlayer playbackState];
+    if (currentState == MPMusicPlaybackStatePaused) {
+        [self.playPauseButton setTitle:@"Play" forState:UIControlStateNormal];
+    } else {
+        [self.playPauseButton setTitle:@"Pause" forState:UIControlStateNormal];
+    }
 }
+
 
 -(IBAction)playPause:(id)sender {
     if ([self.mMusicPlayer playbackState] == MPMusicPlaybackStatePaused) {
@@ -100,14 +105,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
  #pragma mark - Navigation
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
  // Get the new view controller using [segue destinationViewController].
  // Pass the selected object to the new view controller.
+//     if (sender == self.doneButton) {
+//         return;
+//     }
  }
- */
+ 
 
 @end

@@ -39,6 +39,8 @@
 
 
 
+
+
 - (IBAction)unwindFromPicker:(UIStoryboardSegue *) segue {
     NSLog(@"got to unwind");
     if([segue.identifier isEqualToString: @"updateQueueSegue"]) {
@@ -94,6 +96,7 @@
             }
             NSLog(@"queue not nil, now %@", self.playQueue);
         }
+        [self.tableView reloadData];
     }
 }
 
@@ -114,6 +117,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"queuedTrack" forIndexPath:indexPath];
     
     MPMediaItem *song = [[self.playQueue items] objectAtIndex:indexPath.row];
+    
+    NSLog(@"song in row %ld is %@", (long)indexPath.row, song.title);
     
     cell.textLabel.text = song.title;
     
