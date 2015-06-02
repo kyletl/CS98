@@ -18,8 +18,6 @@
 
 @property (nonatomic, strong) MPMusicPlayerController *mMusicPlayer;
 
-@property (nonatomic, strong) MPMediaItem *nowPlaying;
-
 @end
 
 @implementation PlayerController
@@ -27,10 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.titleLabel.text = @"Nothing Playing";
-    self.artistLabel.text = @"";
-    self.albumLabel.text = @"";
-    self.nowPlaying = nil;
     self.mMusicPlayer = (AppDelegateRef).musicPlayer;
     
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
@@ -45,13 +39,27 @@
      addObserver: self
      selector:    @selector (handle_PlaybackStateChanged:)
      name:        MPMusicPlayerControllerPlaybackStateDidChangeNotification
-     object:      self.mMusicPlayer];   
+     object:      self.mMusicPlayer];
     
     [self.mMusicPlayer beginGeneratingPlaybackNotifications];
+    [self updateUI];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:YES];
+    [self updateUI];
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Player Notifications
+
 -(void)handle_NowPlayingItemChanged:(id)notification {
-    self.nowPlaying = self.mMusicPlayer.nowPlayingItem;
+    NSLog(@"handling now playing item change");
     [self updateUI];
 }
 
@@ -64,11 +72,12 @@
     }
 }
 
+#pragma mark - Player Functions
 
 -(IBAction)playPause:(id)sender {
     if ([self.mMusicPlayer playbackState] == MPMusicPlaybackStatePlaying) {
         [self.mMusicPlayer pause];
-    } else if (self.nowPlaying) {
+    } else if ([self.mMusicPlayer nowPlayingItem]) {
         [self.mMusicPlayer play];
     }
 }
@@ -81,29 +90,26 @@
     [self.mMusicPlayer skipToPreviousItem];
 }
 
-- (void)updateUI {
-    if (self.nowPlaying) {
-        self.titleLabel.text = self.nowPlaying.title;
-        self.artistLabel.text = self.nowPlaying.artist;
-        self.albumLabel.text = self.nowPlaying.albumTitle;
+-(void)updateUI {
+    MPMediaItem *nowPlaying = [self.mMusicPlayer nowPlayingItem];
+    if (nowPlaying) {
+        if ([self.mMusicPlayer playbackState] == MPMusicPlaybackStatePlaying) {
+            [self.playPauseButton setTitle:@"Pause" forState:UIControlStateNormal];
+        }
+        self.titleLabel.text = nowPlaying.title;
+        self.artistLabel.text = nowPlaying.artist;
+        self.albumLabel.text = nowPlaying.albumTitle;
         //        if (!self.coverView) {
         //            [self.coverView initWithImage: [self.nowPlaying.artwork imageWithSize:]];
         //      }
+    } else {
+        self.titleLabel.text = @"Nothing Playing";
+        self.artistLabel.text = @"";
+        self.albumLabel.text = @"";
     }
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self updateUI];
-}
 
-
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
  #pragma mark - Navigation
