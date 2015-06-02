@@ -92,7 +92,7 @@
 //        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
 //        QueueController *qController = (QueueController *)navController.topViewController;
         QueueController *qController = (QueueController *)segue.destinationViewController;
-        [qController updateQueueWithCollection: self.mediaSelection.items];
+//        [qController updateQueueWithCollection: self.mediaSelection.items];
 //        qController.freshQueueItems = self.mediaSelection.items;
 //        self.mediaSelection = nil;
     }

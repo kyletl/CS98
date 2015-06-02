@@ -22,9 +22,6 @@
     [super viewDidLoad];
     
     self.mMusicPlayer = (AppDelegateRef).musicPlayer;
-    self.playQueue = nil;
-    self.freshQueueItems = [[NSArray alloc] init];
-    
     
 }
 
@@ -38,17 +35,38 @@
 }
 
 
-
-
-
-- (IBAction)unwindFromPicker:(UIStoryboardSegue *) segue {
-    NSLog(@"got to unwind");
-    if([segue.identifier isEqualToString: @"updateQueueSegue"]) {
-        NSLog(@"segue is %@", segue.identifier);
-        [self updateQueueWithCollection: self.freshQueueItems];
-    }
+- (IBAction) unwindFromPlayer:(UIStoryboardSegue *) segue {
+    
 }
 
+
+#pragma mark - iTunes media picker
+
+- (IBAction)pickMusic:(id)sender {
+    MPMediaPickerController *picker =
+    [[MPMediaPickerController alloc]
+     initWithMediaTypes: MPMediaTypeAnyAudio];
+    
+    [picker setDelegate: self];
+    [picker setAllowsPickingMultipleItems: YES];
+    picker.prompt =
+    NSLocalizedString (@"Add songs to play",
+                       "Prompt in media item picker");
+    
+    [self presentViewController: picker animated: YES completion:nil];
+}
+
+- (void) mediaPicker: (MPMediaPickerController *) mediaPicker
+   didPickMediaItems: (MPMediaItemCollection *) collection {
+    
+    [self dismissViewControllerAnimated: YES completion:nil];
+    
+    [self updateQueueWithCollection: [collection items]];
+}
+
+- (void) mediaPickerDidCancel: (MPMediaPickerController *) mediaPicker {
+    [self dismissViewControllerAnimated: YES completion:nil];
+}
 
 - (void) updateQueueWithCollection: (NSArray *) collection {
 
@@ -109,12 +127,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.playQueue count];
+    return [[self.playQueue items] count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"queuedTrack" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QueuedItem" forIndexPath:indexPath];
     
     MPMediaItem *song = [[self.playQueue items] objectAtIndex:indexPath.row];
     

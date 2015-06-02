@@ -13,7 +13,6 @@
 		001B87391AE856AB005D8A2B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 001B87371AE856AB005D8A2B /* LaunchScreen.xib */; };
 		001B87451AE856AB005D8A2B /* _8_ProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 001B87441AE856AB005D8A2B /* _8_ProjectTests.m */; };
 		006C12821AF1E84300DA0093 /* PlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 006C12811AF1E5B900DA0093 /* PlayerController.m */; };
-		008BF62B1B166AAD009C1885 /* MasterTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008BF62A1B166AAD009C1885 /* MasterTabBarViewController.m */; };
 		00A4CF791AE919AE00DBBE3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A4CF781AE919AE00DBBE3C /* Main.storyboard */; };
 		7B74E4611AE87B6F00B77FCC /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A4CF741AE875B800DBBE3C /* Spotify.framework */; };
 		7B74E4651AE87BCC00B77FCC /* SpotifyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B74E4631AE87BCC00B77FCC /* SpotifyController.m */; };
@@ -45,8 +44,6 @@
 		001B87441AE856AB005D8A2B /* _8_ProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _8_ProjectTests.m; sourceTree = "<group>"; };
 		006C12801AF1E58B00DA0093 /* PlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerController.h; sourceTree = "<group>"; };
 		006C12811AF1E5B900DA0093 /* PlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerController.m; sourceTree = "<group>"; };
-		008BF6291B166AAD009C1885 /* MasterTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterTabBarViewController.h; sourceTree = "<group>"; };
-		008BF62A1B166AAD009C1885 /* MasterTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterTabBarViewController.m; sourceTree = "<group>"; };
 		00A4CF741AE875B800DBBE3C /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = "../ios-sdk-beta-7/Spotify.framework"; sourceTree = "<group>"; };
 		00A4CF761AE90F0F00DBBE3C /* QueueController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueController.h; sourceTree = "<group>"; };
 		00A4CF771AE918BD00DBBE3C /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
@@ -117,8 +114,6 @@
 				001B87351AE856AB005D8A2B /* Images.xcassets */,
 				001B87371AE856AB005D8A2B /* LaunchScreen.xib */,
 				001B87281AE856AB005D8A2B /* Supporting Files */,
-				008BF6291B166AAD009C1885 /* MasterTabBarViewController.h */,
-				008BF62A1B166AAD009C1885 /* MasterTabBarViewController.m */,
 			);
 			path = "98 Project";
 			sourceTree = "<group>";
@@ -255,7 +250,6 @@
 				7B74E4651AE87BCC00B77FCC /* SpotifyController.m in Sources */,
 				7B74E4751AE8BD7E00B77FCC /* iTunesController.m in Sources */,
 				006C12821AF1E84300DA0093 /* PlayerController.m in Sources */,
-				008BF62B1B166AAD009C1885 /* MasterTabBarViewController.m in Sources */,
 				001B872B1AE856AB005D8A2B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

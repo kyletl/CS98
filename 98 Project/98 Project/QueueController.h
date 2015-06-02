@@ -6,12 +6,11 @@
 //  Copyright (c) 2015 Kyle Tessier-Lavigne. All rights reserved.
 //
 
-#import "UIKit/UIKit.h"
+#import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
 
-@interface QueueController : UITableViewController
+@interface QueueController : UITableViewController <MPMediaPickerControllerDelegate>
 
 @property NSArray *freshQueueItems;
-
-- (void) updateQueueWithCollection: (NSArray *) collection;
 
 @end
