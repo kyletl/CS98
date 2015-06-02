@@ -37,26 +37,6 @@
     // instantiate a music player
     musicPlayer = [MPMusicPlayerController systemMusicPlayer];
     
-    
-    // assign a playback queue containing all media items on the device
-//    [musicPlayer setQueueWithQuery: [MPMediaQuery songsQuery]];
-    
-//    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-//    
-//    [notificationCenter
-//     addObserver: self
-//     selector:    @selector (handle_NowPlayingItemChanged:)
-//     name:        MPMusicPlayerControllerNowPlayingItemDidChangeNotification
-//     object:      musicPlayer];
-//    
-//    [notificationCenter
-//     addObserver: self
-//     selector:    @selector (handle_PlaybackStateChanged:)
-//     name:        MPMusicPlayerControllerPlaybackStateDidChangeNotification
-//     object:      musicPlayer];
-//    
-    [musicPlayer beginGeneratingPlaybackNotifications];
-    
     [musicPlayer setShuffleMode: MPMusicShuffleModeOff];
     [musicPlayer setRepeatMode: MPMusicRepeatModeNone];
     

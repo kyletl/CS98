@@ -14,9 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;
 @property (weak, nonatomic) IBOutlet UILabel *albumLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *coverView;
-@property (weak, nonatomic) IBOutlet UIProgressView *trackProgress;
 @property (weak, nonatomic) IBOutlet UIButton *playPauseButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
 @property (nonatomic, strong) MPMusicPlayerController *mMusicPlayer;
 
@@ -47,7 +45,9 @@
      addObserver: self
      selector:    @selector (handle_PlaybackStateChanged:)
      name:        MPMusicPlayerControllerPlaybackStateDidChangeNotification
-     object:      self.mMusicPlayer];
+     object:      self.mMusicPlayer];   
+    
+    [self.mMusicPlayer beginGeneratingPlaybackNotifications];
 }
 
 -(void)handle_NowPlayingItemChanged:(id)notification {
@@ -57,19 +57,19 @@
 
 -(void)handle_PlaybackStateChanged:(id)notification {
     MPMusicPlaybackState currentState = [self.mMusicPlayer playbackState];
-    if (currentState == MPMusicPlaybackStatePaused) {
-        [self.playPauseButton setTitle:@"Play" forState:UIControlStateNormal];
-    } else {
+    if (currentState == MPMusicPlaybackStatePlaying) {
         [self.playPauseButton setTitle:@"Pause" forState:UIControlStateNormal];
+    } else {
+        [self.playPauseButton setTitle:@"Play" forState:UIControlStateNormal];
     }
 }
 
 
 -(IBAction)playPause:(id)sender {
-    if ([self.mMusicPlayer playbackState] == MPMusicPlaybackStatePaused) {
-        [self.mMusicPlayer play];
-    } else if ([self.mMusicPlayer playbackState] == MPMusicPlaybackStatePlaying) {
+    if ([self.mMusicPlayer playbackState] == MPMusicPlaybackStatePlaying) {
         [self.mMusicPlayer pause];
+    } else if (self.nowPlaying) {
+        [self.mMusicPlayer play];
     }
 }
 

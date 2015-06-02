@@ -18,7 +18,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M7n-bP-8Yb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2290" y="378"/>
+            <point key="canvasLocation" x="-2130" y="-3078"/>
         </scene>
         <!--Queue Controller-->
         <scene sceneID="tqY-d8-plF">
@@ -56,7 +56,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dB9-II-dqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1440" y="378"/>
+            <point key="canvasLocation" x="-1280" y="-3078"/>
         </scene>
         <!--Player Controller-->
         <scene sceneID="8xz-pm-mAL">
@@ -73,16 +73,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zLn-zs-xTM">
                                 <rect key="frame" x="153" y="64" width="300" height="300"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNH-xF-qHA">
-                                <rect key="frame" x="260" y="497" width="86" height="30"/>
-                                <state key="normal" title="Play / Pause">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playPause:" destination="kxg-WQ-GUn" eventType="touchUpInside" id="Svq-vv-24g"/>
-                                    <action selector="playPause:" destination="stb-Xt-z0A" eventType="touchUpInside" id="kvR-FC-mHh"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4k-pf-G3U">
                                 <rect key="frame" x="190" y="497" width="30" height="30"/>
                                 <state key="normal" title="&lt;&lt;">
@@ -130,6 +120,16 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNH-xF-qHA">
+                                <rect key="frame" x="260" y="497" width="86" height="30"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playPause:" destination="kxg-WQ-GUn" eventType="touchUpInside" id="Svq-vv-24g"/>
+                                    <action selector="playPause:" destination="stb-Xt-z0A" eventType="touchUpInside" id="kvR-FC-mHh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -160,7 +160,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="stb-Xt-z0A" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ooS-WR-44j" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1191" y="1262"/>
+            <point key="canvasLocation" x="-1031" y="-2194"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TD7-gA-pag">
@@ -178,7 +178,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hYs-90-lms" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2103" y="1262"/>
+            <point key="canvasLocation" x="-1943" y="-2194"/>
         </scene>
     </scenes>
 </document>
