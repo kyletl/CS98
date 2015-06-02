@@ -19,6 +19,7 @@
 		7B74E4681AE8825600B77FCC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B74E4671AE8825600B77FCC /* AVFoundation.framework */; };
 		7B74E4701AE8BD0E00B77FCC /* QueueController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B74E46E1AE8BD0E00B77FCC /* QueueController.m */; };
 		7B74E4751AE8BD7E00B77FCC /* iTunesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B74E4731AE8BD7E00B77FCC /* iTunesController.m */; };
+		88A8B2631B1E68480096866D /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A8B2621B1E68480096866D /* LoginController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		7B74E46E1AE8BD0E00B77FCC /* QueueController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueController.m; sourceTree = "<group>"; };
 		7B74E4721AE8BD7E00B77FCC /* iTunesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunesController.h; sourceTree = "<group>"; };
 		7B74E4731AE8BD7E00B77FCC /* iTunesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTunesController.m; sourceTree = "<group>"; };
+		88A8B2611B1E68480096866D /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		88A8B2621B1E68480096866D /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +102,8 @@
 		001B87271AE856AB005D8A2B /* 98 Project */ = {
 			isa = PBXGroup;
 			children = (
+				88A8B2611B1E68480096866D /* LoginController.h */,
+				88A8B2621B1E68480096866D /* LoginController.m */,
 				00A4CF771AE918BD00DBBE3C /* Config.h */,
 				006C12801AF1E58B00DA0093 /* PlayerController.h */,
 				006C12811AF1E5B900DA0093 /* PlayerController.m */,
@@ -245,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88A8B2631B1E68480096866D /* LoginController.m in Sources */,
 				001B872E1AE856AB005D8A2B /* AppDelegate.m in Sources */,
 				7B74E4701AE8BD0E00B77FCC /* QueueController.m in Sources */,
 				7B74E4651AE87BCC00B77FCC /* SpotifyController.m in Sources */,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9sp-7a-SC3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wwp-Te-KiB">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
@@ -18,7 +18,50 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M7n-bP-8Yb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2130" y="-3078"/>
+            <point key="canvasLocation" x="-2209" y="-2867"/>
+        </scene>
+        <!--Login Controller-->
+        <scene sceneID="DJc-mJ-r0J">
+            <objects>
+                <viewController id="Wwp-Te-KiB" customClass="LoginController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3X2-DZ-fiO"/>
+                        <viewControllerLayoutGuide type="bottom" id="FIq-ce-iAS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1w5-mI-nwO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RVv-ct-fc9" customClass="SPTConnectButton">
+                                <rect key="frame" x="141" y="241" width="319" height="117"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="loginClicked:" destination="Wwp-Te-KiB" eventType="touchUpInside" id="gZr-EK-odT"/>
+                                </connections>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2n-Xs-CmD">
+                                <rect key="frame" x="246" y="212" width="109" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ez-W5-uaz">
+                                <rect key="frame" x="252" y="366" width="97" height="30"/>
+                                <state key="normal" title="Clear Cookies">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="statusLabel" destination="O2n-Xs-CmD" id="Oc0-Pn-o5g"/>
+                        <segue destination="9sp-7a-SC3" kind="showDetail" identifier="EnterQueue" id="FZ0-N9-EbA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vFM-Aj-M3f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1817" y="-3725"/>
         </scene>
         <!--Queue Controller-->
         <scene sceneID="tqY-d8-plF">
@@ -42,11 +85,19 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="JZI-R5-mCe">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" title="Item" systemItem="add" id="gy8-hW-zMV">
                             <connections>
-                                <action selector="pickMusic:" destination="UEk-cu-piU" id="cdX-5c-BhL"/>
+                                <action selector="pickMusic:" destination="UEk-cu-piU" id="bNU-fB-d80"/>
                             </connections>
                         </barButtonItem>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wX3-V4-glB">
+                            <rect key="frame" x="170" y="7" width="260" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Spotify">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
                         <barButtonItem key="rightBarButtonItem" title="Now Playing" id="RhT-A6-fn8">
                             <connections>
                                 <segue destination="zaP-ys-kbJ" kind="presentation" id="L5U-jg-4Fq"/>
@@ -56,7 +107,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dB9-II-dqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1280" y="-3078"/>
+            <point key="canvasLocation" x="-1438" y="-2867"/>
         </scene>
         <!--Player Controller-->
         <scene sceneID="8xz-pm-mAL">
