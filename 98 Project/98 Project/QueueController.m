@@ -16,6 +16,7 @@
 @property MPMediaItemCollection *playQueue;
 @property MultipleMediaQueue *masterQueue;
 @property (weak, nonatomic) MPMusicPlayerController *mMusicPlayer;
+@property (weak, nonatomic) SPTAudioStreamingController *mSPTplayer;
 
 @end
 
@@ -24,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.mMusicPlayer = (AppDelegateRef).musicPlayer;
+    self.mSPTplayer = (AppDelegateRef).masterSPTplayer;
 
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     

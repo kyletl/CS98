@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import <Spotify/Spotify.h>
+
 #import "Config.h"
 
 @interface AppDelegate ()
@@ -18,19 +18,6 @@
 
 @synthesize musicPlayer;
 
-//- (void)handle_NowPlayingItemChanged:(id)notification {
-////    MPMediaItem *currentSong = self.musicPlayer.nowPlayingItem;
-//    
-//}
-//
-//- (void)handle_PlaybackStateChanged:(id)notification {
-//    if ([musicPlayer playbackState] == MPMusicPlaybackStatePlaying) {
-////        change pause/play button to pause
-//    }
-//    if ([musicPlayer playbackState] == MPMusicPlaybackStatePaused) {
-////        change pause/play button to play
-//    }
-//}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
@@ -40,6 +27,8 @@
     [musicPlayer setShuffleMode: MPMusicShuffleModeOff];
     [musicPlayer setRepeatMode: MPMusicRepeatModeNone];
     
+    
+    // instantiate spotify player
     SPTAuth *auth = [SPTAuth defaultInstance];
     auth.clientID = @kClientId;
     auth.requestedScopes = @[SPTAuthStreamingScope];
@@ -51,6 +40,11 @@
     auth.tokenRefreshURL = [NSURL URLWithString:@kTokenRefreshServiceURL];
     #endif
     auth.sessionUserDefaultsKey = @kSessionUserDefaultsKey;
+    
+    if (self.masterSPTplayer == nil) {
+        self.masterSPTplayer = [[SPTAudioStreamingController alloc] initWithClientId:auth.clientID];
+        self.masterSPTplayer.diskCache = [[SPTDiskCache alloc] initWithCapacity:1024 * 1024 * 64];
+    }
     
     return YES;
 }
