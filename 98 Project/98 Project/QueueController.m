@@ -335,25 +335,27 @@
 
 #pragma mark - Table view delegate
 
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if ([self.masterQueue itemAtIndexIsMP:indexPath.row]) {
+        MPMediaItem *selectedSong = (MPMediaItem *)[self.masterQueue getItemAtIndexAndSetAsCurrent:indexPath.row];
+        [self startMPSong: selectedSong];
+    } else {
+        SPTPartialTrack *selectedSong = (SPTPartialTrack *)[self.masterQueue getItemAtIndexAndSetAsCurrent:indexPath.row];
+        [self startSPTSong: selectedSong];
+    }
+    
 //    
-//    MPMediaItem *selectedSong = [self.playQueue items][indexPath.row];
-//    [self.mMusicPlayer setNowPlayingItem:selectedSong];
-//    if ([self.mMusicPlayer playbackState] != MPMusicPlaybackStatePlaying) {
-//        [self.mMusicPlayer play];
-//    }
-//    
-//    
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-
+//     Navigation logic may go here, for example:
+//     Create the next view controller.
+//
 //    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
 //    
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
+//     Pass the selected object to the new view controller.
+//    
+//     Push the view controller.
 //    [self.navigationController pushViewController:detailViewController animated:YES];
-//}
+}
 
 
 /*
