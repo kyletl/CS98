@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wwp-Te-KiB">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -33,7 +35,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="/Users/imac/Desktop/develop/98 Project/98 Project/dartmouth.png" translatesAutoresizingMaskIntoConstraints="NO" id="g87-z7-vra">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="./dartmouth.png" translatesAutoresizingMaskIntoConstraints="NO" id="g87-z7-vra">
                                 <rect key="frame" x="0.0" y="0.0" width="605" height="600"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="g87-z7-vra" secondAttribute="height" multiplier="121:120" id="jpa-ZY-KRt"/>
@@ -146,12 +148,12 @@
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="TRd-EO-dNl"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="SFh-eF-9bP">
                             <connections>
-                                <segue destination="UEk-cu-piU" kind="showDetail" identifier="ReturnCancel" id="Ipc-bH-eVM"/>
+                                <segue destination="9sp-7a-SC3" kind="showDetail" identifier="ReturnCancel" id="DGG-sQ-aV7"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="FWe-Rn-cIx">
                             <connections>
-                                <segue destination="UEk-cu-piU" kind="showDetail" identifier="ReturnSelect" id="SlX-gi-uKX"/>
+                                <segue destination="9sp-7a-SC3" kind="showDetail" identifier="ReturnSelect" id="pTJ-dM-gPL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -172,10 +174,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zLn-zs-xTM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zLn-zs-xTM">
                                 <rect key="frame" x="153" y="64" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="8dz-dt-NXz"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQq-fj-c8u" userLabel="Title">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQq-fj-c8u" userLabel="Title">
                                 <rect key="frame" x="287" y="393" width="33" height="21"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES"/>
@@ -184,7 +189,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Artist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPT-RJ-dc1" userLabel="Artist">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Artist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPT-RJ-dc1" userLabel="Artist">
                                 <rect key="frame" x="283" y="422" width="41" height="21"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES"/>
@@ -193,7 +198,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Album" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Y0-YA-s2i">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Album" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Y0-YA-s2i">
                                 <rect key="frame" x="278" y="451" width="50" height="21"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES"/>
@@ -202,8 +207,11 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNH-xF-qHA">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNH-xF-qHA">
                                 <rect key="frame" x="260" y="480" width="85" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="f4p-dt-Qr1"/>
+                                </constraints>
                                 <state key="normal" title="Play">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -212,8 +220,11 @@
                                     <action selector="playPause:" destination="stb-Xt-z0A" eventType="touchUpInside" id="kvR-FC-mHh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4k-pf-G3U">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4k-pf-G3U">
                                 <rect key="frame" x="160" y="480" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="dGq-C4-h3n"/>
+                                </constraints>
                                 <state key="normal" title="&lt;&lt;">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -221,8 +232,11 @@
                                     <action selector="previous:" destination="kxg-WQ-GUn" eventType="touchUpInside" id="wuW-2z-xRf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbC-65-dat">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbC-65-dat">
                                 <rect key="frame" x="381" y="480" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="p6b-qY-bvu"/>
+                                </constraints>
                                 <state key="normal" title="&gt;&gt;">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -234,12 +248,27 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="eQq-fj-c8u" secondAttribute="centerX" id="0Eh-Mr-drU"/>
+                            <constraint firstItem="dbC-65-dat" firstAttribute="baseline" secondItem="KNH-xF-qHA" secondAttribute="firstBaseline" id="31A-c5-0OX"/>
+                            <constraint firstAttribute="bottom" secondItem="7Y0-YA-s2i" secondAttribute="bottom" constant="128" id="7oo-Hf-ZXP"/>
+                            <constraint firstItem="7Y0-YA-s2i" firstAttribute="top" secondItem="hPT-RJ-dc1" secondAttribute="bottom" constant="8" symbolic="YES" id="Av7-RX-Ku9"/>
+                            <constraint firstItem="KNH-xF-qHA" firstAttribute="baseline" secondItem="dbC-65-dat" secondAttribute="firstBaseline" id="FKl-Ei-2gZ"/>
+                            <constraint firstItem="hPT-RJ-dc1" firstAttribute="top" secondItem="eQq-fj-c8u" secondAttribute="bottom" constant="8" symbolic="YES" id="HMS-9M-Wsj"/>
+                            <constraint firstItem="dbC-65-dat" firstAttribute="baseline" secondItem="KNH-xF-qHA" secondAttribute="baseline" id="MYO-xk-dlw"/>
                             <constraint firstAttribute="centerX" secondItem="zLn-zs-xTM" secondAttribute="centerX" id="Mmh-yV-Vu6"/>
+                            <constraint firstItem="KNH-xF-qHA" firstAttribute="baseline" secondItem="C4k-pf-G3U" secondAttribute="baseline" id="NUG-hs-pk4"/>
                             <constraint firstItem="dbC-65-dat" firstAttribute="leading" secondItem="KNH-xF-qHA" secondAttribute="trailing" constant="30" id="aoy-BZ-NNz"/>
+                            <constraint firstItem="KNH-xF-qHA" firstAttribute="top" secondItem="7Y0-YA-s2i" secondAttribute="bottom" constant="8" symbolic="YES" id="bGO-ea-Mrw"/>
+                            <constraint firstItem="dbC-65-dat" firstAttribute="top" secondItem="KNH-xF-qHA" secondAttribute="top" id="ezN-tK-1M7"/>
+                            <constraint firstItem="zLn-zs-xTM" firstAttribute="top" secondItem="uyI-yC-NJu" secondAttribute="bottom" id="flT-dO-gHe"/>
+                            <constraint firstItem="eQq-fj-c8u" firstAttribute="top" secondItem="zLn-zs-xTM" secondAttribute="bottom" constant="29" id="gSM-le-r1l"/>
+                            <constraint firstItem="KNH-xF-qHA" firstAttribute="top" secondItem="C4k-pf-G3U" secondAttribute="top" id="iWJ-Lk-FQ2"/>
                             <constraint firstItem="KNH-xF-qHA" firstAttribute="leading" secondItem="C4k-pf-G3U" secondAttribute="trailing" constant="30" id="jDI-5T-HNn"/>
                             <constraint firstAttribute="centerX" secondItem="hPT-RJ-dc1" secondAttribute="centerX" id="nSl-Fp-A2j"/>
+                            <constraint firstItem="gZH-Bt-WkT" firstAttribute="top" secondItem="C4k-pf-G3U" secondAttribute="bottom" constant="60" id="ufU-2e-2eP"/>
                             <constraint firstAttribute="centerX" secondItem="KNH-xF-qHA" secondAttribute="centerX" id="upo-jW-aby"/>
                             <constraint firstAttribute="centerX" secondItem="7Y0-YA-s2i" secondAttribute="centerX" id="vas-Fi-ZjY"/>
+                            <constraint firstItem="KNH-xF-qHA" firstAttribute="baseline" secondItem="C4k-pf-G3U" secondAttribute="firstBaseline" id="vbM-aq-nFd"/>
+                            <constraint firstItem="7Y0-YA-s2i" firstAttribute="centerX" secondItem="zLn-zs-xTM" secondAttribute="centerX" id="zYt-Go-Ghe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Qax-fp-KId">
@@ -300,9 +329,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="/Users/imac/Desktop/develop/98 Project/98 Project/dartmouth.png" width="562" height="1208"/>
+        <image name="./dartmouth.png" width="562" height="1208"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3pX-2h-kts"/>
+        <segue reference="FZ0-N9-EbA"/>
     </inferredMetricsTieBreakers>
 </document>
