@@ -34,6 +34,27 @@
     
 }
 
+- (IBAction)pressAdd:(id)sender {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Service Select"
+                                                                   message:@"Choose a service."
+                                                            preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction* sptAction = [UIAlertAction actionWithTitle:@"Spotify"
+                                                        style:UIAlertActionStyleDefault
+                                                      handler:^(UIAlertAction * action) {
+                                                          [self pickMusic:sender];
+                                                      }];
+    UIAlertAction* itAction = [UIAlertAction actionWithTitle:@"iTunes"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * action) {
+                                                         [self pickMusic:sender];
+                                                     }];
+    [alert addAction:sptAction];
+    [alert addAction:itAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
+
 
 #pragma mark - iTunes media picker
 

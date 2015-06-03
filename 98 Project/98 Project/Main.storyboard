@@ -91,7 +91,7 @@
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" title="Item" systemItem="add" id="gy8-hW-zMV">
                             <connections>
-                                <action selector="pickMusic:" destination="UEk-cu-piU" id="bNU-fB-d80"/>
+                                <action selector="pressAdd:" destination="UEk-cu-piU" id="9iC-cD-Mo2"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Now Playing" id="RhT-A6-fn8">
@@ -207,7 +207,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="stb-Xt-z0A" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ooS-WR-44j" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1031" y="-2194"/>
+            <point key="canvasLocation" x="-731" y="-2194"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TD7-gA-pag">
@@ -225,7 +225,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hYs-90-lms" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1716" y="-2194"/>
+            <point key="canvasLocation" x="-1508" y="-2194"/>
         </scene>
     </scenes>
 </document>
