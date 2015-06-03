@@ -136,12 +136,12 @@
         if (error != nil) {
             NSLog(@"Received error when unpacking tracks: %@", error);
             return;
+        }
+        NSLog(@"retrieved tracks are %@", array);
+        if (self.selectedTracks == nil) {
+            self.selectedTracks = [[NSMutableArray alloc] initWithArray:array];
         } else {
-            if (self.selectedTracks == nil) {
-                self.selectedTracks = [[NSMutableArray alloc] initWithArray:array];
-            } else {
-                [self.selectedTracks addObjectsFromArray:array];
-            }
+            [self.selectedTracks addObjectsFromArray:array];
         }
     }];
 
@@ -180,7 +180,9 @@
     if ([[segue identifier] isEqualToString:@"ReturnSelect"]) {
         UINavigationController *navctl = [segue destinationViewController];
         QueueController *qctl = (QueueController *)[navctl topViewController];
-        [qctl addSpotifyTracks:self.selectedTracks];
+        NSLog(@"In Spotify Controller, tracks are %@", self.selectedTracks);
+        qctl.SPTtracks = self.selectedTracks;
+        [qctl addSpotifyTracks];
     }
 }
 

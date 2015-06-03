@@ -295,8 +295,8 @@
 
 #pragma mark - Public Update Queue Functions
 
-- (void) addSpotifyTracks:(NSArray *)selectedTracks {
-    [self updateMasterQueueWithSpotifyCollection:selectedTracks];
+- (void) addSpotifyTracks {
+    NSLog(@"returned to Queue controller, selected tracks are: %@", self.SPTtracks);
 }
 
 
