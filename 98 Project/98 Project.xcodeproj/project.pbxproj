@@ -21,6 +21,7 @@
 		7B74E4701AE8BD0E00B77FCC /* QueueController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B74E46E1AE8BD0E00B77FCC /* QueueController.m */; };
 		881B3EE41B1EDD310046DD42 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B74E4671AE8825600B77FCC /* AVFoundation.framework */; };
 		881B3EE61B1EDD5A0046DD42 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881B3EE51B1EDD5A0046DD42 /* Spotify.framework */; };
+		881B3EE81B1EF7440046DD42 /* SpotifyHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 881B3EE71B1EF7440046DD42 /* SpotifyHelper.m */; };
 		88A8B2631B1E68480096866D /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A8B2621B1E68480096866D /* LoginController.m */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,8 @@
 		7B74E4671AE8825600B77FCC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7B74E46E1AE8BD0E00B77FCC /* QueueController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueController.m; sourceTree = "<group>"; };
 		881B3EE51B1EDD5A0046DD42 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = "../ios-sdk-beta-8/Spotify.framework"; sourceTree = "<group>"; };
+		881B3EE71B1EF7440046DD42 /* SpotifyHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifyHelper.m; sourceTree = "<group>"; };
+		881B3EE91B1EF75A0046DD42 /* SpotifyHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifyHelper.h; sourceTree = "<group>"; };
 		88A8B2611B1E68480096866D /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		88A8B2621B1E68480096866D /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +109,8 @@
 		001B87271AE856AB005D8A2B /* 98 Project */ = {
 			isa = PBXGroup;
 			children = (
+				881B3EE91B1EF75A0046DD42 /* SpotifyHelper.h */,
+				881B3EE71B1EF7440046DD42 /* SpotifyHelper.m */,
 				88A8B2611B1E68480096866D /* LoginController.h */,
 				88A8B2621B1E68480096866D /* LoginController.m */,
 				00A4CF771AE918BD00DBBE3C /* Config.h */,
@@ -254,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				881B3EE81B1EF7440046DD42 /* SpotifyHelper.m in Sources */,
 				88A8B2631B1E68480096866D /* LoginController.m in Sources */,
 				001B872E1AE856AB005D8A2B /* AppDelegate.m in Sources */,
 				7B74E4701AE8BD0E00B77FCC /* QueueController.m in Sources */,
@@ -388,6 +394,11 @@
 					"../ios-sdk-beta-8",
 					"/Users/kyletl/Desktop/15S/CS98/ios-sdk-beta-8",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					./,
+				);
 				INFOPLIST_FILE = "98 Project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
@@ -406,6 +417,11 @@
 					"$(inherited)",
 					"../ios-sdk-beta-8",
 					"/Users/kyletl/Desktop/15S/CS98/ios-sdk-beta-8",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					./,
 				);
 				INFOPLIST_FILE = "98 Project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

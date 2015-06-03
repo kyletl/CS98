@@ -68,7 +68,7 @@
     //            return;
     //        }
     
-    [SpotifyController fetchAllUserPlaylistsWithSession:auth.session callback:^(NSError *err, NSArray *array) {
+    [SpotifyHelper fetchAllUserPlaylistsWithSession:auth.session callback:^(NSError *err, NSArray *array) {
         if (err != nil) {
             NSLog(@"Failed unpacking or retrieving playlists with error: %@", err);
             return;
@@ -79,6 +79,8 @@
                 [self.playlists addObjectsFromArray:array];
         }
      }];
+    
+    [self.tableView reloadData];
 
     
 //    [SPTPlaylistList playlistsForUserWithSession:auth.session callback:^(NSError *error, id object) {
@@ -102,47 +104,6 @@
     
 }
 
-/* utility helpers for unpacking requested playlists */
-+ (void)fetchAllUserPlaylistsWithSession:(SPTSession *)session callback:(void (^)(NSError *, NSArray *))callback
-{
-    [SPTPlaylistList playlistsForUserWithSession:session callback:^(NSError *error, id object) {
-        [SpotifyController didFetchListPageForSession:session finalCallback:callback error:error object:object allPlaylists:[NSMutableArray array]];
-    }];
-}
-
-+ (void)didFetchListPageForSession:(SPTSession *)session finalCallback:(void (^)(NSError*, NSArray*))finalCallback error:(NSError *)error object:(id)object allPlaylists:(NSMutableArray *)allPlaylists
-{
-    if (error != nil) {
-        finalCallback(error, nil);
-    } else {
-        NSLog(@"Received playlists from server");
-        if ([object isKindOfClass:[SPTPlaylistList class]]) {
-            SPTPlaylistList *playlistList = (SPTPlaylistList *)object;
-            
-            for (SPTPartialPlaylist *playlist in playlistList.items) {
-                NSLog(@"Adding playlist: %s", playlist.name);
-                [allPlaylists addObject:playlist];
-            }
-            
-            if (playlistList.hasNextPage) {
-                NSLog(@"playlist has next page, opening");
-                [playlistList requestNextPageWithSession:session callback:^(NSError *error, id object) {
-                    [SpotifyController didFetchListPageForSession:session
-                                                           finalCallback:finalCallback
-                                                                   error:error
-                                                                  object:object
-                                                            allPlaylists:allPlaylists];
-                }];
-            } else {
-                finalCallback(nil, [allPlaylists copy]);
-            }
-        } else {
-            NSLog(@"Received non-SPTPlaylistList from server");
-        }
-    }
-}
-
-#pragma mark - Table view
 
 #pragma mark - Table view data source
 
@@ -165,6 +126,43 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    SPTAuth* auth = [SPTAuth defaultInstance];
+
+    SPTPartialPlaylist *chosen = self.playlists[indexPath.row];
+    [SpotifyHelper fetchPlaylistTracks:auth.session playlist:chosen callback:^(NSError *error, NSArray *array) {
+        if (error != nil) {
+            NSLog(@"Received error when unpacking tracks: %@", error);
+            return;
+        } else {
+            if (self.selectedPlaylists == nil) {
+                self.selectedPlaylists = [[NSMutableArray alloc] initWithArray:array];
+            } else {
+                [self.selectedPlaylists addObjectsFromArray:array];
+            }
+        }
+    }];
+}
+
+    
+//    MPMediaItem *selectedSong = [self.playQueue items][indexPath.row];
+//    [self.mMusicPlayer setNowPlayingItem:selectedSong];
+//    if ([self.mMusicPlayer playbackState] != MPMusicPlaybackStatePlaying) {
+//        [self.mMusicPlayer play];
+//    }
+
+
+// Navigation logic may go here, for example:
+// Create the next view controller.
+//
+//    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
+//
+// Pass the selected object to the new view controller.
+//
+// Push the view controller.
+//    [self.navigationController pushViewController:detailViewController animated:YES];
+//}
 
 
 /*
