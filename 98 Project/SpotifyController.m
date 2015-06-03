@@ -16,12 +16,14 @@
 //@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 //@property (weak, nonatomic) IBOutlet UILabel *albumLabel;
 //@property (weak, nonatomic) IBOutlet UILabel *artistLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *coverView;
-@property (weak, nonatomic) IBOutlet UIImageView *coverView2;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+//@property (weak, nonatomic) IBOutlet UIImageView *coverView;
+//@property (weak, nonatomic) IBOutlet UIImageView *coverView2;
+//@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 //@property (nonatomic, strong) SPTAudioStreamingController *player;
 
+@property NSMutableArray *playlists;
+@property NSMutableArray *selectedPlaylists;
 
 @end
 
@@ -30,6 +32,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self handleNewSession];
+//    self.playlists = [[NSMutableArray alloc] init];
+//    self.selectedPlaylists = [[NSMutableArray alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,6 +60,23 @@
     //            return;
     //        }
     
+    [SpotifyController fetchAllUserPlaylistsWithSession:auth.session callback:^(NSError *err, NSArray *array) {
+        if (err != nil) {
+            NSLog(@"Failed unpacking or retrieving playlists with error: %@", err);
+            return;
+        } else {
+            if (self.playlists == nil) {
+                self.playlists = [[NSMutableArray alloc] init];
+            }
+            
+            for (SPTPartialPlaylist *pl in array) {
+                [self.playlists addObject:pl.name];
+            }
+            
+        }
+        
+        
+    }];
     
     
 //    [SPTPlaylistList playlistsForUserWithSession:auth.session callback:^(NSError *error, id object) {
@@ -78,7 +104,7 @@
 + (void)fetchAllUserPlaylistsWithSession:(SPTSession *)session callback:(void (^)(NSError *, NSArray *))callback
 {
     [SPTPlaylistList playlistsForUserWithSession:session callback:^(NSError *error, id object) {
-        [self didFetchListPageForSession:session finalCallback:callback error:error object:object allPlaylists:[NSMutableArray array]];
+        [SpotifyController didFetchListPageForSession:session finalCallback:callback error:error object:object allPlaylists:[NSMutableArray array]];
     }];
 }
 
@@ -96,7 +122,7 @@
             
             if (playlistList.hasNextPage) {
                 [playlistList requestNextPageWithSession:session callback:^(NSError *error, id object) {
-                    [self didFetchListPageForSession:session
+                    [SpotifyController didFetchListPageForSession:session
                                                            finalCallback:finalCallback
                                                                    error:error
                                                                   object:object
@@ -108,6 +134,30 @@
         }
     }
 }
+
+#pragma mark - Table view
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.playlists count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReturnedPlaylist" forIndexPath:indexPath];
+    NSString *pname = self.playlists[indexPath.row];
+    
+    NSLog(@"playlist in row %ld is %@", (long)indexPath.row, pname);
+    
+    cell.textLabel.text = pname;
+    
+    return cell;
+}
+
 
 
 /*

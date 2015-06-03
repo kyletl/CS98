@@ -97,8 +97,9 @@
 }
 
 - (IBAction)spotifyPicker:(id)sender {
-    SPTAuth *auth = [SPTAuth defaultInstance];
-    SPTPlaylistList *playLists = nil;
+//    SPTAuth *auth = [SPTAuth defaultInstance];
+//    SPTPlaylistList *playlists = nil;
+    [self performSegueWithIdentifier:@"EnterSpotify" sender:nil];
 }
 
 
