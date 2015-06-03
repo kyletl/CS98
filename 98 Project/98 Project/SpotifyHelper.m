@@ -79,6 +79,8 @@
                 [allTracks addObject:track];
             }
             
+            finalCallback(error, [allTracks copy]);
+            
             if (page.hasNextPage) {
                 [page requestNextPageWithSession:session callback:^(NSError *error, id object) {
                     [SpotifyHelper didFetchNextTrackPageForSession:session finalCallback:finalCallback error:error object:object allTracks:allTracks];
