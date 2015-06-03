@@ -181,7 +181,6 @@
         QueueController *qctl = (QueueController *)[segue destinationViewController];
         NSLog(@"In Spotify Controller, tracks are %@", self.selectedTracks);
         qctl.SPTtracks = self.selectedTracks;
-//        [qctl addSpotifyTracks];
     }
 }
 

@@ -209,6 +209,7 @@
     [self.mMusicPlayer play];
     self.MPplaying = YES;
     self.SPTplaying = NO;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"newMPItemPlaying" object:nil];
 }
 
 -(void)startSPTSong:(SPTPartialTrack *)song {
@@ -226,6 +227,10 @@
         }];
     }
     
+    self.MPplaying = NO;
+    self.SPTplaying = YES;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"newSPTItemPlaying" object:nil];
+    
     SPTAuth *auth = [SPTAuth defaultInstance];
     [self.mSPTplayer loginWithSession:auth.session callback:^(NSError *error) {
         if (error != nil) {
@@ -237,10 +242,10 @@
             if (error != nil) {
                 NSLog(@"failed to play track, error: %@", error);
             }
-            self.MPplaying = NO;
-            self.SPTplaying = YES;
+            
         }];
     }];
+    
 }
 
 
