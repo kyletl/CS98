@@ -51,10 +51,15 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="/Users/imac/Desktop/develop/98 Project/98 Project/dartmouth.png" translatesAutoresizingMaskIntoConstraints="NO" id="g87-z7-vra">
+                                <rect key="frame" x="0.0" y="0.0" width="605" height="600"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="g87-z7-vra" secondAttribute="centerX" id="1Kf-lu-GGD"/>
                             <constraint firstAttribute="centerX" secondItem="O2n-Xs-CmD" secondAttribute="centerX" id="7KO-Jq-0sy"/>
+                            <constraint firstAttribute="centerY" secondItem="g87-z7-vra" secondAttribute="centerY" id="EMf-Dp-nmm"/>
                             <constraint firstAttribute="centerX" secondItem="RVv-ct-fc9" secondAttribute="centerX" id="ghM-Dc-dZl"/>
                             <constraint firstAttribute="centerX" secondItem="8Ez-W5-uaz" secondAttribute="centerX" id="vcz-Sh-KmH"/>
                         </constraints>
@@ -147,7 +152,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2rX-kq-lZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1165" y="-3847"/>
+            <point key="canvasLocation" x="-1221" y="-3979"/>
         </scene>
         <!--Player Controller-->
         <scene sceneID="8xz-pm-mAL">
@@ -288,7 +293,10 @@
             <point key="canvasLocation" x="-817" y="-2963"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="/Users/imac/Desktop/develop/98 Project/98 Project/dartmouth.png" width="562" height="1208"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SlX-gi-uKX"/>
+        <segue reference="3pX-2h-kts"/>
     </inferredMetricsTieBreakers>
 </document>
