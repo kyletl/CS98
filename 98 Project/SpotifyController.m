@@ -178,8 +178,9 @@
 //     Get the new view controller using [segue destinationViewController].
 //     Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"ReturnSelect"]) {
-        QueueController *qc = (QueueController *)[segue destinationViewController];
-        [qc addSpotifyTracks:self.selectedTracks];
+        UINavigationController *navctl = [segue destinationViewController];
+        QueueController *qctl = (QueueController *)[navctl topViewController];
+        [qctl addSpotifyTracks:self.selectedTracks];
     }
 }
 
