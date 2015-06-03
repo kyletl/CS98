@@ -169,9 +169,9 @@
 
 #pragma mark - Navigation
 
-- (IBAction)spotifyFinished:(id)sender {
-    [self performSegueWithIdentifier:@"ReturnSelect" sender:nil];
-}
+//- (IBAction)spotifyFinished:(id)sender {
+//    [self performSegueWithIdentifier:@"ReturnSelect" sender:nil];
+//}
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

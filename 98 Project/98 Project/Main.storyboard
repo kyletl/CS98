@@ -133,12 +133,17 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Spotify Playlists" prompt="Add a playlist to the queue." id="s0a-X6-lVZ">
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="TRd-EO-dNl"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="SFh-eF-9bP"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="FWe-Rn-cIx"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="SFh-eF-9bP">
+                            <connections>
+                                <segue destination="UEk-cu-piU" kind="showDetail" identifier="ReturnCancel" id="Ipc-bH-eVM"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="FWe-Rn-cIx">
+                            <connections>
+                                <segue destination="UEk-cu-piU" kind="showDetail" identifier="ReturnSelect" id="SlX-gi-uKX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="UEk-cu-piU" kind="showDetail" identifier="ReturnSelect" id="hCE-WH-hFX"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2rX-kq-lZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -284,6 +289,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hCE-WH-hFX"/>
+        <segue reference="SlX-gi-uKX"/>
     </inferredMetricsTieBreakers>
 </document>
