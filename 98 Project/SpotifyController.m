@@ -23,7 +23,7 @@
 //@property (nonatomic, strong) SPTAudioStreamingController *player;
 
 @property NSMutableArray *playlists;
-@property NSMutableArray *selectedPlaylists;
+@property NSMutableArray *selectedTracks;
 
 @end
 
@@ -41,7 +41,7 @@
     
     [self handleNewSession];
 //    self.playlists = [[NSMutableArray alloc] init];
-//    self.selectedPlaylists = [[NSMutableArray alloc] init];
+//    self.selectedTracks = [[NSMutableArray alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -137,14 +137,14 @@
             NSLog(@"Received error when unpacking tracks: %@", error);
             return;
         } else {
-            if (self.selectedPlaylists == nil) {
-                self.selectedPlaylists = [[NSMutableArray alloc] initWithArray:array];
+            if (self.selectedTracks == nil) {
+                self.selectedTracks = [[NSMutableArray alloc] initWithArray:array];
             } else {
-                [self.selectedPlaylists addObjectsFromArray:array];
+                [self.selectedTracks addObjectsFromArray:array];
             }
         }
     }];
-}
+
 
     
 //    MPMediaItem *selectedSong = [self.playQueue items][indexPath.row];
@@ -163,17 +163,21 @@
 //
 // Push the view controller.
 //    [self.navigationController pushViewController:detailViewController animated:YES];
-//}
+}
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+//     Get the new view controller using [segue destinationViewController].
+//     Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"ReturnSelect"]) {
+        QueueController *qc = (QueueController *)[segue destinationViewController];
+        [qc addSpotifyTracks:self.selectedTracks];
+    }
 }
-*/
+
 
 @end

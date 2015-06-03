@@ -19,6 +19,6 @@
 
 + (void)didFetchTrackPageForSession:(SPTSession *)session finalCallback:(void (^)(NSError *, NSArray*))finalCallback error:(NSError *)error allTracks:(NSMutableArray *)array;
 
-+ (void)didFetchNextTrackPageForSession:(SPTSession *)session finalCallback:(void (^)(NSError *, NSArray*))finalCallback error:(NSError *)error object:(id)object allTracks:(NSMutable Array *)allTracks;
++ (void)didFetchNextTrackPageForSession:(SPTSession *)session finalCallback:(void (^)(NSError *, NSArray*))finalCallback error:(NSError *)error object:(id)object allTracks:(NSMutableArray *)allTracks;
 
 @end
