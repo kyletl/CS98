@@ -8,10 +8,13 @@
 
 #import "QueueController.h"
 #import "AppDelegate.h"
+#import "MultipleMediaQueue.h"
 
 @interface QueueController ()
 
+
 @property MPMediaItemCollection *playQueue;
+@property MultipleMediaQueue *masterQueue;
 @property (weak, nonatomic) MPMusicPlayerController *mMusicPlayer;
 
 @end
@@ -21,9 +24,45 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.mMusicPlayer = (AppDelegateRef).musicPlayer;
+
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     
-    NSLog(@"Queue Controller: %@", self.mMusicPlayer);
+    [notificationCenter
+     addObserver: self
+     selector:    @selector (handle_MPNowPlayingItemChanged:)
+     name:        MPMusicPlayerControllerNowPlayingItemDidChangeNotification
+     object:      self.mMusicPlayer];
     
+    [notificationCenter
+     addObserver: self
+     selector:    @selector (handle_MPPlaybackStateChanged:)
+     name:        MPMusicPlayerControllerPlaybackStateDidChangeNotification
+     object:      self.mMusicPlayer];
+    
+    [self.mMusicPlayer beginGeneratingPlaybackNotifications];
+}
+
+- (void)handle_MPNowPlayingItemChanged:(id)notification {
+    
+}
+
+- (void)handle_MPPlaybackStateChanged:(id)notification {
+    if ([self.mMusicPlayer playbackState] == MPMusicPlaybackStateStopped) {
+        if (self.masterQueue) {
+            if ([self.masterQueue hasNext]) {
+                //next song is from iTunes
+                if ([self.masterQueue nextIsMP]) {
+                    MPMediaItem *nextSong = (MPMediaItem *)[self.masterQueue getNext];
+                    [self.mMusicPlayer setNowPlayingItem: nextSong];
+                    [self.mMusicPlayer play];
+                }
+                //next song is from Spotify
+                else {
+                    //add spotify player logic here
+                }
+            }
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,7 +82,7 @@
     UIAlertAction* sptAction = [UIAlertAction actionWithTitle:@"Spotify"
                                                         style:UIAlertActionStyleDefault
                                                       handler:^(UIAlertAction * action) {
-                                                          [self pickMusic:sender];
+                                                          [self spotifyPicker:sender];
                                                       }];
     UIAlertAction* itAction = [UIAlertAction actionWithTitle:@"iTunes"
                                                        style:UIAlertActionStyleDefault
@@ -55,6 +94,11 @@
     
     [self presentViewController:alert animated:YES completion:nil];
     
+}
+
+- (IBAction)spotifyPicker:(id)sender {
+    SPTAuth *auth = [SPTAuth defaultInstance];
+    SPTPlaylistList *playLists = nil;
 }
 
 
@@ -84,6 +128,22 @@
 
 - (void) mediaPickerDidCancel: (MPMediaPickerController *) mediaPicker {
     [self dismissViewControllerAnimated: YES completion:nil];
+}
+
+
+- (void) updateMasterQueueWithiTunesCollection: (NSArray *) collection {
+    if (collection) {
+        // if there's no playback queue yet
+        if (self.masterQueue == nil) {
+            self.masterQueue = [[MultipleMediaQueue alloc] initWithItems: collection];
+            MPMediaItem *song = (MPMediaItem *)[self.masterQueue getCurrent];
+            MPMediaItemCollection *singleSongQueue = [[MPMediaItemCollection alloc] initWithItems:@[song]];
+            [self.mMusicPlayer setQueueWithItemCollection:singleSongQueue];
+            [self.mMusicPlayer play];
+        } else {
+            [self.masterQueue addItemsFromArray: collection];
+        }
+    }
 }
 
 - (void) updateQueueWithCollection: (NSArray *) collection {
@@ -201,6 +261,9 @@
     
     MPMediaItem *selectedSong = [self.playQueue items][indexPath.row];
     [self.mMusicPlayer setNowPlayingItem:selectedSong];
+    if ([self.mMusicPlayer playbackState] != MPMusicPlaybackStatePlaying) {
+        [self.mMusicPlayer play];
+    }
     
     
     // Navigation logic may go here, for example:

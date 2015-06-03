@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import <Spotify/Spotify.h>
 
 @interface QueueController : UITableViewController <MPMediaPickerControllerDelegate>
 

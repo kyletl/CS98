@@ -59,11 +59,12 @@
 #pragma mark - Player Notifications
 
 -(void)handle_NowPlayingItemChanged:(id)notification {
-    NSLog(@"handling now playing item change");
+    NSLog(@"handling now playing item change %@", [self.mMusicPlayer nowPlayingItem]);
     [self updateUI];
 }
 
 -(void)handle_PlaybackStateChanged:(id)notification {
+    NSLog(@"handling playbackstate changed %ld", [self.mMusicPlayer playbackState]);
     MPMusicPlaybackState currentState = [self.mMusicPlayer playbackState];
     if (currentState == MPMusicPlaybackStatePlaying) {
         [self.playPauseButton setTitle:@"Pause" forState:UIControlStateNormal];

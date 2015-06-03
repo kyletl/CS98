@@ -28,7 +28,10 @@
 
 
 - (void)viewDidLoad {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionUpdatedNotification:) name:@"sessionUpdated" object:nil];
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(sessionUpdatedNotification:)
+     name:@"sessionUpdated" object:nil];
     self.statusLabel.text = @"";
 }
 
