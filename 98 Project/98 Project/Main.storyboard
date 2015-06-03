@@ -110,7 +110,7 @@
             </objects>
             <point key="canvasLocation" x="-1508" y="-2963"/>
         </scene>
-        <!--Spotify Controller-->
+        <!--Spotify Playlists-->
         <scene sceneID="g7D-UL-8Pw">
             <objects>
                 <tableViewController id="oWG-Dq-IRu" customClass="SpotifyController" sceneMemberID="viewController">
@@ -131,14 +131,18 @@
                             <outlet property="delegate" destination="oWG-Dq-IRu" id="ZlR-4K-fZn"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="s0a-X6-lVZ"/>
+                    <navigationItem key="navigationItem" title="Spotify Playlists" prompt="Add a playlist to the queue." id="s0a-X6-lVZ">
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="TRd-EO-dNl"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="SFh-eF-9bP"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="FWe-Rn-cIx"/>
+                    </navigationItem>
                     <connections>
                         <segue destination="UEk-cu-piU" kind="showDetail" identifier="ReturnSelect" id="hCE-WH-hFX"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2rX-kq-lZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1056" y="-4063"/>
+            <point key="canvasLocation" x="-1165" y="-3847"/>
         </scene>
         <!--Player Controller-->
         <scene sceneID="8xz-pm-mAL">
@@ -276,7 +280,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Bc-Rc-oXn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-525" y="-2963"/>
+            <point key="canvasLocation" x="-817" y="-2963"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
