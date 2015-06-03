@@ -87,7 +87,7 @@
 -(BOOL)itemAtIndexIsSPT:(NSInteger)index {
     if (index < [self.playQueue count] && index > -1) {
         NSObject *item = self.playQueue[index];
-        return [item isKindOfClass: [NSString class]];
+        return [item isKindOfClass: [SPTPartialTrack class]];
     }
     return nil;
 }
@@ -131,17 +131,30 @@
     return nil;
 }
 
-//-(NSString *)getTitleAtIndex:(int)index {
-//    return nil;
-//}
-//
-//-(NSString *)getArtistAtIndex:(int)index {
-//    return nil;
-//}
-//
-//-(NSString *)getAlbumAtIndex:(int)index {
-//    return nil;
-//}
+-(NSString *)getTitleAtIndex:(NSInteger)index {
+    if ([self itemAtIndexIsMP: index]) {
+        return ((MPMediaItem *)self.playQueue[index]).title;
+    } else {
+        return ((SPTPartialTrack *)self.playQueue[index]).name;
+    }
+    return nil;
+}
+
+-(NSString *)getArtistAtIndex:(NSInteger)index {
+    if ([self itemAtIndexIsMP: index]) {
+        return ((MPMediaItem *)self.playQueue[index]).artist;
+    } else {
+        return [((SPTPartialTrack *)self.playQueue[index]).artists componentsJoinedByString:@","];
+    }
+}
+
+-(NSString *)getAlbumAtIndex:(NSInteger)index {
+    if ([self itemAtIndexIsMP: index]) {
+        return ((MPMediaItem *)self.playQueue[index]).albumTitle;
+    } else {
+        return ((SPTPartialTrack *)self.playQueue[index]).album.name;
+    }
+}
 
 
 @end

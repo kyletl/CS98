@@ -44,9 +44,9 @@
 
 -(NSObject *)getItemAtIndexAndSetAsCurrent:(NSInteger)index;
 
-//-(NSString *)getTitleAtIndex:(int)index;
-//
-//-(NSString *)getArtistAtIndex:(int)index;
-//
-//-(NSString *)getAlbumAtIndex:(int)index;
+-(NSString *)getTitleAtIndex:(NSInteger)index;
+
+-(NSString *)getArtistAtIndex:(NSInteger)index;
+
+-(NSString *)getAlbumAtIndex:(NSInteger)index;
 @end
