@@ -10,6 +10,6 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "AppDelegate.h"
 
-@interface PlayerController : UIViewController
+@interface PlayerController : UIViewController <SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate>
 
 @end

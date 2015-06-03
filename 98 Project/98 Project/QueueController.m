@@ -26,6 +26,7 @@
     [super viewDidLoad];
     self.mMusicPlayer = (AppDelegateRef).musicPlayer;
     self.mSPTplayer = (AppDelegateRef).masterSPTplayer;
+    self.mSPTplayer.playbackDelegate = self;
 
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     
@@ -44,6 +45,20 @@
     [self.mMusicPlayer beginGeneratingPlaybackNotifications];
 }
 
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+- (IBAction) unwindFromPlayer:(UIStoryboardSegue *) segue {
+    
+}
+
+
+#pragma mark - MPMediaPlayer Notifications
+
 - (void)handle_MPNowPlayingItemChanged:(id)notification {
     
 }
@@ -58,37 +73,50 @@
     }
 }
 
--(void)startNextSong {
-    if ([self.masterQueue hasNext]) {
-        if ([self.masterQueue nextIsMP]) {
-            [self startNextMPSong];
-        } else {
-            [self startNextSPTSong];
+#pragma mark - SPTplayer streaming delegate functions
+
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStopPlayingTrack:(NSURL *)trackUri {
+    if (self.masterQueue) {
+        if ([self.masterQueue hasNext]) {
+            [self startNextSong];
         }
     }
 }
 
--(void)startNextMPSong {
-    MPMediaItem *nextSong = (MPMediaItem *)[self.masterQueue getNext];
+
+#pragma mark - Next song choosing methods
+
+-(void)startNextSong {
+    if ([self.masterQueue hasNext]) {
+        NSObject *nextSong = [self.masterQueue getNext];
+        if ([self.masterQueue nextIsMP]) {
+            [self startMPSong:(MPMediaItem *)nextSong];
+        } else {
+            [self startSPTSong:(SPTPartialTrack *)nextSong];
+        }
+    }
+}
+
+-(void)startMPSong:(MPMediaItem *)nextSong {
     NSLog(@"Starting next MP song: %@", nextSong.title);
     MPMediaItemCollection *nextSingleQueue = [[MPMediaItemCollection alloc] initWithItems:@[nextSong]];
     [self.mMusicPlayer setQueueWithItemCollection:nextSingleQueue];
     [self.mMusicPlayer play];
 }
 
--(void)startNextSPTSong {
-    
+-(void)startSPTSong:(SPTPartialTrack *)nextSong {
+    NSLog(@"Starting next SPT song: %@", nextSong.name);
+    [self.mSPTplayer playURIs:@[nextSong.playableUri] fromIndex:0 callback:^(NSError *error) {
+        if (error != nil) {
+            NSLog(@"Failed to play track %@", nextSong.name);
+            return;
+        }
+    }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
-- (IBAction) unwindFromPlayer:(UIStoryboardSegue *) segue {
-    
-}
+#pragma mark - Media Picker Functions
 
 - (IBAction)pressAdd:(id)sender {
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Service Select"
@@ -112,13 +140,9 @@
 }
 
 - (IBAction)spotifyPicker:(id)sender {
-//    SPTAuth *auth = [SPTAuth defaultInstance];
-//    SPTPlaylistList *playlists = nil;
     [self performSegueWithIdentifier:@"EnterSpotify" sender:nil];
 }
 
-
-#pragma mark - iTunes media picker
 
 - (IBAction)pickMusic:(id)sender {
     MPMediaPickerController *picker =
@@ -141,7 +165,6 @@
     
     
     [self updateMasterQueueWithiTunesCollection:[collection items]];
-//    [self updateQueueWithCollection: [collection items]];
 }
 
 - (void) mediaPickerDidCancel: (MPMediaPickerController *) mediaPicker {
@@ -149,20 +172,21 @@
 }
 
 
+#pragma mark - Update Queue Functions
+
 - (void) updateMasterQueueWithiTunesCollection: (NSArray *) collection {
     if (collection) {
         // if there's no playback queue yet
         if (self.masterQueue == nil) {
             self.masterQueue = [[MultipleMediaQueue alloc] initWithItems: collection];
             MPMediaItem *song = (MPMediaItem *)[self.masterQueue getCurrent];
-//            [self.mMusicPlayer setNowPlayingItem: song];
-            MPMediaItemCollection *singleSongQueue = [[MPMediaItemCollection alloc] initWithItems:@[song]];
-            [self.mMusicPlayer setQueueWithItemCollection:singleSongQueue];
-            [self.mMusicPlayer play];
+            [self startMPSong: song];
+//            MPMediaItemCollection *singleSongQueue = [[MPMediaItemCollection alloc] initWithItems:@[song]];
+//            [self.mMusicPlayer setQueueWithItemCollection:singleSongQueue];
+//            [self.mMusicPlayer play];
         } else {
             [self.masterQueue addItemsFromArray: collection];
-            // IMPORTANT: MUST ADD CHECK FOR SPT PLAYER
-            if ([self.mMusicPlayer playbackState] == MPMusicPlaybackStateStopped) {
+            if (([self.mMusicPlayer playbackState] == MPMusicPlaybackStateStopped) && !(self.mSPTplayer.isPlaying)) {
                 [self startNextSong];
             }
         }
@@ -171,8 +195,26 @@
     }
 }
 
-- (void) updateMasterQueueWithSpotifyCollection {
-    
+- (void) updateMasterQueueWithSpotifyCollection: (NSArray *) collection {
+    if (collection) {
+        // if there's no playback queue yet
+        if (self.masterQueue == nil) {
+            self.masterQueue = [[MultipleMediaQueue alloc] initWithItems: collection];
+            SPTPartialTrack *song = (SPTPartialTrack *)[self.masterQueue getCurrent];
+            [self startSPTSong: song];
+//            [self.mSPTplayer playURIs:@[song.playableUri] fromIndex:0 callback:^(NSError *error) {
+//                if (error != nil) {
+//                    NSLog(@"Failed to play track %@", song.name);
+//                    return;
+//                }
+//            }];
+        } else {
+            [self.masterQueue addItemsFromArray: collection];
+            if (([self.mMusicPlayer playbackState] == MPMusicPlaybackStateStopped) && !(self.mSPTplayer.isPlaying)) {
+                [self startNextSong];
+            }
+        }
+    }
 }
 
 //- (void) updateQueueWithCollection: (NSArray *) collection {
@@ -240,14 +282,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QueuedItem" forIndexPath:indexPath];
     
-//    MPMediaItem *song = [[self.playQueue items] objectAtIndex:indexPath.row];
-//    cell.textLabel.text = song.title;
     
-    MPMediaItem *song = (MPMediaItem *)[self.masterQueue getItemAtIndex:indexPath.row];
+    NSString *title = [self.masterQueue getTitleAtIndex:indexPath.row];
     
-    cell.textLabel.text = song.title;
+    cell.textLabel.text = title;
     
-    NSLog(@"song in row %ld is %@", (long)indexPath.row, song.title);
+    NSLog(@"song in row %ld is %@", (long)indexPath.row, title);
     
     return cell;
 }

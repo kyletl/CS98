@@ -10,7 +10,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <Spotify/Spotify.h>
 
-@interface QueueController : UITableViewController <MPMediaPickerControllerDelegate>
+@interface QueueController : UITableViewController <MPMediaPickerControllerDelegate, SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate>
 
 
 

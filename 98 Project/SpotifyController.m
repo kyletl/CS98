@@ -78,6 +78,7 @@
             else
                 [self.playlists addObjectsFromArray:array];
         }
+        [self.tableView reloadData];
      }];
 
     
