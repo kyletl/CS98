@@ -80,8 +80,6 @@
         }
         [self.tableView reloadData];
      }];
-    
-    [self.tableView reloadData];
 
     
 //    [SPTPlaylistList playlistsForUserWithSession:auth.session callback:^(NSError *error, id object) {
