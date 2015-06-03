@@ -35,14 +35,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dartmouth.png" translatesAutoresizingMaskIntoConstraints="NO" id="g87-z7-vra">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="dartmouth.png" translatesAutoresizingMaskIntoConstraints="NO" id="g87-z7-vra">
                                 <rect key="frame" x="0.0" y="0.0" width="605" height="600"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="g87-z7-vra" secondAttribute="height" multiplier="121:120" id="jpa-ZY-KRt"/>
                                     <constraint firstAttribute="width" secondItem="g87-z7-vra" secondAttribute="height" multiplier="121:120" id="xLQ-J2-25s"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RVv-ct-fc9" customClass="SPTConnectButton">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RVv-ct-fc9" customClass="SPTConnectButton">
                                 <rect key="frame" x="178" y="515" width="249" height="65"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -68,17 +68,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="g87-z7-vra" secondAttribute="centerX" constant="-2.5" id="1Kf-lu-GGD"/>
-                            <constraint firstItem="O2n-Xs-CmD" firstAttribute="centerX" secondItem="g87-z7-vra" secondAttribute="centerX" constant="-2.5" id="2Nr-fT-gBr"/>
+                            <constraint firstItem="O2n-Xs-CmD" firstAttribute="centerX" secondItem="g87-z7-vra" secondAttribute="centerX" constant="-0.5" id="2Nr-fT-gBr"/>
                             <constraint firstAttribute="centerY" secondItem="g87-z7-vra" secondAttribute="centerY" id="2jB-eI-8zo"/>
-                            <constraint firstItem="O2n-Xs-CmD" firstAttribute="leading" secondItem="1w5-mI-nwO" secondAttribute="leading" constant="217" id="7TA-pa-V5c"/>
+                            <constraint firstItem="O2n-Xs-CmD" firstAttribute="leading" secondItem="1w5-mI-nwO" secondAttribute="leading" constant="219" id="7TA-pa-V5c"/>
                             <constraint firstItem="g87-z7-vra" firstAttribute="bottom" secondItem="FIq-ce-iAS" secondAttribute="top" id="AHB-ym-qj9"/>
                             <constraint firstAttribute="centerY" secondItem="g87-z7-vra" secondAttribute="centerY" id="EMf-Dp-nmm"/>
                             <constraint firstAttribute="centerY" secondItem="g87-z7-vra" secondAttribute="centerY" id="Nf6-Qm-LyH"/>
                             <constraint firstAttribute="centerX" secondItem="g87-z7-vra" secondAttribute="centerX" constant="-2.5" id="Qlh-9y-Xre"/>
-                            <constraint firstItem="RVv-ct-fc9" firstAttribute="centerX" secondItem="O2n-Xs-CmD" secondAttribute="centerX" constant="2.5" id="VL7-x6-qp7"/>
+                            <constraint firstItem="RVv-ct-fc9" firstAttribute="centerX" secondItem="O2n-Xs-CmD" secondAttribute="centerX" constant="0.5" id="VL7-x6-qp7"/>
+                            <constraint firstAttribute="centerX" secondItem="O2n-Xs-CmD" secondAttribute="centerX" id="Y1j-Xd-YeW"/>
                             <constraint firstAttribute="bottom" secondItem="RVv-ct-fc9" secondAttribute="bottom" constant="20" symbolic="YES" id="bHd-Rf-lpM"/>
                             <constraint firstItem="RVv-ct-fc9" firstAttribute="top" secondItem="O2n-Xs-CmD" secondAttribute="bottom" constant="8" symbolic="YES" id="cM7-KV-et6"/>
                             <constraint firstAttribute="centerX" secondItem="g87-z7-vra" secondAttribute="centerX" constant="-2.5" id="qDr-EY-M4s"/>
+                            <constraint firstAttribute="centerX" secondItem="RVv-ct-fc9" secondAttribute="centerX" id="v60-b3-qDp"/>
                             <constraint firstItem="O2n-Xs-CmD" firstAttribute="top" secondItem="3X2-DZ-fiO" secondAttribute="bottom" constant="466" id="vzM-Px-Kql"/>
                             <constraint firstItem="RVv-ct-fc9" firstAttribute="leading" secondItem="1w5-mI-nwO" secondAttribute="leading" constant="178" id="ymM-4f-sQI"/>
                         </constraints>
