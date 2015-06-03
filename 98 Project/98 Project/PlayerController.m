@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong) MPMusicPlayerController *mMusicPlayer;
 @property (nonatomic, strong) SPTAudioStreamingController *mSPTplayer;
+@property NSString *currentPlayer;
 
 @end
 
@@ -28,22 +29,39 @@
     [super viewDidLoad];
     self.mMusicPlayer = (AppDelegateRef).musicPlayer;
     self.mSPTplayer = (AppDelegateRef).masterSPTplayer;
+    self.currentPlayer = @"";
+    
+//    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+//    
+//    [notificationCenter
+//     addObserver: self
+//     selector:    @selector (handle_NowPlayingItemChanged:)
+//     name:        MPMusicPlayerControllerNowPlayingItemDidChangeNotification
+//     object:      self.mMusicPlayer];
+//    
+//    [notificationCenter
+//     addObserver: self
+//     selector:    @selector (handle_PlaybackStateChanged:)
+//     name:        MPMusicPlayerControllerPlaybackStateDidChangeNotification
+//     object:      self.mMusicPlayer];
+//    
+//    [self.mMusicPlayer beginGeneratingPlaybackNotifications];
     
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     
     [notificationCenter
-     addObserver: self
-     selector:    @selector (handle_NowPlayingItemChanged:)
-     name:        MPMusicPlayerControllerNowPlayingItemDidChangeNotification
-     object:      self.mMusicPlayer];
+     addObserver:   self
+     selector:      @selector (handle_newMPItemPlaying:)
+     name:          @"newMPItemPlaying"
+     object:        nil];
+    
     
     [notificationCenter
-     addObserver: self
-     selector:    @selector (handle_PlaybackStateChanged:)
-     name:        MPMusicPlayerControllerPlaybackStateDidChangeNotification
-     object:      self.mMusicPlayer];
+     addObserver:   self
+     selector:      @selector (handle_newSPTItemPlaying:)
+     name:          @"newSPTItemPlaying"
+     object:        nil];
     
-    [self.mMusicPlayer beginGeneratingPlaybackNotifications];
     [self updateUI];
 }
 
@@ -60,57 +78,78 @@
 
 #pragma mark - Player Notifications
 
--(void)handle_NowPlayingItemChanged:(id)notification {
-//    NSLog(@"handling now playing item change %@", [self.mMusicPlayer nowPlayingItem]);
+-(void)handle_newMPItemPlaying:(id)notification {
+    NSLog(@"newMP item notification");
+    self.currentPlayer = @"MP";
     [self updateUI];
 }
 
--(void)handle_PlaybackStateChanged:(id)notification {
-//    NSLog(@"handling playbackstate changed %ld", [self.mMusicPlayer playbackState]);
-    MPMusicPlaybackState currentState = [self.mMusicPlayer playbackState];
-    if (currentState == MPMusicPlaybackStatePlaying) {
-        [self.playPauseButton setTitle:@"Pause" forState:UIControlStateNormal];
-    } else {
-        [self.playPauseButton setTitle:@"Play" forState:UIControlStateNormal];
-    }
+-(void)handle_newSPTItemPlaying:(id)notification {
+    NSLog(@"newSPT item notification");
+    self.currentPlayer = @"SPT";
+    [self updateUI];
 }
+
+
+//-(void)handle_NowPlayingItemChanged:(id)notification {
+////    NSLog(@"handling now playing item change %@", [self.mMusicPlayer nowPlayingItem]);
+//    [self updateUI];
+//}
+//
+//-(void)handle_PlaybackStateChanged:(id)notification {
+////    NSLog(@"handling playbackstate changed %ld", [self.mMusicPlayer playbackState]);
+//    MPMusicPlaybackState currentState = [self.mMusicPlayer playbackState];
+//    if (currentState == MPMusicPlaybackStatePlaying) {
+//        [self.playPauseButton setTitle:@"Pause" forState:UIControlStateNormal];
+//    } else {
+//        [self.playPauseButton setTitle:@"Play" forState:UIControlStateNormal];
+//    }
+//}
 
 #pragma mark - Player Functions
 
 -(IBAction)playPause:(id)sender {
-    if ([self.mMusicPlayer playbackState] == MPMusicPlaybackStatePlaying) {
-        [self.mMusicPlayer pause];
-    } else if ([self.mMusicPlayer nowPlayingItem]) {
-        [self.mMusicPlayer play];
+    if ([self.currentPlayer  isEqual: @"MP"]) {
+        if ([self.mMusicPlayer playbackState] == MPMusicPlaybackStatePlaying) {
+            [self.mMusicPlayer pause];
+        } else if ([self.mMusicPlayer nowPlayingItem]) {
+            [self.mMusicPlayer play];
+        }
+    } else  if ([self.currentPlayer isEqual: @"SPT"]){
+        [self.mSPTplayer setIsPlaying:!self.mSPTplayer.isPlaying callback:nil];
     }
 }
 
 -(IBAction)next:(id)sender {
-//    [self.mMusicPlayer skipToNextItem];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"NextTrackNotification" object:nil];
 }
 
 -(IBAction)previous:(id)sender {
-//    [self.mMusicPlayer skipToPreviousItem];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"PrevTrackNotification" object:nil];
 }
 
 -(void)updateUI {
-    MPMediaItem *nowPlaying = [self.mMusicPlayer nowPlayingItem];
-    if (nowPlaying) {
-        if ([self.mMusicPlayer playbackState] == MPMusicPlaybackStatePlaying) {
-            [self.playPauseButton setTitle:@"Pause" forState:UIControlStateNormal];
+    self.titleLabel.text = @"Nothing Playing";
+    self.artistLabel.text = @"";
+    self.albumLabel.text = @"";
+    
+    if ([self.currentPlayer isEqual: @"MP"]) {
+        MPMediaItem *nowPlaying = [self.mMusicPlayer nowPlayingItem];
+        if (nowPlaying) {
+            self.titleLabel.text = nowPlaying.title;
+            self.artistLabel.text = nowPlaying.artist;
+            self.albumLabel.text = nowPlaying.albumTitle;
         }
-        self.titleLabel.text = nowPlaying.title;
-        self.artistLabel.text = nowPlaying.artist;
-        self.albumLabel.text = nowPlaying.albumTitle;
         //        if (!self.coverView) {
         //            [self.coverView initWithImage: [self.nowPlaying.artwork imageWithSize:]];
         //      }
-    } else {
-        self.titleLabel.text = @"Nothing Playing";
-        self.artistLabel.text = @"";
-        self.albumLabel.text = @"";
+    } else if ([self.currentPlayer isEqual: @"SPT"]) {
+        NSDictionary *data = self.mSPTplayer.currentTrackMetadata;
+        if (data) {
+            self.titleLabel.text = [data objectForKey:SPTAudioStreamingMetadataTrackName];
+            self.artistLabel.text = [data objectForKey:SPTAudioStreamingMetadataArtistName];
+            self.albumLabel.text = [data objectForKey:SPTAudioStreamingMetadataAlbumName];
+        }
     }
 }
 

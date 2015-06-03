@@ -12,8 +12,6 @@
 
 @interface QueueController : UITableViewController <MPMediaPickerControllerDelegate, SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate>
 
-- (void) addSpotifyTracks;
-
 @property (nonatomic, strong) NSArray *SPTtracks;
 
 @end
