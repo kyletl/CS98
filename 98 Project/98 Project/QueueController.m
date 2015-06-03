@@ -214,6 +214,8 @@
                 [self startNextSong];
             }
         }
+        NSLog(@"Master Queue: %@", self.masterQueue.playQueue);
+        [self.tableView reloadData];
     }
 }
 
