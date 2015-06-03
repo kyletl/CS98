@@ -30,29 +30,14 @@
     self.mMusicPlayer = (AppDelegateRef).musicPlayer;
     self.mSPTplayer = (AppDelegateRef).masterSPTplayer;
     
-//    SPTAuth *auth = [SPTAuth defaultInstance];
-
+    
     self.mSPTplayer.playbackDelegate = self;
     
     NSLog(@"Global Spotify Player: %@", (AppDelegateRef).masterSPTplayer);
     NSLog(@"Local Spotify Player: %@", self.mSPTplayer);
     
-    ////        [self updateUI];
-    //
-    //        NSURLRequest *playlistReq = [SPTPlaylistSnapshot createRequestForPlaylistWithURI:[NSURL URLWithString:@"spotify:user:cariboutheband:playlist:4Dg0J0ICj9kKTGDyFu0Cv4"]
-    //                                                                             accessToken:auth.session.accessToken
-    //                                                                                   error:nil];
-    //
-    //        [[SPTRequest sharedHandler] performRequest:playlistReq callback:^(NSError *error, NSURLResponse *response, NSData *data) {
-    //            if (error != nil) {
-    //                NSLog(@"*** Failed to get playlist %@", error);
-    //                return;
-    //            }
-    //
-    //            SPTPlaylistSnapshot *playlistSnapshot = [SPTPlaylistSnapshot playlistSnapshotFromData:data withResponse:response error:nil];
-    //
-    //            [self.mSPTplayer playURIs:playlistSnapshot.firstTrackPage.items fromIndex:0 callback:nil];
-    //        }];
+    self.MPplaying = NO;
+    self.SPTplaying = NO;
     
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     
@@ -96,6 +81,14 @@
 
 - (IBAction) unwindCancelFromSpotifyPicker:(UIStoryboardSegue *) segue {
     
+}
+
+- (IBAction) unwindDoneFromSpotifyPicker:(UIStoryboardSegue *) segue {
+    NSLog(@"returned to Queue controller, selected tracks are: %@", self.SPTtracks);
+    if (self.SPTtracks) {
+        [self updateMasterQueueWithSpotifyCollection:self.SPTtracks];
+        self.SPTtracks = nil;
+    }
 }
 
 #pragma mark - PlayerController notifications
@@ -168,6 +161,7 @@
 #pragma mark - SPTplayer streaming delegate functions
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStopPlayingTrack:(NSURL *)trackUri {
+    NSLog(@"Did stop playing track");
     if (self.masterQueue) {
         if (self.SPTplaying) {
             self.SPTplaying = NO;
@@ -218,9 +212,18 @@
 }
 
 -(void)startSPTSong:(SPTPartialTrack *)song {
-
+    NSLog(@"Starting next SPT song: %@", song.name);
     if (self.mSPTplayer == nil) {
         self.mSPTplayer = (AppDelegateRef).masterSPTplayer;
+    }
+    
+    if (self.mSPTplayer.loggedIn) {
+        NSLog(@"Player was logged in, logging out");
+        [self.mSPTplayer logout:^(NSError *error) {
+            if (error != nil) {
+                NSLog(@"*** Error logging out: %@ ***", error);
+            }
+        }];
     }
     
     SPTAuth *auth = [SPTAuth defaultInstance];
@@ -237,20 +240,6 @@
             self.MPplaying = NO;
             self.SPTplaying = YES;
         }];
-        
-//        [self.mSPTplayer playURIs: fromIndex:0 callback:^(NSError *error) {
-//            if (error != nil) {
-//                NSLog(@"Failed to play track %@", song.name);
-//                return;
-//            }
-//            if (self.mSPTplayer.isPlaying) {
-//                NSLog(@"spotify player %@ is playing", self.mSPTplayer);
-//            } else {
-//                NSLog(@"spotify player %@ is not playing", self.mSPTplayer);
-//            }
-//            self.MPplaying = NO;
-//            self.SPTplaying = YES;
-//        }];
     }];
 }
 
@@ -345,16 +334,6 @@
             }
         }
         [self.tableView reloadData];
-    }
-}
-
-#pragma mark - Public Update Queue Functions
-
-- (void) addSpotifyTracks {
-    NSLog(@"returned to Queue controller, selected tracks are: %@", self.SPTtracks);
-    if (self.SPTtracks) {
-        [self updateMasterQueueWithSpotifyCollection:self.SPTtracks];
-        self.SPTtracks = nil;
     }
 }
 

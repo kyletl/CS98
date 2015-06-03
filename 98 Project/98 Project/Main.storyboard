@@ -150,7 +150,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="A7V-dV-ech" kind="showDetail" identifier="EnterSpotify" id="sad-u3-kO9"/>
+                        <segue destination="A7V-dV-ech" kind="presentation" identifier="EnterSpotify" id="sad-u3-kO9"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dB9-II-dqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -186,7 +186,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="FWe-Rn-cIx">
                             <connections>
-                                <segue destination="9sp-7a-SC3" kind="showDetail" identifier="ReturnSelect" id="pTJ-dM-gPL"/>
+                                <segue destination="zUz-tL-ZJv" kind="unwind" identifier="ReturnSelect" unwindAction="unwindDoneFromSpotifyPicker:" id="tHO-EJ-QyP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -365,7 +365,4 @@
     <resources>
         <image name="dartmouth.png" width="1559" height="2034"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="pTJ-dM-gPL"/>
-    </inferredMetricsTieBreakers>
 </document>

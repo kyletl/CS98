@@ -176,11 +176,12 @@
 //     Get the new view controller using [segue destinationViewController].
 //     Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"ReturnSelect"]) {
-        UINavigationController *navctl = [segue destinationViewController];
-        QueueController *qctl = (QueueController *)[navctl topViewController];
+//        UINavigationController *navctl = [segue destinationViewController];
+//        QueueController *qctl = (QueueController *)[navctl topViewController];
+        QueueController *qctl = (QueueController *)[segue destinationViewController];
         NSLog(@"In Spotify Controller, tracks are %@", self.selectedTracks);
         qctl.SPTtracks = self.selectedTracks;
-        [qctl addSpotifyTracks];
+//        [qctl addSpotifyTracks];
     }
 }
 
