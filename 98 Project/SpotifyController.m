@@ -36,6 +36,9 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    NSLog(@"View did appear -- SpotifyController");
+    
     [self handleNewSession];
 //    self.playlists = [[NSMutableArray alloc] init];
 //    self.selectedPlaylists = [[NSMutableArray alloc] init];
@@ -46,7 +49,12 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)handleNewSession {
+    
+    NSLog(@"Handling new session -- SpotifyController");
+    
     SPTAuth *auth = [SPTAuth defaultInstance];
+    
+    NSLog(@"Got auth, attempting to fetch all user playlists", auth);
     
     //    if (self.player == nil) {
     //        self.player = [[SPTAudioStreamingController alloc] initWithClientId:auth.clientID];
@@ -65,19 +73,13 @@
             NSLog(@"Failed unpacking or retrieving playlists with error: %@", err);
             return;
         } else {
-            if (self.playlists == nil) {
-                self.playlists = [[NSMutableArray alloc] init];
-            }
-            
-            for (SPTPartialPlaylist *pl in array) {
-                [self.playlists addObject:pl.name];
-            }
-            
+            if (self.playlists == nil)
+                self.playlists = [[NSMutableArray alloc] initWithArray:array];
+            else
+                [self.playlists addObjectsFromArray:array];
         }
-        
-        
-    }];
-    
+     }];
+
     
 //    [SPTPlaylistList playlistsForUserWithSession:auth.session callback:^(NSError *error, id object) {
 //        if (error != nil) {
@@ -113,14 +115,17 @@
     if (error != nil) {
         finalCallback(error, nil);
     } else {
+        NSLog(@"Received playlists from server");
         if ([object isKindOfClass:[SPTPlaylistList class]]) {
             SPTPlaylistList *playlistList = (SPTPlaylistList *)object;
             
             for (SPTPartialPlaylist *playlist in playlistList.items) {
+                NSLog(@"Adding playlist: %s", playlist.name);
                 [allPlaylists addObject:playlist];
             }
             
             if (playlistList.hasNextPage) {
+                NSLog(@"playlist has next page, opening");
                 [playlistList requestNextPageWithSession:session callback:^(NSError *error, id object) {
                     [SpotifyController didFetchListPageForSession:session
                                                            finalCallback:finalCallback
@@ -131,6 +136,8 @@
             } else {
                 finalCallback(nil, [allPlaylists copy]);
             }
+        } else {
+            NSLog(@"Received non-SPTPlaylistList from server");
         }
     }
 }
@@ -149,11 +156,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReturnedPlaylist" forIndexPath:indexPath];
-    NSString *pname = self.playlists[indexPath.row];
+    SPTPartialPlaylist *p = self.playlists[indexPath.row];
     
-    NSLog(@"playlist in row %ld is %@", (long)indexPath.row, pname);
+    NSLog(@"playlist in row %ld is %@", (long)indexPath.row, p.name);
     
-    cell.textLabel.text = pname;
+    cell.textLabel.text = p.name;
     
     return cell;
 }
