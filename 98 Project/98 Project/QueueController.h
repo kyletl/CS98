@@ -12,7 +12,6 @@
 
 @interface QueueController : UITableViewController <MPMediaPickerControllerDelegate>
 
-@property NSArray *freshQueueItems;
 
 
 @end

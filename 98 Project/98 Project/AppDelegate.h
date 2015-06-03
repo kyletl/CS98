@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Spotify/Spotify.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import <Spotify/Spotify.h>
 
 #define AppDelegateRef (AppDelegate *)[UIApplication sharedApplication].delegate
 
@@ -16,6 +17,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) MPMusicPlayerController *musicPlayer;
+@property (strong, nonatomic) SPTAudioStreamingController *masterSPTplayer;
 
 @end
 
