@@ -30,40 +30,30 @@
     self.mMusicPlayer = (AppDelegateRef).musicPlayer;
     self.mSPTplayer = (AppDelegateRef).masterSPTplayer;
     
-    SPTAuth *auth = [SPTAuth defaultInstance];
+//    SPTAuth *auth = [SPTAuth defaultInstance];
 
     self.mSPTplayer.playbackDelegate = self;
     
     NSLog(@"Global Spotify Player: %@", (AppDelegateRef).masterSPTplayer);
     NSLog(@"Local Spotify Player: %@", self.mSPTplayer);
-
     
-    [self.mSPTplayer loginWithSession:auth.session callback:^(NSError *error) {
-        
-        if (error != nil) {
-            NSLog(@"*** Enabling playback got error: %@", error);
-            return;
-        }
-        
-//        [self updateUI];
-        
-        NSURLRequest *playlistReq = [SPTPlaylistSnapshot createRequestForPlaylistWithURI:[NSURL URLWithString:@"spotify:user:cariboutheband:playlist:4Dg0J0ICj9kKTGDyFu0Cv4"]
-                                                                             accessToken:auth.session.accessToken
-                                                                                   error:nil];
-        
-        [[SPTRequest sharedHandler] performRequest:playlistReq callback:^(NSError *error, NSURLResponse *response, NSData *data) {
-            if (error != nil) {
-                NSLog(@"*** Failed to get playlist %@", error);
-                return;
-            }
-            
-            SPTPlaylistSnapshot *playlistSnapshot = [SPTPlaylistSnapshot playlistSnapshotFromData:data withResponse:response error:nil];
-            
-            [self.mSPTplayer playURIs:playlistSnapshot.firstTrackPage.items fromIndex:0 callback:nil];
-        }];
-    }];
+    ////        [self updateUI];
+    //
+    //        NSURLRequest *playlistReq = [SPTPlaylistSnapshot createRequestForPlaylistWithURI:[NSURL URLWithString:@"spotify:user:cariboutheband:playlist:4Dg0J0ICj9kKTGDyFu0Cv4"]
+    //                                                                             accessToken:auth.session.accessToken
+    //                                                                                   error:nil];
+    //
+    //        [[SPTRequest sharedHandler] performRequest:playlistReq callback:^(NSError *error, NSURLResponse *response, NSData *data) {
+    //            if (error != nil) {
+    //                NSLog(@"*** Failed to get playlist %@", error);
+    //                return;
+    //            }
+    //
+    //            SPTPlaylistSnapshot *playlistSnapshot = [SPTPlaylistSnapshot playlistSnapshotFromData:data withResponse:response error:nil];
+    //
+    //            [self.mSPTplayer playURIs:playlistSnapshot.firstTrackPage.items fromIndex:0 callback:nil];
+    //        }];
     
-
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     
     [notificationCenter
@@ -228,23 +218,41 @@
 }
 
 -(void)startSPTSong:(SPTPartialTrack *)song {
-    NSLog(@"Starting next SPT song: %@, %@", song.name, song.playableUri);
-    [self.mSPTplayer playURIs:@[song.playableUri] fromIndex:0 callback:^(NSError *error) {
+
+    if (self.mSPTplayer == nil) {
+        self.mSPTplayer = (AppDelegateRef).masterSPTplayer;
+    }
+    
+    SPTAuth *auth = [SPTAuth defaultInstance];
+    [self.mSPTplayer loginWithSession:auth.session callback:^(NSError *error) {
         if (error != nil) {
-            NSLog(@"Failed to play track %@", song.name);
+            NSLog(@"*** Enabling playback got error: %@", error);
             return;
         }
-        if (self.mSPTplayer.isPlaying) {
-            NSLog(@"spotify player %@ is playing", self.mSPTplayer);
-        } else {
-            NSLog(@"spotify player %@ is not playing", self.mSPTplayer);
-        }
-        self.MPplaying = NO;
-        self.SPTplaying = YES;
+        NSLog(@"in login");
+        [self.mSPTplayer playURI:song.playableUri callback:^(NSError *error) {
+            if (error != nil) {
+                NSLog(@"failed to play track, error: %@", error);
+            }
+            self.MPplaying = NO;
+            self.SPTplaying = YES;
+        }];
+        
+//        [self.mSPTplayer playURIs: fromIndex:0 callback:^(NSError *error) {
+//            if (error != nil) {
+//                NSLog(@"Failed to play track %@", song.name);
+//                return;
+//            }
+//            if (self.mSPTplayer.isPlaying) {
+//                NSLog(@"spotify player %@ is playing", self.mSPTplayer);
+//            } else {
+//                NSLog(@"spotify player %@ is not playing", self.mSPTplayer);
+//            }
+//            self.MPplaying = NO;
+//            self.SPTplaying = YES;
+//        }];
     }];
-    NSLog(@"outside play call spotify player %@", self.mSPTplayer);
 }
-
 
 
 #pragma mark - Media Picker Functions
