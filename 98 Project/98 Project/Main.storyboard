@@ -35,7 +35,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="/Users/imac/Desktop/develop/98 Project/98 Project/dartmouth.png" translatesAutoresizingMaskIntoConstraints="NO" id="g87-z7-vra">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="./dartmouth.png" translatesAutoresizingMaskIntoConstraints="NO" id="g87-z7-vra">
                                 <rect key="frame" x="0.0" y="0.0" width="605" height="600"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="g87-z7-vra" secondAttribute="height" multiplier="121:120" id="jpa-ZY-KRt"/>
@@ -329,9 +329,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="/Users/imac/Desktop/develop/98 Project/98 Project/dartmouth.png" width="562" height="1208"/>
+        <image name="./dartmouth.png" width="562" height="1208"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pTJ-dM-gPL"/>
+        <segue reference="FZ0-N9-EbA"/>
     </inferredMetricsTieBreakers>
 </document>
