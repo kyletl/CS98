@@ -36,30 +36,8 @@
     NSLog(@"Global Spotify Player: %@", (AppDelegateRef).masterSPTplayer);
     NSLog(@"Local Spotify Player: %@", self.mSPTplayer);
     
-    [self.mSPTplayer loginWithSession:auth.session callback:^(NSError *error) {
-        
-        if (error != nil) {
-            NSLog(@"*** Enabling playback got error: %@", error);
-            return;
-        }
-        
-//        [self updateUI];
-        
-//        NSURLRequest *playlistReq = [SPTPlaylistSnapshot createRequestForPlaylistWithURI:[NSURL URLWithString:@"spotify:user:cariboutheband:playlist:4Dg0J0ICj9kKTGDyFu0Cv4"]
-//                                                                             accessToken:auth.session.accessToken
-//                                                                                   error:nil];
-//        
-//        [[SPTRequest sharedHandler] performRequest:playlistReq callback:^(NSError *error, NSURLResponse *response, NSData *data) {
-//            if (error != nil) {
-//                NSLog(@"*** Failed to get playlist %@", error);
-//                return;
-//            }
-//            
-//            SPTPlaylistSnapshot *playlistSnapshot = [SPTPlaylistSnapshot playlistSnapshotFromData:data withResponse:response error:nil];
-//            
-//            [self.mSPTplayer playURIs:playlistSnapshot.firstTrackPage.items fromIndex:0 callback:nil];
-//        }];
-    }];
+    self.MPplaying = NO;
+    self.SPTplaying = NO;
     
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     

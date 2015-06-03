@@ -194,7 +194,7 @@
         QueueController *qctl = (QueueController *)[segue destinationViewController];
         NSLog(@"In Spotify Controller, tracks are %@", self.selectedTracks);
         qctl.SPTtracks = self.selectedTracks;
-        [qctl addSpotifyTracks];
+//        [qctl addSpotifyTracks];
     } else if ([[segue identifier] isEqualToString:@"SpotifyTracks"]) {
         SpotifyTrackController *trkctl = [segue destinationViewController];
         trkctl.currList = (SPTPartialPlaylist *) sender;
