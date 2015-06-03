@@ -41,15 +41,14 @@
                                     <constraint firstAttribute="width" secondItem="g87-z7-vra" secondAttribute="height" multiplier="121:120" id="jpa-ZY-KRt"/>
                                     <constraint firstAttribute="width" secondItem="g87-z7-vra" secondAttribute="height" multiplier="121:120" id="xLQ-J2-25s"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="jpa-ZY-KRt"/>
+                                        <exclude reference="xLQ-J2-25s"/>
+                                    </mask>
+                                </variation>
                             </imageView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RVv-ct-fc9" customClass="SPTConnectButton">
-                                <rect key="frame" x="178" y="515" width="249" height="65"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="loginClicked:" destination="Wwp-Te-KiB" eventType="touchUpInside" id="gZr-EK-odT"/>
-                                </connections>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Authentication Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2n-Xs-CmD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Authentication Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2n-Xs-CmD">
                                 <rect key="frame" x="219" y="486" width="166" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="QNc-Mm-arh"/>
@@ -60,10 +59,18 @@
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="QNc-Mm-arh"/>
                                         <exclude reference="kzd-Kt-57e"/>
                                     </mask>
                                 </variation>
                             </label>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RVv-ct-fc9" customClass="SPTConnectButton">
+                                <rect key="frame" x="178" y="515" width="249" height="65"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="loginClicked:" destination="Wwp-Te-KiB" eventType="touchUpInside" id="gZr-EK-odT"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -84,6 +91,20 @@
                             <constraint firstItem="O2n-Xs-CmD" firstAttribute="top" secondItem="3X2-DZ-fiO" secondAttribute="bottom" constant="466" id="vzM-Px-Kql"/>
                             <constraint firstItem="RVv-ct-fc9" firstAttribute="leading" secondItem="1w5-mI-nwO" secondAttribute="leading" constant="178" id="ymM-4f-sQI"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="AHB-ym-qj9"/>
+                                <exclude reference="EMf-Dp-nmm"/>
+                                <exclude reference="Nf6-Qm-LyH"/>
+                                <exclude reference="Qlh-9y-Xre"/>
+                                <exclude reference="qDr-EY-M4s"/>
+                                <exclude reference="2Nr-fT-gBr"/>
+                                <exclude reference="7TA-pa-V5c"/>
+                                <exclude reference="vzM-Px-Kql"/>
+                                <exclude reference="VL7-x6-qp7"/>
+                                <exclude reference="ymM-4f-sQI"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="statusLabel" destination="O2n-Xs-CmD" id="Oc0-Pn-o5g"/>
