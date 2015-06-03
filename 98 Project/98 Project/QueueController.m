@@ -17,6 +17,9 @@
 @property MultipleMediaQueue *masterQueue;
 @property (weak, nonatomic) MPMusicPlayerController *mMusicPlayer;
 @property (weak, nonatomic) SPTAudioStreamingController *mSPTplayer;
+@property BOOL MPplaying;
+@property BOOL SPTplaying;
+@property BOOL prevPressed;
 
 @end
 
@@ -43,6 +46,18 @@
      object:      self.mMusicPlayer];
     
     [self.mMusicPlayer beginGeneratingPlaybackNotifications];
+    
+    [notificationCenter
+     addObserver:  self
+     selector:     @selector (handle_nextTrackPressed:)
+     name:         @"NextTrackNotification"
+     object:       nil];
+    
+    [notificationCenter
+     addObserver:  self
+     selector:     @selector (handle_prevTrackPressed:)
+     name:         @"PrevTrackNotification"
+     object:       nil];
 }
 
 
@@ -56,6 +71,51 @@
     
 }
 
+#pragma mark - PlayerController notifications
+
+-(void)handle_nextTrackPressed:(id)notification {
+    
+    NSLog(@"next track pressed");
+    if (self.masterQueue) {
+        if ([self.masterQueue hasNext]) {
+            if (self.MPplaying) {
+                [self.mMusicPlayer stop];
+            } else if (self.SPTplaying){
+                [self.mSPTplayer stop:^(NSError *error) {
+                    if (error != nil) {
+                        NSLog(@"Error: could not stop player");
+                        return;
+                    }
+                }];
+            } else {
+                [self startNextSong];
+            }
+        }
+    }
+}
+
+-(void)handle_prevTrackPressed:(id)notification {
+    NSLog(@"Prev track pressed");
+    self.prevPressed = YES;
+    if (self.masterQueue) {
+        if ([self.masterQueue hasPrevious]) {
+            if (self.MPplaying) {
+                [self.mMusicPlayer stop];
+            } else if (self.SPTplaying){
+                [self.mSPTplayer stop:^(NSError *error) {
+                    if (error != nil) {
+                        NSLog(@"Error: could not stop player");
+                        return;
+                    }
+                }];
+            } else {
+                self.prevPressed = NO;
+                [self startPreviousSong];
+            }
+        }
+    }
+}
+
 
 #pragma mark - MPMediaPlayer Notifications
 
@@ -65,8 +125,12 @@
 
 - (void)handle_MPPlaybackStateChanged:(id)notification {
     if ([self.mMusicPlayer playbackState] == MPMusicPlaybackStateStopped) {
+        self.MPplaying = NO;
         if (self.masterQueue) {
-            if ([self.masterQueue hasNext]) {
+            if (self.prevPressed) {
+                self.prevPressed = NO;
+                [self startPreviousSong];
+            } else {
                 [self startNextSong];
             }
         }
@@ -76,8 +140,12 @@
 #pragma mark - SPTplayer streaming delegate functions
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStopPlayingTrack:(NSURL *)trackUri {
+    self.SPTplaying = NO;
     if (self.masterQueue) {
-        if ([self.masterQueue hasNext]) {
+        if (self.prevPressed) {
+            self.prevPressed = NO;
+            [self startPreviousSong];
+        } else {
             [self startNextSong];
         }
     }
@@ -113,6 +181,8 @@
     MPMediaItemCollection *nextSingleQueue = [[MPMediaItemCollection alloc] initWithItems:@[song]];
     [self.mMusicPlayer setQueueWithItemCollection:nextSingleQueue];
     [self.mMusicPlayer play];
+    self.MPplaying = YES;
+    self.SPTplaying = NO;
 }
 
 -(void)startSPTSong:(SPTPartialTrack *)song {
@@ -122,6 +192,8 @@
             NSLog(@"Failed to play track %@", song.name);
             return;
         }
+        self.MPplaying = NO;
+        self.SPTplaying = YES;
     }];
 }
 

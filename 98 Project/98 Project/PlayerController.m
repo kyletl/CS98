@@ -84,11 +84,13 @@
 }
 
 -(IBAction)next:(id)sender {
-    [self.mMusicPlayer skipToNextItem];
+//    [self.mMusicPlayer skipToNextItem];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NextTrackNotification" object:nil];
 }
 
 -(IBAction)previous:(id)sender {
-    [self.mMusicPlayer skipToPreviousItem];
+//    [self.mMusicPlayer skipToPreviousItem];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PrevTrackNotification" object:nil];
 }
 
 -(void)updateUI {
