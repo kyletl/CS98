@@ -24,6 +24,7 @@
 		881B3EE81B1EF7440046DD42 /* SpotifyHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 881B3EE71B1EF7440046DD42 /* SpotifyHelper.m */; };
 		881B3EEB1B1F248D0046DD42 /* dartmouth.png in Resources */ = {isa = PBXBuildFile; fileRef = 881B3EEA1B1F248D0046DD42 /* dartmouth.png */; };
 		881B3EEF1B1F2A3B0046DD42 /* dartmouth_winter.png in Resources */ = {isa = PBXBuildFile; fileRef = 881B3EEE1B1F2A3B0046DD42 /* dartmouth_winter.png */; };
+		881B3EF21B1F3D990046DD42 /* SpotifyTrackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 881B3EF11B1F3D990046DD42 /* SpotifyTrackController.m */; };
 		88A8B2631B1E68480096866D /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A8B2621B1E68480096866D /* LoginController.m */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,8 @@
 		881B3EE91B1EF75A0046DD42 /* SpotifyHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifyHelper.h; sourceTree = "<group>"; };
 		881B3EEA1B1F248D0046DD42 /* dartmouth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dartmouth.png; sourceTree = "<group>"; };
 		881B3EEE1B1F2A3B0046DD42 /* dartmouth_winter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dartmouth_winter.png; sourceTree = "<group>"; };
+		881B3EF01B1F3D990046DD42 /* SpotifyTrackController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifyTrackController.h; sourceTree = "<group>"; };
+		881B3EF11B1F3D990046DD42 /* SpotifyTrackController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifyTrackController.m; sourceTree = "<group>"; };
 		88A8B2611B1E68480096866D /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		88A8B2621B1E68480096866D /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +137,8 @@
 				001B87351AE856AB005D8A2B /* Images.xcassets */,
 				001B87371AE856AB005D8A2B /* LaunchScreen.xib */,
 				001B87281AE856AB005D8A2B /* Supporting Files */,
+				881B3EF01B1F3D990046DD42 /* SpotifyTrackController.h */,
+				881B3EF11B1F3D990046DD42 /* SpotifyTrackController.m */,
 			);
 			path = "98 Project";
 			sourceTree = "<group>";
@@ -273,6 +278,7 @@
 				7B74E4701AE8BD0E00B77FCC /* QueueController.m in Sources */,
 				7B74E4651AE87BCC00B77FCC /* SpotifyController.m in Sources */,
 				006CCF041B1ECCC6001A15BB /* MultipleMediaQueue.m in Sources */,
+				881B3EF21B1F3D990046DD42 /* SpotifyTrackController.m in Sources */,
 				006C12821AF1E84300DA0093 /* PlayerController.m in Sources */,
 				001B872B1AE856AB005D8A2B /* main.m in Sources */,
 			);

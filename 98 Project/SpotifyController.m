@@ -100,7 +100,15 @@
 //        }
 //        
 //    }];
-    
+
+}
+
+-(void)addNewTracks:(NSArray *)trackArray {
+    if (self.selectedTracks == nil) {
+        self.selectedTracks = [[NSMutableArray alloc] initWithArray:trackArray];
+    } else {
+        [self.selectedTracks addObjectsFromArray:trackArray];
+    }
 }
 
 
@@ -130,26 +138,23 @@
     SPTAuth* auth = [SPTAuth defaultInstance];
 
     SPTPartialPlaylist *chosen = self.playlists[indexPath.row];
-    [SpotifyHelper fetchPlaylistTracks:auth.session playlist:chosen finalCallback:^(NSError *error, NSArray *array) {
-        if (error != nil) {
-            NSLog(@"Received error when unpacking tracks: %@", error);
-            return;
-        }
-        NSLog(@"retrieved tracks are %@", array);
-        if (self.selectedTracks == nil) {
-            self.selectedTracks = [[NSMutableArray alloc] initWithArray:array];
-        } else {
-            [self.selectedTracks addObjectsFromArray:array];
-        }
-    }];
-
-
+//    [SpotifyHelper fetchPlaylistTracks:auth.session playlist:chosen finalCallback:^(NSError *error, NSArray *array) {
+//        if (error != nil) {
+//            NSLog(@"Received error when unpacking tracks: %@", error);
+//            return;
+//        }
+//        NSLog(@"retrieved tracks are %@", array);
+//        if (self.selectedTracks == nil) {
+//            self.selectedTracks = [[NSMutableArray alloc] initWithArray:array];
+//        } else {
+//            [self.selectedTracks addObjectsFromArray:array];
+//        }
+//    }];
     
-//    MPMediaItem *selectedSong = [self.playQueue items][indexPath.row];
-//    [self.mMusicPlayer setNowPlayingItem:selectedSong];
-//    if ([self.mMusicPlayer playbackState] != MPMusicPlaybackStatePlaying) {
-//        [self.mMusicPlayer play];
-//    }
+    
+    // navigate to the detail view for track selection
+    [self performSegueWithIdentifier:@"SpotifyTracks" sender:chosen];
+    
 
 
 // Navigation logic may go here, for example:
@@ -171,6 +176,14 @@
 //    [self performSegueWithIdentifier:@"ReturnSelect" sender:nil];
 //}
 
+- (IBAction) unwindDoneFromTrackView:(UIStoryboardSegue *) segue {
+    return;
+}
+
+- (IBAction) unwindCancelFromTrackView:(UIStoryboardSegue *) segue {
+    return;
+}
+
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 //     Get the new view controller using [segue destinationViewController].
@@ -181,6 +194,10 @@
         NSLog(@"In Spotify Controller, tracks are %@", self.selectedTracks);
         qctl.SPTtracks = self.selectedTracks;
         [qctl addSpotifyTracks];
+    } else if ([[segue identifier] isEqualToString:@"SpotifyTracks"]) {
+        SpotifyTrackController *trkctl = [segue destinationViewController];
+        trkctl.currList = (SPTPartialPlaylist *) sender;
+        NSLog(@"In Spotify controller, moving to tracks view");
     }
 }
 

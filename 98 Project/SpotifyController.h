@@ -10,7 +10,10 @@
 #import "AppDelegate.h"
 #import "SpotifyHelper.h"
 #import "QueueController.h"
+#import "SpotifyTrackController.h"
 
 @interface SpotifyController : UITableViewController
+
+-(void)addNewTracks:(NSArray *)trackArray;
 
 @end

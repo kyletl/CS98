@@ -47,20 +47,20 @@
         
 //        [self updateUI];
         
-        NSURLRequest *playlistReq = [SPTPlaylistSnapshot createRequestForPlaylistWithURI:[NSURL URLWithString:@"spotify:user:cariboutheband:playlist:4Dg0J0ICj9kKTGDyFu0Cv4"]
-                                                                             accessToken:auth.session.accessToken
-                                                                                   error:nil];
-        
-        [[SPTRequest sharedHandler] performRequest:playlistReq callback:^(NSError *error, NSURLResponse *response, NSData *data) {
-            if (error != nil) {
-                NSLog(@"*** Failed to get playlist %@", error);
-                return;
-            }
-            
-            SPTPlaylistSnapshot *playlistSnapshot = [SPTPlaylistSnapshot playlistSnapshotFromData:data withResponse:response error:nil];
-            
-            [self.mSPTplayer playURIs:playlistSnapshot.firstTrackPage.items fromIndex:0 callback:nil];
-        }];
+//        NSURLRequest *playlistReq = [SPTPlaylistSnapshot createRequestForPlaylistWithURI:[NSURL URLWithString:@"spotify:user:cariboutheband:playlist:4Dg0J0ICj9kKTGDyFu0Cv4"]
+//                                                                             accessToken:auth.session.accessToken
+//                                                                                   error:nil];
+//        
+//        [[SPTRequest sharedHandler] performRequest:playlistReq callback:^(NSError *error, NSURLResponse *response, NSData *data) {
+//            if (error != nil) {
+//                NSLog(@"*** Failed to get playlist %@", error);
+//                return;
+//            }
+//            
+//            SPTPlaylistSnapshot *playlistSnapshot = [SPTPlaylistSnapshot playlistSnapshotFromData:data withResponse:response error:nil];
+//            
+//            [self.mSPTplayer playURIs:playlistSnapshot.firstTrackPage.items fromIndex:0 callback:nil];
+//        }];
     }];
     
 
@@ -190,7 +190,6 @@
         }
     }
 }
-
 
 #pragma mark - Next song choosing methods
 

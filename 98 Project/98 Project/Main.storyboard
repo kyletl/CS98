@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wwp-Te-KiB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wwp-Te-KiB">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -21,7 +21,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M7n-bP-8Yb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2224" y="-2963"/>
+            <point key="canvasLocation" x="-2224" y="-2923"/>
         </scene>
         <!--Login Controller-->
         <scene sceneID="DJc-mJ-r0J">
@@ -178,7 +178,7 @@
                             <outlet property="delegate" destination="oWG-Dq-IRu" id="ZlR-4K-fZn"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Spotify Playlists" prompt="Add a playlist to the queue." id="s0a-X6-lVZ">
+                    <navigationItem key="navigationItem" title="Spotify Playlists" prompt="Pick a playlist to find tracks." id="s0a-X6-lVZ">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="SFh-eF-9bP">
                             <connections>
                                 <segue destination="zUz-tL-ZJv" kind="unwind" unwindAction="unwindCancelFromSpotifyPicker:" id="gos-8v-tRg"/>
@@ -190,11 +190,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="v39-rK-kzj" kind="presentation" identifier="SpotifyTracks" id="0Te-GB-QqM"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2rX-kq-lZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="zUz-tL-ZJv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-109" y="-2963"/>
+            <point key="canvasLocation" x="-99" y="-3679"/>
         </scene>
         <!--Player Controller-->
         <scene sceneID="8xz-pm-mAL">
@@ -323,7 +326,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="stb-Xt-z0A" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ooS-WR-44j" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-649" y="-2194"/>
+            <point key="canvasLocation" x="-801" y="-2006"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TD7-gA-pag">
@@ -341,7 +344,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hYs-90-lms" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1508" y="-2194"/>
+            <point key="canvasLocation" x="-1508" y="-2006"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6ec-FZ-X1c">
@@ -360,6 +363,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Bc-Rc-oXn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-817" y="-2963"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="C5D-Ie-64g">
+            <objects>
+                <tableViewController id="v39-rK-kzj" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Zht-b3-r3q">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="NJH-J2-9St">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="74"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="Spotify Tracks" prompt="Pick tracks to add to the queue." id="9Gy-kZ-Wpv">
+                                    <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OfQ-SY-BEu">
+                                        <connections>
+                                            <segue destination="YXL-3D-vjn" kind="unwind" unwindAction="unwindCancelFromTrackView:" id="JOx-a9-0NX"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem key="rightBarButtonItem" title="Done" id="xrb-Zb-ZQK">
+                                        <connections>
+                                            <segue destination="YXL-3D-vjn" kind="unwind" identifier="SpotifyTracksFinished" unwindAction="unwindDoneFromTrackView:" id="T2Y-Fa-qFd"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="yHm-RF-Rx4">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yHm-RF-Rx4" id="rbg-e6-Le8">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="v39-rK-kzj" id="p01-Mn-b8x"/>
+                            <outlet property="delegate" destination="v39-rK-kzj" id="41Q-XH-rY0"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iOB-Ti-UQu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="YXL-3D-vjn" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-91" y="-2875"/>
         </scene>
     </scenes>
     <resources>
