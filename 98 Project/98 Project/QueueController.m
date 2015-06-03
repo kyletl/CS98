@@ -203,15 +203,21 @@
 }
 
 -(void)startSPTSong:(SPTPartialTrack *)song {
-    NSLog(@"Starting next SPT song: %@", song.name);
+    NSLog(@"Starting next SPT song: %@, %@", song.name, song.playableUri);
     [self.mSPTplayer playURIs:@[song.playableUri] fromIndex:0 callback:^(NSError *error) {
         if (error != nil) {
             NSLog(@"Failed to play track %@", song.name);
             return;
         }
+        if (self.mSPTplayer.isPlaying) {
+            NSLog(@"spotify player %@ is playing", self.mSPTplayer);
+        } else {
+            NSLog(@"spotify player %@ is not playing", self.mSPTplayer);
+        }
         self.MPplaying = NO;
         self.SPTplaying = YES;
     }];
+    NSLog(@"outside play call spotify player %@", self.mSPTplayer);
 }
 
 
@@ -298,21 +304,20 @@
         if (self.masterQueue == nil) {
             self.masterQueue = [[MultipleMediaQueue alloc] initWithItems: collection];
             SPTPartialTrack *song = (SPTPartialTrack *)[self.masterQueue getCurrent];
-            SPTAuth *auth = [SPTAuth defaultInstance];
-            
-            [self.mSPTplayer loginWithSession:auth.session callback:^(NSError *error) {
-                if (error != nil) {
-                    NSLog(@"*** Enabling playback got error: %@", error);
-                    return;
-                }
-                
-                [self.mSPTplayer playURIs:@[song.playableUri] fromIndex:0 callback:nil];
-                self.MPplaying = NO;
-                self.SPTplaying = YES;
-            }];
-            
-            
-//            [self startSPTSong: song];
+//            SPTAuth *auth = [SPTAuth defaultInstance];
+//            
+//            [self.mSPTplayer loginWithSession:auth.session callback:^(NSError *error) {
+//                if (error != nil) {
+//                    NSLog(@"*** Enabling playback got error: %@", error);
+//                    return;
+//                }
+//                
+//                [self.mSPTplayer playURIs:@[song.playableUri] fromIndex:0 callback:nil];
+//                self.MPplaying = NO;
+//                self.SPTplaying = YES;
+//            }];
+//
+            [self startSPTSong: song];
         } else {
             [self.masterQueue addItemsFromArray: collection];
             if (([self.mMusicPlayer playbackState] == MPMusicPlaybackStateStopped) && !(self.mSPTplayer.isPlaying)) {
