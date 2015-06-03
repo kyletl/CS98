@@ -229,6 +229,12 @@
     }
 }
 
+#pragma mark - Public Update Queue Functions
+
+- (void) addSpotifyTracks:(NSArray *)selectedTracks {
+    [self updateMasterQueueWithSpotifyCollection:selectedTracks];
+}
+
 //- (void) updateQueueWithCollection: (NSArray *) collection {
 //
 //    // Add 'collection' to the music player's playback queue, but only if
