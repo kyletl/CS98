@@ -14,11 +14,12 @@
 		001B87451AE856AB005D8A2B /* _8_ProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 001B87441AE856AB005D8A2B /* _8_ProjectTests.m */; };
 		006C12821AF1E84300DA0093 /* PlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 006C12811AF1E5B900DA0093 /* PlayerController.m */; };
 		006CCF041B1ECCC6001A15BB /* MultipleMediaQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 006CCF031B1ECCC6001A15BB /* MultipleMediaQueue.m */; };
-		006CCF071B1ED8EE001A15BB /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006CCF051B1ED8E0001A15BB /* Spotify.framework */; };
 		00A4CF791AE919AE00DBBE3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A4CF781AE919AE00DBBE3C /* Main.storyboard */; };
 		7B74E4651AE87BCC00B77FCC /* SpotifyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B74E4631AE87BCC00B77FCC /* SpotifyController.m */; };
 		7B74E4681AE8825600B77FCC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B74E4671AE8825600B77FCC /* AVFoundation.framework */; };
 		7B74E4701AE8BD0E00B77FCC /* QueueController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B74E46E1AE8BD0E00B77FCC /* QueueController.m */; };
+		881B3EE41B1EDD310046DD42 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B74E4671AE8825600B77FCC /* AVFoundation.framework */; };
+		881B3EE61B1EDD5A0046DD42 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881B3EE51B1EDD5A0046DD42 /* Spotify.framework */; };
 		88A8B2631B1E68480096866D /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A8B2621B1E68480096866D /* LoginController.m */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +48,6 @@
 		006C12811AF1E5B900DA0093 /* PlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerController.m; sourceTree = "<group>"; };
 		006CCF021B1ECCC6001A15BB /* MultipleMediaQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipleMediaQueue.h; sourceTree = "<group>"; };
 		006CCF031B1ECCC6001A15BB /* MultipleMediaQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipleMediaQueue.m; sourceTree = "<group>"; };
-		006CCF051B1ED8E0001A15BB /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = "../ios-sdk-beta-8/Spotify.framework"; sourceTree = "<group>"; };
 		00A4CF761AE90F0F00DBBE3C /* QueueController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueController.h; sourceTree = "<group>"; };
 		00A4CF771AE918BD00DBBE3C /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		00A4CF781AE919AE00DBBE3C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -55,6 +55,7 @@
 		7B74E4631AE87BCC00B77FCC /* SpotifyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpotifyController.m; path = ../SpotifyController.m; sourceTree = "<group>"; };
 		7B74E4671AE8825600B77FCC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7B74E46E1AE8BD0E00B77FCC /* QueueController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueController.m; sourceTree = "<group>"; };
+		881B3EE51B1EDD5A0046DD42 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = "../ios-sdk-beta-8/Spotify.framework"; sourceTree = "<group>"; };
 		88A8B2611B1E68480096866D /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		88A8B2621B1E68480096866D /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,7 +65,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				006CCF071B1ED8EE001A15BB /* Spotify.framework in Frameworks */,
 				7B74E4681AE8825600B77FCC /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,6 +73,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				881B3EE61B1EDD5A0046DD42 /* Spotify.framework in Frameworks */,
+				881B3EE41B1EDD310046DD42 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +84,7 @@
 		001B871C1AE856AB005D8A2B = {
 			isa = PBXGroup;
 			children = (
-				006CCF051B1ED8E0001A15BB /* Spotify.framework */,
+				881B3EE51B1EDD5A0046DD42 /* Spotify.framework */,
 				7B74E4671AE8825600B77FCC /* AVFoundation.framework */,
 				001B87271AE856AB005D8A2B /* 98 Project */,
 				001B87411AE856AB005D8A2B /* 98 ProjectTests */,
@@ -376,11 +378,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ADDITIONAL_SDKS = "";
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"../ios-sdk-beta-7",
+					"../ios-sdk-beta-8",
 					"/Users/kyletl/Desktop/15S/CS98/ios-sdk-beta-8",
 				);
 				INFOPLIST_FILE = "98 Project/Info.plist";
@@ -394,11 +397,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ADDITIONAL_SDKS = "";
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"../ios-sdk-beta-7",
+					"../ios-sdk-beta-8",
 					"/Users/kyletl/Desktop/15S/CS98/ios-sdk-beta-8",
 				);
 				INFOPLIST_FILE = "98 Project/Info.plist";
@@ -411,10 +415,13 @@
 		001B874C1AE856AB005D8A2B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
+					"../ios-sdk-beta-8",
 					"$(inherited)",
+					"/Users/imac/Desktop/develop/ios-sdk-beta-8",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -424,21 +431,26 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/98 Project.app/98 Project";
+				USER_HEADER_SEARCH_PATHS = "../ios-sdk-beta-8";
 			};
 			name = Debug;
 		};
 		001B874D1AE856AB005D8A2B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
+					"../ios-sdk-beta-8",
 					"$(inherited)",
+					"/Users/imac/Desktop/develop/ios-sdk-beta-8",
 				);
 				INFOPLIST_FILE = "98 ProjectTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/98 Project.app/98 Project";
+				USER_HEADER_SEARCH_PATHS = "../ios-sdk-beta-8";
 			};
 			name = Release;
 		};

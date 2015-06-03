@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <Spotify/Spotify.h>
 #import "Config.h"
 
 @interface AppDelegate ()

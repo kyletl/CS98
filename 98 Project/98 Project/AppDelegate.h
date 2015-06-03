@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Spotify/Spotify.h>
 #import <MediaPlayer/MediaPlayer.h>
 
 #define AppDelegateRef (AppDelegate *)[UIApplication sharedApplication].delegate
