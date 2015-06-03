@@ -14,9 +14,9 @@
 
 
 //@property MPMediaItemCollection *playQueue;
-@property MultipleMediaQueue *masterQueue;
-@property (weak, nonatomic) MPMusicPlayerController *mMusicPlayer;
-@property (weak, nonatomic) SPTAudioStreamingController *mSPTplayer;
+@property (strong, nonatomic) MultipleMediaQueue *masterQueue;
+@property (strong, nonatomic) MPMusicPlayerController *mMusicPlayer;
+@property (strong, nonatomic) SPTAudioStreamingController *mSPTplayer;
 @property BOOL MPplaying;
 @property BOOL SPTplaying;
 @property BOOL prevPressed;
@@ -29,7 +29,15 @@
     [super viewDidLoad];
     self.mMusicPlayer = (AppDelegateRef).musicPlayer;
     self.mSPTplayer = (AppDelegateRef).masterSPTplayer;
-    self.mSPTplayer.playbackDelegate = self;
+    
+    SPTAuth *auth = [SPTAuth defaultInstance];
+    if (self.mSPTplayer == nil) {
+        self.mSPTplayer = [[SPTAudioStreamingController alloc] initWithClientId:auth.clientID];
+        self.mSPTplayer.playbackDelegate = self;
+        self.mSPTplayer.diskCache = [[SPTDiskCache alloc] initWithCapacity:1024 * 1024 * 64];
+
+    }
+
 
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     
@@ -68,6 +76,10 @@
 
 
 - (IBAction) unwindFromPlayer:(UIStoryboardSegue *) segue {
+    
+}
+
+- (IBAction) unwindCancelFromSpotifyPicker:(UIStoryboardSegue *) segue {
     
 }
 
@@ -124,13 +136,15 @@
 
 - (void)handle_MPPlaybackStateChanged:(id)notification {
     if ([self.mMusicPlayer playbackState] == MPMusicPlaybackStateStopped) {
-        self.MPplaying = NO;
         if (self.masterQueue) {
-            if (self.prevPressed) {
-                self.prevPressed = NO;
-                [self startPreviousSong];
-            } else {
-                [self startNextSong];
+            if (self.MPplaying) {
+                self.MPplaying = NO;
+                if (self.prevPressed) {
+                    self.prevPressed = NO;
+                    [self startPreviousSong];
+                } else {
+                    [self startNextSong];
+                }
             }
         }
     }
@@ -139,13 +153,15 @@
 #pragma mark - SPTplayer streaming delegate functions
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStopPlayingTrack:(NSURL *)trackUri {
-    self.SPTplaying = NO;
     if (self.masterQueue) {
-        if (self.prevPressed) {
-            self.prevPressed = NO;
-            [self startPreviousSong];
-        } else {
-            [self startNextSong];
+        if (self.SPTplaying) {
+            self.SPTplaying = NO;
+            if (self.prevPressed) {
+                self.prevPressed = NO;
+                [self startPreviousSong];
+            } else {
+                [self startNextSong];
+            }
         }
     }
 }
@@ -282,7 +298,21 @@
         if (self.masterQueue == nil) {
             self.masterQueue = [[MultipleMediaQueue alloc] initWithItems: collection];
             SPTPartialTrack *song = (SPTPartialTrack *)[self.masterQueue getCurrent];
-            [self startSPTSong: song];
+            SPTAuth *auth = [SPTAuth defaultInstance];
+            
+            [self.mSPTplayer loginWithSession:auth.session callback:^(NSError *error) {
+                if (error != nil) {
+                    NSLog(@"*** Enabling playback got error: %@", error);
+                    return;
+                }
+                
+                [self.mSPTplayer playURIs:@[song.playableUri] fromIndex:0 callback:nil];
+                self.MPplaying = NO;
+                self.SPTplaying = YES;
+            }];
+            
+            
+//            [self startSPTSong: song];
         } else {
             [self.masterQueue addItemsFromArray: collection];
             if (([self.mMusicPlayer playbackState] == MPMusicPlaybackStateStopped) && !(self.mSPTplayer.isPlaying)) {
@@ -297,6 +327,10 @@
 
 - (void) addSpotifyTracks {
     NSLog(@"returned to Queue controller, selected tracks are: %@", self.SPTtracks);
+    if (self.SPTtracks) {
+        [self updateMasterQueueWithSpotifyCollection:self.SPTtracks];
+        self.SPTtracks = nil;
+    }
 }
 
 
@@ -314,12 +348,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QueuedItem" forIndexPath:indexPath];
     
-    
     NSString *title = [self.masterQueue getTitleAtIndex:indexPath.row];
     
     cell.textLabel.text = title;
-    
-    NSLog(@"song in row %ld is %@", (long)indexPath.row, title);
     
     return cell;
 }
@@ -362,6 +393,16 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    self.MPplaying = NO;
+    self.SPTplaying = NO;
+    [self.mMusicPlayer stop];
+    [self.mSPTplayer stop:^(NSError *error) {
+        if (error != nil) {
+            NSLog(@"error: could not stop player");
+            return;
+        }
+    }];
     
     if ([self.masterQueue itemAtIndexIsMP:indexPath.row]) {
         MPMediaItem *selectedSong = (MPMediaItem *)[self.masterQueue getItemAtIndexAndSetAsCurrent:indexPath.row];

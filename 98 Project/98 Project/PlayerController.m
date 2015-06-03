@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *playPauseButton;
 
 @property (nonatomic, strong) MPMusicPlayerController *mMusicPlayer;
+@property (nonatomic, strong) SPTAudioStreamingController *mSPTplayer;
 
 @end
 
@@ -26,6 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.mMusicPlayer = (AppDelegateRef).musicPlayer;
+    self.mSPTplayer = (AppDelegateRef).masterSPTplayer;
     
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     

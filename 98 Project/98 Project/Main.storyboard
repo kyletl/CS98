@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wwp-Te-KiB">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -145,10 +145,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Spotify Playlists" prompt="Add a playlist to the queue." id="s0a-X6-lVZ">
-                        <barButtonItem key="backBarButtonItem" title="Cancel" id="TRd-EO-dNl"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="SFh-eF-9bP">
                             <connections>
-                                <segue destination="9sp-7a-SC3" kind="showDetail" identifier="ReturnCancel" id="DGG-sQ-aV7"/>
+                                <segue destination="zUz-tL-ZJv" kind="unwind" unwindAction="unwindCancelFromSpotifyPicker:" id="gos-8v-tRg"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="FWe-Rn-cIx">
@@ -159,8 +158,9 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2rX-kq-lZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="zUz-tL-ZJv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-649" y="-2963"/>
+            <point key="canvasLocation" x="-109" y="-2963"/>
         </scene>
         <!--Player Controller-->
         <scene sceneID="8xz-pm-mAL">
@@ -332,6 +332,6 @@
         <image name="./dartmouth.png" width="562" height="1208"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FZ0-N9-EbA"/>
+        <segue reference="pTJ-dM-gPL"/>
     </inferredMetricsTieBreakers>
 </document>
