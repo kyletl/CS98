@@ -23,6 +23,7 @@
 		881B3EE61B1EDD5A0046DD42 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881B3EE51B1EDD5A0046DD42 /* Spotify.framework */; };
 		881B3EE81B1EF7440046DD42 /* SpotifyHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 881B3EE71B1EF7440046DD42 /* SpotifyHelper.m */; };
 		881B3EEB1B1F248D0046DD42 /* dartmouth.png in Resources */ = {isa = PBXBuildFile; fileRef = 881B3EEA1B1F248D0046DD42 /* dartmouth.png */; };
+		881B3EEF1B1F2A3B0046DD42 /* dartmouth_winter.png in Resources */ = {isa = PBXBuildFile; fileRef = 881B3EEE1B1F2A3B0046DD42 /* dartmouth_winter.png */; };
 		88A8B2631B1E68480096866D /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A8B2621B1E68480096866D /* LoginController.m */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		881B3EE71B1EF7440046DD42 /* SpotifyHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifyHelper.m; sourceTree = "<group>"; };
 		881B3EE91B1EF75A0046DD42 /* SpotifyHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifyHelper.h; sourceTree = "<group>"; };
 		881B3EEA1B1F248D0046DD42 /* dartmouth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dartmouth.png; sourceTree = "<group>"; };
+		881B3EEE1B1F2A3B0046DD42 /* dartmouth_winter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dartmouth_winter.png; sourceTree = "<group>"; };
 		88A8B2611B1E68480096866D /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		88A8B2621B1E68480096866D /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +113,7 @@
 		001B87271AE856AB005D8A2B /* 98 Project */ = {
 			isa = PBXGroup;
 			children = (
+				881B3EEE1B1F2A3B0046DD42 /* dartmouth_winter.png */,
 				881B3EEA1B1F248D0046DD42 /* dartmouth.png */,
 				881B3EE91B1EF75A0046DD42 /* SpotifyHelper.h */,
 				881B3EE71B1EF7440046DD42 /* SpotifyHelper.m */,
@@ -242,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				881B3EEF1B1F2A3B0046DD42 /* dartmouth_winter.png in Resources */,
 				881B3EEB1B1F248D0046DD42 /* dartmouth.png in Resources */,
 				00A4CF791AE919AE00DBBE3C /* Main.storyboard in Resources */,
 				001B87391AE856AB005D8A2B /* LaunchScreen.xib in Resources */,
