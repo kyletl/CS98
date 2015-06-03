@@ -22,6 +22,8 @@
     [super viewDidLoad];
     self.mMusicPlayer = (AppDelegateRef).musicPlayer;
     
+    NSLog(@"Queue Controller: %@", self.mMusicPlayer);
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,7 +88,6 @@
 
 - (void) updateQueueWithCollection: (NSArray *) collection {
 
-    NSLog(@"made it to queue controller with %@", collection);
     // Add 'collection' to the music player's playback queue, but only if
     //    the user chose at least one song to play.
     if (collection) {
@@ -193,21 +194,26 @@
 }
 */
 
-/*
+
 #pragma mark - Table view delegate
 
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    MPMediaItem *selectedSong = [self.playQueue items][indexPath.row];
+    [self.mMusicPlayer setNowPlayingItem:selectedSong];
+    
+    
     // Navigation logic may go here, for example:
     // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
-    
+
+//    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
+//    
     // Pass the selected object to the new view controller.
     
     // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
+//    [self.navigationController pushViewController:detailViewController animated:YES];
 }
-*/
+
 
 /*
 #pragma mark - Navigation

@@ -75,7 +75,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QueuedItem" id="vfB-7U-3l7">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="QueuedItem" id="vfB-7U-3l7">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vfB-7U-3l7" id="6wb-cu-0xH">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -120,26 +120,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zLn-zs-xTM">
                                 <rect key="frame" x="153" y="64" width="300" height="300"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4k-pf-G3U">
-                                <rect key="frame" x="190" y="497" width="30" height="30"/>
-                                <state key="normal" title="&lt;&lt;">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="previous:" destination="kxg-WQ-GUn" eventType="touchUpInside" id="HfV-8B-lb5"/>
-                                    <action selector="previous:" destination="stb-Xt-z0A" eventType="touchUpInside" id="VgK-De-rMC"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbC-65-dat">
-                                <rect key="frame" x="381" y="497" width="30" height="30"/>
-                                <state key="normal" title="&gt;&gt;">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="next:" destination="stb-Xt-z0A" eventType="touchUpInside" id="RwG-Rx-riW"/>
-                                    <action selector="next:" destination="kxg-WQ-GUn" eventType="touchUpInside" id="ugi-8U-t2C"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQq-fj-c8u" userLabel="Title">
                                 <rect key="frame" x="287" y="393" width="33" height="21"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -168,7 +148,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNH-xF-qHA">
-                                <rect key="frame" x="260" y="497" width="86" height="30"/>
+                                <rect key="frame" x="260" y="480" width="85" height="60"/>
                                 <state key="normal" title="Play">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -177,16 +157,34 @@
                                     <action selector="playPause:" destination="stb-Xt-z0A" eventType="touchUpInside" id="kvR-FC-mHh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4k-pf-G3U">
+                                <rect key="frame" x="160" y="480" width="60" height="60"/>
+                                <state key="normal" title="&lt;&lt;">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="previous:" destination="kxg-WQ-GUn" eventType="touchUpInside" id="wuW-2z-xRf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbC-65-dat">
+                                <rect key="frame" x="381" y="480" width="60" height="60"/>
+                                <state key="normal" title="&gt;&gt;">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="next:" destination="kxg-WQ-GUn" eventType="touchUpInside" id="9s0-A7-IeK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="eQq-fj-c8u" secondAttribute="centerX" id="0Eh-Mr-drU"/>
-                            <constraint firstItem="dbC-65-dat" firstAttribute="leading" secondItem="KNH-xF-qHA" secondAttribute="trailing" constant="35" id="82k-Wn-XRS"/>
                             <constraint firstAttribute="centerX" secondItem="zLn-zs-xTM" secondAttribute="centerX" id="Mmh-yV-Vu6"/>
+                            <constraint firstItem="dbC-65-dat" firstAttribute="leading" secondItem="KNH-xF-qHA" secondAttribute="trailing" constant="30" id="aoy-BZ-NNz"/>
+                            <constraint firstItem="KNH-xF-qHA" firstAttribute="leading" secondItem="C4k-pf-G3U" secondAttribute="trailing" constant="30" id="jDI-5T-HNn"/>
                             <constraint firstAttribute="centerX" secondItem="hPT-RJ-dc1" secondAttribute="centerX" id="nSl-Fp-A2j"/>
-                            <constraint firstItem="KNH-xF-qHA" firstAttribute="leading" secondItem="C4k-pf-G3U" secondAttribute="trailing" constant="40" id="v5A-r9-1Jb"/>
+                            <constraint firstAttribute="centerX" secondItem="KNH-xF-qHA" secondAttribute="centerX" id="upo-jW-aby"/>
                             <constraint firstAttribute="centerX" secondItem="7Y0-YA-s2i" secondAttribute="centerX" id="vas-Fi-ZjY"/>
-                            <constraint firstAttribute="centerX" secondItem="KNH-xF-qHA" secondAttribute="centerX" id="xHB-h7-eO4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Qax-fp-KId">

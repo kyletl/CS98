@@ -147,7 +147,7 @@
                                 <color key="textColor" red="0.97814254373944198" green="0.98725848998845667" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVS-Cl-L6D">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVS-Cl-L6D">
                                 <rect key="frame" x="67" y="479" width="50" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="s1D-EK-Csg"/>
@@ -160,7 +160,7 @@
                                     <action selector="rewind:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="VWx-Fb-BCb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQS-IA-EZ2">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQS-IA-EZ2">
                                 <rect key="frame" x="137" y="479" width="77" height="30"/>
                                 <state key="normal" title="Play/Pause">
                                     <color key="titleColor" red="0.62807674229999999" green="1" blue="0.59483990919999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -170,7 +170,7 @@
                                     <action selector="playPause:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Q2O-UO-Sfd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPW-Ng-mc8">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPW-Ng-mc8">
                                 <rect key="frame" x="234" y="479" width="50" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="H8l-bp-Drg"/>
@@ -192,7 +192,7 @@
                                     <constraint firstAttribute="width" secondItem="9f5-hL-PF7" secondAttribute="height" id="Bsu-Q8-uXa"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTr-Qd-kUw">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTr-Qd-kUw">
                                 <rect key="frame" x="108" y="512" width="134" height="30"/>
                                 <state key="normal" title="Log out from player">
                                     <color key="titleColor" red="0.46784092586385861" green="1" blue="0.44851382665166906" alpha="1" colorSpace="calibratedRGB"/>
