@@ -41,7 +41,7 @@
     if(self.navigationController.topViewController == self) {
         SPTAuth *auth = [SPTAuth defaultInstance];
         if (auth.session && [auth.session isValid]) {
-            [self performSegueWithIdentifier:@"ShowPlayer" sender:nil];
+            [self performSegueWithIdentifier:@"EnterQueue" sender:nil];
         }
     }
 }
@@ -109,7 +109,7 @@
     // Check if it's still valid
     if ([auth.session isValid]) {
         // It's still valid, show the player.
-        [self performSegueWithIdentifier:@"ShowPlayer" sender:nil];
+        [self performSegueWithIdentifier:@"EnterQueue" sender:nil];
         return;
     }
 

@@ -18,7 +18,6 @@
 		7B74E4651AE87BCC00B77FCC /* SpotifyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B74E4631AE87BCC00B77FCC /* SpotifyController.m */; };
 		7B74E4681AE8825600B77FCC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B74E4671AE8825600B77FCC /* AVFoundation.framework */; };
 		7B74E4701AE8BD0E00B77FCC /* QueueController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B74E46E1AE8BD0E00B77FCC /* QueueController.m */; };
-		7B74E4751AE8BD7E00B77FCC /* iTunesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B74E4731AE8BD7E00B77FCC /* iTunesController.m */; };
 		88A8B2631B1E68480096866D /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A8B2621B1E68480096866D /* LoginController.m */; };
 /* End PBXBuildFile section */
 
@@ -53,8 +52,6 @@
 		7B74E4631AE87BCC00B77FCC /* SpotifyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpotifyController.m; path = ../SpotifyController.m; sourceTree = "<group>"; };
 		7B74E4671AE8825600B77FCC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7B74E46E1AE8BD0E00B77FCC /* QueueController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueController.m; sourceTree = "<group>"; };
-		7B74E4721AE8BD7E00B77FCC /* iTunesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunesController.h; sourceTree = "<group>"; };
-		7B74E4731AE8BD7E00B77FCC /* iTunesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTunesController.m; sourceTree = "<group>"; };
 		88A8B2611B1E68480096866D /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		88A8B2621B1E68480096866D /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,8 +108,6 @@
 				7B74E4631AE87BCC00B77FCC /* SpotifyController.m */,
 				00A4CF761AE90F0F00DBBE3C /* QueueController.h */,
 				7B74E46E1AE8BD0E00B77FCC /* QueueController.m */,
-				7B74E4721AE8BD7E00B77FCC /* iTunesController.h */,
-				7B74E4731AE8BD7E00B77FCC /* iTunesController.m */,
 				001B872C1AE856AB005D8A2B /* AppDelegate.h */,
 				001B872D1AE856AB005D8A2B /* AppDelegate.m */,
 				00A4CF781AE919AE00DBBE3C /* Main.storyboard */,
@@ -254,7 +249,6 @@
 				001B872E1AE856AB005D8A2B /* AppDelegate.m in Sources */,
 				7B74E4701AE8BD0E00B77FCC /* QueueController.m in Sources */,
 				7B74E4651AE87BCC00B77FCC /* SpotifyController.m in Sources */,
-				7B74E4751AE8BD7E00B77FCC /* iTunesController.m in Sources */,
 				006C12821AF1E84300DA0093 /* PlayerController.m in Sources */,
 				001B872B1AE856AB005D8A2B /* main.m in Sources */,
 			);
