@@ -131,17 +131,22 @@
     return nil;
 }
 
-//-(NSString *)getTitleAtIndex:(int)index {
-//    return nil;
-//}
-//
-//-(NSString *)getArtistAtIndex:(int)index {
-//    return nil;
-//}
-//
-//-(NSString *)getAlbumAtIndex:(int)index {
-//    return nil;
-//}
+-(NSString *)getTitleAtIndex:(NSInteger)index {
+    if ([self itemAtIndexIsMP:index]) {
+        return ((MPMediaItem *)self.playQueue[index]).title;
+    } else {
+        //spotify logic
+    }
+    return nil;
+}
+
+-(NSString *)getArtistAtIndex:(int)index {
+    
+}
+
+-(NSString *)getAlbumAtIndex:(int)index {
+    return nil;
+}
 
 
 @end
