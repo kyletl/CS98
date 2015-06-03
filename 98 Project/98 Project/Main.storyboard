@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wwp-Te-KiB">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -19,7 +19,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M7n-bP-8Yb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2224" y="-2923"/>
+            <point key="canvasLocation" x="-2224" y="-2963"/>
         </scene>
         <!--Login Controller-->
         <scene sceneID="DJc-mJ-r0J">
@@ -33,19 +33,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="dartmouth.png" translatesAutoresizingMaskIntoConstraints="NO" id="g87-z7-vra">
-                                <rect key="frame" x="0.0" y="0.0" width="605" height="600"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="g87-z7-vra" secondAttribute="height" multiplier="121:120" id="jpa-ZY-KRt"/>
-                                    <constraint firstAttribute="width" secondItem="g87-z7-vra" secondAttribute="height" multiplier="121:120" id="xLQ-J2-25s"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="jpa-ZY-KRt"/>
-                                        <exclude reference="xLQ-J2-25s"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Authentication Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2n-Xs-CmD">
                                 <rect key="frame" x="219" y="486" width="166" height="21"/>
                                 <constraints>
@@ -69,6 +56,19 @@
                                     <action selector="loginClicked:" destination="Wwp-Te-KiB" eventType="touchUpInside" id="gZr-EK-odT"/>
                                 </connections>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="dartmouth.png" translatesAutoresizingMaskIntoConstraints="NO" id="g87-z7-vra">
+                                <rect key="frame" x="0.0" y="0.0" width="605" height="600"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="g87-z7-vra" secondAttribute="height" multiplier="121:120" id="jpa-ZY-KRt"/>
+                                    <constraint firstAttribute="width" secondItem="g87-z7-vra" secondAttribute="height" multiplier="121:120" id="xLQ-J2-25s"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="jpa-ZY-KRt"/>
+                                        <exclude reference="xLQ-J2-25s"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -377,7 +377,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iOB-Ti-UQu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="YXL-3D-vjn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-91" y="-2875"/>
+            <point key="canvasLocation" x="-99" y="-2963"/>
         </scene>
     </scenes>
     <resources>

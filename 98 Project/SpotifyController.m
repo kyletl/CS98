@@ -13,15 +13,6 @@
 
 @interface SpotifyController () //<SPTAudioStreamingDelegate>
 
-//@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *albumLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *artistLabel;
-//@property (weak, nonatomic) IBOutlet UIImageView *coverView;
-//@property (weak, nonatomic) IBOutlet UIImageView *coverView2;
-//@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
-
-//@property (nonatomic, strong) SPTAudioStreamingController *player;
-
 @property NSMutableArray *playlists;
 @property NSMutableArray *selectedTracks;
 
@@ -40,8 +31,6 @@
     NSLog(@"View did appear -- SpotifyController");
     
     [self handleNewSession];
-//    self.playlists = [[NSMutableArray alloc] init];
-//    self.selectedTracks = [[NSMutableArray alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,18 +45,6 @@
     
     NSLog(@"Got auth, attempting to fetch all user playlists");
     
-    //    if (self.player == nil) {
-    //        self.player = [[SPTAudioStreamingController alloc] initWithClientId:auth.clientID];
-    //        self.player.playbackDelegate = self;
-    //        self.player.diskCache = [[SPTDiskCache alloc] initWithCapacity:1024*1024*64];
-    //    }
-    //
-    //    [self.player loginWithSession:auth.session callback:^(NSError *error) {
-    //        if (error != nil) {
-    //            NSLog(@"*** Enable playback got error: %@", error);
-    //            return;
-    //        }
-    
     [SpotifyHelper fetchAllUserPlaylistsWithSession:auth.session callback:^(NSError *err, NSArray *array) {
         if (err != nil) {
             NSLog(@"Failed unpacking or retrieving playlists with error: %@", err);
@@ -80,26 +57,6 @@
         }
         [self.tableView reloadData];
      }];
-
-    
-//    [SPTPlaylistList playlistsForUserWithSession:auth.session callback:^(NSError *error, id object) {
-//        if (error != nil) {
-//            NSLog(@"Retrieve user playlists got error: %@", error);
-//            return;
-//        } else {
-//            NSMutableArray* allPlaylists = [NSMutableArray array];
-//            
-//            if ([object isKindOfClass:[SPTPlaylistList class]]) {
-//                SPTPlaylistList *playlistList = (SPTPlaylistList *)object; // cast to
-//                
-//                for (SPTPartialPlaylist *playlist in playlistList.items) {
-//                    [allPlaylists addObject:playlist];
-//                }
-//                
-//            }
-//        }
-//        
-//    }];
 
 }
 
@@ -135,22 +92,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    SPTAuth* auth = [SPTAuth defaultInstance];
-
     SPTPartialPlaylist *chosen = self.playlists[indexPath.row];
-//    [SpotifyHelper fetchPlaylistTracks:auth.session playlist:chosen finalCallback:^(NSError *error, NSArray *array) {
-//        if (error != nil) {
-//            NSLog(@"Received error when unpacking tracks: %@", error);
-//            return;
-//        }
-//        NSLog(@"retrieved tracks are %@", array);
-//        if (self.selectedTracks == nil) {
-//            self.selectedTracks = [[NSMutableArray alloc] initWithArray:array];
-//        } else {
-//            [self.selectedTracks addObjectsFromArray:array];
-//        }
-//    }];
-    
     
     // navigate to the detail view for track selection
     [self performSegueWithIdentifier:@"SpotifyTracks" sender:chosen];
@@ -168,13 +110,7 @@
 //    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
-
-
 #pragma mark - Navigation
-
-//- (IBAction)spotifyFinished:(id)sender {
-//    [self performSegueWithIdentifier:@"ReturnSelect" sender:nil];
-//}
 
 - (IBAction) unwindDoneFromTrackView:(UIStoryboardSegue *) segue {
     return;
@@ -189,12 +125,9 @@
 //     Get the new view controller using [segue destinationViewController].
 //     Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"ReturnSelect"]) {
-//        UINavigationController *navctl = [segue destinationViewController];
-//        QueueController *qctl = (QueueController *)[navctl topViewController];
         QueueController *qctl = (QueueController *)[segue destinationViewController];
         NSLog(@"In Spotify Controller, tracks are %@", self.selectedTracks);
         qctl.SPTtracks = self.selectedTracks;
-//        [qctl addSpotifyTracks];
     } else if ([[segue identifier] isEqualToString:@"SpotifyTracks"]) {
         SpotifyTrackController *trkctl = [segue destinationViewController];
         trkctl.currList = (SPTPartialPlaylist *) sender;
