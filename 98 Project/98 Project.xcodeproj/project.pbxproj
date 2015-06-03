@@ -14,6 +14,7 @@
 		001B87451AE856AB005D8A2B /* _8_ProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 001B87441AE856AB005D8A2B /* _8_ProjectTests.m */; };
 		006C12821AF1E84300DA0093 /* PlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 006C12811AF1E5B900DA0093 /* PlayerController.m */; };
 		006CCF041B1ECCC6001A15BB /* MultipleMediaQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 006CCF031B1ECCC6001A15BB /* MultipleMediaQueue.m */; };
+		006CCF081B1EEB86001A15BB /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881B3EE51B1EDD5A0046DD42 /* Spotify.framework */; };
 		00A4CF791AE919AE00DBBE3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A4CF781AE919AE00DBBE3C /* Main.storyboard */; };
 		7B74E4651AE87BCC00B77FCC /* SpotifyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B74E4631AE87BCC00B77FCC /* SpotifyController.m */; };
 		7B74E4681AE8825600B77FCC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B74E4671AE8825600B77FCC /* AVFoundation.framework */; };
@@ -65,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				006CCF081B1EEB86001A15BB /* Spotify.framework in Frameworks */,
 				7B74E4681AE8825600B77FCC /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
