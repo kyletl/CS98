@@ -54,7 +54,7 @@
     
     SPTAuth *auth = [SPTAuth defaultInstance];
     
-    NSLog(@"Got auth, attempting to fetch all user playlists", auth);
+    NSLog(@"Got auth, attempting to fetch all user playlists");
     
     //    if (self.player == nil) {
     //        self.player = [[SPTAudioStreamingController alloc] initWithClientId:auth.clientID];
@@ -120,7 +120,7 @@
             SPTPlaylistList *playlistList = (SPTPlaylistList *)object;
             
             for (SPTPartialPlaylist *playlist in playlistList.items) {
-                NSLog(@"Adding playlist: %s", playlist.name);
+                NSLog(@"Adding playlist: %@", playlist.name);
                 [allPlaylists addObject:playlist];
             }
             
