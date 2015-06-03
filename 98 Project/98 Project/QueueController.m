@@ -31,13 +31,38 @@
     self.mSPTplayer = (AppDelegateRef).masterSPTplayer;
     
     SPTAuth *auth = [SPTAuth defaultInstance];
-    if (self.mSPTplayer == nil) {
-        self.mSPTplayer = [[SPTAudioStreamingController alloc] initWithClientId:auth.clientID];
-        self.mSPTplayer.playbackDelegate = self;
-        self.mSPTplayer.diskCache = [[SPTDiskCache alloc] initWithCapacity:1024 * 1024 * 64];
 
-    }
+    self.mSPTplayer.playbackDelegate = self;
+    
+    NSLog(@"Global Spotify Player: %@", (AppDelegateRef).masterSPTplayer);
+    NSLog(@"Local Spotify Player: %@", self.mSPTplayer);
 
+    
+    [self.mSPTplayer loginWithSession:auth.session callback:^(NSError *error) {
+        
+        if (error != nil) {
+            NSLog(@"*** Enabling playback got error: %@", error);
+            return;
+        }
+        
+//        [self updateUI];
+        
+        NSURLRequest *playlistReq = [SPTPlaylistSnapshot createRequestForPlaylistWithURI:[NSURL URLWithString:@"spotify:user:cariboutheband:playlist:4Dg0J0ICj9kKTGDyFu0Cv4"]
+                                                                             accessToken:auth.session.accessToken
+                                                                                   error:nil];
+        
+        [[SPTRequest sharedHandler] performRequest:playlistReq callback:^(NSError *error, NSURLResponse *response, NSData *data) {
+            if (error != nil) {
+                NSLog(@"*** Failed to get playlist %@", error);
+                return;
+            }
+            
+            SPTPlaylistSnapshot *playlistSnapshot = [SPTPlaylistSnapshot playlistSnapshotFromData:data withResponse:response error:nil];
+            
+            [self.mSPTplayer playURIs:playlistSnapshot.firstTrackPage.items fromIndex:0 callback:nil];
+        }];
+    }];
+    
 
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     
@@ -304,19 +329,6 @@
         if (self.masterQueue == nil) {
             self.masterQueue = [[MultipleMediaQueue alloc] initWithItems: collection];
             SPTPartialTrack *song = (SPTPartialTrack *)[self.masterQueue getCurrent];
-//            SPTAuth *auth = [SPTAuth defaultInstance];
-//            
-//            [self.mSPTplayer loginWithSession:auth.session callback:^(NSError *error) {
-//                if (error != nil) {
-//                    NSLog(@"*** Enabling playback got error: %@", error);
-//                    return;
-//                }
-//                
-//                [self.mSPTplayer playURIs:@[song.playableUri] fromIndex:0 callback:nil];
-//                self.MPplaying = NO;
-//                self.SPTplaying = YES;
-//            }];
-//
             [self startSPTSong: song];
         } else {
             [self.masterQueue addItemsFromArray: collection];

@@ -39,6 +39,12 @@
     #endif
     auth.sessionUserDefaultsKey = @kSessionUserDefaultsKey;
     
+    if (self.masterSPTplayer == nil) {
+        self.masterSPTplayer = [[SPTAudioStreamingController alloc] initWithClientId:auth.clientID];
+        self.masterSPTplayer.diskCache = [[SPTDiskCache alloc] initWithCapacity:1024 * 1024 * 64];
+    }
+    
+    
     return YES;
 }
 
