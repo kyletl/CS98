@@ -16,6 +16,10 @@
 
 @implementation MultipleMediaQueue
 
+-(NSInteger) itemCount {
+    return [self.playQueue count];
+}
+
 -(id) init {
     self = [super init];
     if (self) {
@@ -70,7 +74,7 @@
     return nil;
 }
 
--(BOOL)itemAtIndexIsMP:(int)index {
+-(BOOL)itemAtIndexIsMP:(NSInteger)index {
     if (index < [self.playQueue count] && index > -1) {
         NSObject *item = self.playQueue[index];
         return [item isKindOfClass: [MPMediaItem class]];
@@ -80,7 +84,7 @@
 
 
 //at the moment, spotify tracks are stored as their URI strings
--(BOOL)itemAtIndexIsSPT:(int)index {
+-(BOOL)itemAtIndexIsSPT:(NSInteger)index {
     if (index < [self.playQueue count] && index > -1) {
         NSObject *item = self.playQueue[index];
         return [item isKindOfClass: [NSString class]];
@@ -98,6 +102,7 @@
 -(NSObject *)getNext {
     if ([self hasNext]) {
         self.current++;
+        NSLog(@"Current: %d", self.current);
         return self.playQueue[self.current];
     }
     return nil;
@@ -111,32 +116,32 @@
     return nil;
 }
 
--(NSObject *)getItemAtIndex:(int)index {
+-(NSObject *)getItemAtIndex:(NSInteger)index {
     if (index < [self.playQueue count] && index > -1) {
         return self.playQueue[index];
     }
     return nil;
 }
 
--(NSObject *)getItemAtIndexAndSetAsCurrent:(int)index {
+-(NSObject *)getItemAtIndexAndSetAsCurrent:(NSInteger)index {
     if (index < [self.playQueue count] && index > -1) {
-        self.current = index;
+        self.current = (int)index;
         return self.playQueue[self.current];
     }
     return nil;
 }
 
--(NSString *)getTitleAtIndex:(int)index {
-    return nil;
-}
-
--(NSString *)getArtistAtIndex:(int)index {
-    return nil;
-}
-
--(NSString *)getAlbumAtIndex:(int)index {
-    return nil;
-}
+//-(NSString *)getTitleAtIndex:(int)index {
+//    return nil;
+//}
+//
+//-(NSString *)getArtistAtIndex:(int)index {
+//    return nil;
+//}
+//
+//-(NSString *)getAlbumAtIndex:(int)index {
+//    return nil;
+//}
 
 
 @end

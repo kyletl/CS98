@@ -381,7 +381,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"../ios-sdk-beta-7",
-					"/Users/kyletl/Desktop/15S/CS98/ios-sdk-beta-8",
+					"../ios-sdk-beta-8",
 				);
 				INFOPLIST_FILE = "98 Project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -399,7 +399,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"../ios-sdk-beta-7",
-					"/Users/kyletl/Desktop/15S/CS98/ios-sdk-beta-8",
+					"../ios-sdk-beta-8",
 				);
 				INFOPLIST_FILE = "98 Project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

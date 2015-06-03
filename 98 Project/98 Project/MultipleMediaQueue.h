@@ -14,6 +14,8 @@
 
 @property NSMutableArray *playQueue;
 
+-(NSInteger) itemCount;
+
 -(id) init;
 
 -(id) initWithItems:(NSArray *)items;
@@ -28,9 +30,9 @@
 
 -(BOOL)nextIsSPT;
 
--(BOOL)itemAtIndexIsMP:(int)index;
+-(BOOL)itemAtIndexIsMP:(NSInteger)index;
 
--(BOOL)itemAtIndexIsSPT:(int)index;
+-(BOOL)itemAtIndexIsSPT:(NSInteger)index;
 
 -(NSObject *)getCurrent;
 
@@ -38,13 +40,13 @@
 
 -(NSObject *)getPrevious;
 
--(NSObject *)getItemAtIndex:(int)index;
+-(NSObject *)getItemAtIndex:(NSInteger)index;
 
--(NSObject *)getItemAtIndexAndSetAsCurrent:(int)index;
+-(NSObject *)getItemAtIndexAndSetAsCurrent:(NSInteger)index;
 
--(NSString *)getTitleAtIndex:(int)index;
-
--(NSString *)getArtistAtIndex:(int)index;
-
--(NSString *)getAlbumAtIndex:(int)index;
+//-(NSString *)getTitleAtIndex:(int)index;
+//
+//-(NSString *)getArtistAtIndex:(int)index;
+//
+//-(NSString *)getAlbumAtIndex:(int)index;
 @end
