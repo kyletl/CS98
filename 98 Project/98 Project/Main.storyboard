@@ -32,6 +32,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="/Users/imac/Desktop/develop/98 Project/98 Project/dartmouth.png" translatesAutoresizingMaskIntoConstraints="NO" id="g87-z7-vra">
+                                <rect key="frame" x="0.0" y="0.0" width="605" height="600"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="g87-z7-vra" secondAttribute="height" multiplier="121:120" id="jpa-ZY-KRt"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ez-W5-uaz">
                                 <rect key="frame" x="252" y="366" width="97" height="30"/>
                                 <state key="normal" title="Clear Cookies">
@@ -54,7 +60,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="g87-z7-vra" secondAttribute="centerX" id="1Kf-lu-GGD"/>
                             <constraint firstAttribute="centerX" secondItem="O2n-Xs-CmD" secondAttribute="centerX" id="7KO-Jq-0sy"/>
+                            <constraint firstAttribute="centerY" secondItem="g87-z7-vra" secondAttribute="centerY" id="EMf-Dp-nmm"/>
+                            <constraint firstAttribute="centerY" secondItem="g87-z7-vra" secondAttribute="centerY" id="Nf6-Qm-LyH"/>
+                            <constraint firstAttribute="centerX" secondItem="g87-z7-vra" secondAttribute="centerX" id="Qlh-9y-Xre"/>
                             <constraint firstAttribute="centerX" secondItem="RVv-ct-fc9" secondAttribute="centerX" id="ghM-Dc-dZl"/>
                             <constraint firstAttribute="centerX" secondItem="8Ez-W5-uaz" secondAttribute="centerX" id="vcz-Sh-KmH"/>
                         </constraints>
@@ -110,7 +120,7 @@
             </objects>
             <point key="canvasLocation" x="-1508" y="-2963"/>
         </scene>
-        <!--Spotify Controller-->
+        <!--Spotify Playlists-->
         <scene sceneID="g7D-UL-8Pw">
             <objects>
                 <tableViewController id="oWG-Dq-IRu" customClass="SpotifyController" sceneMemberID="viewController">
@@ -131,10 +141,19 @@
                             <outlet property="delegate" destination="oWG-Dq-IRu" id="ZlR-4K-fZn"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="s0a-X6-lVZ"/>
-                    <connections>
-                        <segue destination="UEk-cu-piU" kind="showDetail" identifier="ReturnSelect" id="hCE-WH-hFX"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Spotify Playlists" prompt="Add a playlist to the queue." id="s0a-X6-lVZ">
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="TRd-EO-dNl"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="SFh-eF-9bP">
+                            <connections>
+                                <segue destination="UEk-cu-piU" kind="showDetail" identifier="ReturnCancel" id="Ipc-bH-eVM"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="FWe-Rn-cIx">
+                            <connections>
+                                <segue destination="UEk-cu-piU" kind="showDetail" identifier="ReturnSelect" id="SlX-gi-uKX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2rX-kq-lZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -279,7 +298,10 @@
             <point key="canvasLocation" x="-649" y="-3717"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="/Users/imac/Desktop/develop/98 Project/98 Project/dartmouth.png" width="562" height="1208"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hCE-WH-hFX"/>
+        <segue reference="3pX-2h-kts"/>
     </inferredMetricsTieBreakers>
 </document>
