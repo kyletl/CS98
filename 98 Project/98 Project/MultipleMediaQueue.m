@@ -64,14 +64,28 @@
     if ([self hasNext]) {
         return [self itemAtIndexIsMP:(self.current + 1)];
     }
-    return nil;
+    return NO;
 }
 
 -(BOOL)nextIsSPT {
     if ([self hasNext]) {
         return [self itemAtIndexIsSPT:(self.current + 1)];
     }
-    return nil;
+    return NO;
+}
+
+-(BOOL)prevIsMP {
+    if ([self hasPrevious]) {
+        return [self itemAtIndexIsMP:(self.current - 1)];
+    }
+    return NO;
+}
+
+-(BOOL)prevIsSPT {
+    if ([self hasPrevious]) {
+        return [self itemAtIndexIsSPT:(self.current - 1)];
+    }
+    return NO;
 }
 
 -(BOOL)itemAtIndexIsMP:(NSInteger)index {
@@ -79,7 +93,7 @@
         NSObject *item = self.playQueue[index];
         return [item isKindOfClass: [MPMediaItem class]];
     }
-    return nil;
+    return NO;
 }
 
 
@@ -89,7 +103,7 @@
         NSObject *item = self.playQueue[index];
         return [item isKindOfClass: [SPTPartialTrack class]];
     }
-    return nil;
+    return NO;
 }
 
 -(NSObject *)getCurrent {

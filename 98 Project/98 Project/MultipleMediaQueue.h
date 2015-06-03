@@ -30,6 +30,10 @@
 
 -(BOOL)nextIsSPT;
 
+-(BOOL)prevIsMP;
+
+-(BOOL)prevIsSPT;
+
 -(BOOL)itemAtIndexIsMP:(NSInteger)index;
 
 -(BOOL)itemAtIndexIsSPT:(NSInteger)index;

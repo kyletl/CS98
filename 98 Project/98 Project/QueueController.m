@@ -13,7 +13,7 @@
 @interface QueueController ()
 
 
-@property MPMediaItemCollection *playQueue;
+//@property MPMediaItemCollection *playQueue;
 @property MultipleMediaQueue *masterQueue;
 @property (weak, nonatomic) MPMusicPlayerController *mMusicPlayer;
 @property (weak, nonatomic) SPTAudioStreamingController *mSPTplayer;
@@ -86,29 +86,40 @@
 
 #pragma mark - Next song choosing methods
 
+-(void)startPreviousSong {
+    if ([self.masterQueue hasPrevious]) {
+        NSObject *previousSong = [self.masterQueue getPrevious];
+        if ([self.masterQueue prevIsMP]) {
+            [self startMPSong:(MPMediaItem *)previousSong];
+        } else if ([self.masterQueue prevIsSPT]) {
+            [self startSPTSong:(SPTPartialTrack *)previousSong];
+        }
+    }
+}
+
 -(void)startNextSong {
     if ([self.masterQueue hasNext]) {
         NSObject *nextSong = [self.masterQueue getNext];
         if ([self.masterQueue nextIsMP]) {
             [self startMPSong:(MPMediaItem *)nextSong];
-        } else {
+        } else if ([self.masterQueue nextIsSPT]) {
             [self startSPTSong:(SPTPartialTrack *)nextSong];
         }
     }
 }
 
--(void)startMPSong:(MPMediaItem *)nextSong {
-    NSLog(@"Starting next MP song: %@", nextSong.title);
-    MPMediaItemCollection *nextSingleQueue = [[MPMediaItemCollection alloc] initWithItems:@[nextSong]];
+-(void)startMPSong:(MPMediaItem *)song {
+    NSLog(@"Starting next MP song: %@", song.title);
+    MPMediaItemCollection *nextSingleQueue = [[MPMediaItemCollection alloc] initWithItems:@[song]];
     [self.mMusicPlayer setQueueWithItemCollection:nextSingleQueue];
     [self.mMusicPlayer play];
 }
 
--(void)startSPTSong:(SPTPartialTrack *)nextSong {
-    NSLog(@"Starting next SPT song: %@", nextSong.name);
-    [self.mSPTplayer playURIs:@[nextSong.playableUri] fromIndex:0 callback:^(NSError *error) {
+-(void)startSPTSong:(SPTPartialTrack *)song {
+    NSLog(@"Starting next SPT song: %@", song.name);
+    [self.mSPTplayer playURIs:@[song.playableUri] fromIndex:0 callback:^(NSError *error) {
         if (error != nil) {
-            NSLog(@"Failed to play track %@", nextSong.name);
+            NSLog(@"Failed to play track %@", song.name);
             return;
         }
     }];
@@ -214,6 +225,7 @@
                 [self startNextSong];
             }
         }
+        [self.tableView reloadData];
     }
 }
 

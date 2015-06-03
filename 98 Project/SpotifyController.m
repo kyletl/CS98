@@ -132,7 +132,7 @@
     SPTAuth* auth = [SPTAuth defaultInstance];
 
     SPTPartialPlaylist *chosen = self.playlists[indexPath.row];
-    [SpotifyHelper fetchPlaylistTracks:auth.session playlist:chosen callback:^(NSError *error, NSArray *array) {
+    [SpotifyHelper fetchPlaylistTracks:auth.session playlist:chosen finalCallback:^(NSError *error, NSArray *array) {
         if (error != nil) {
             NSLog(@"Received error when unpacking tracks: %@", error);
             return;

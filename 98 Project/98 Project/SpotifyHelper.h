@@ -15,9 +15,9 @@
 
 + (void)didFetchListPageForSession:(SPTSession *)session finalCallback:(void (^)(NSError*, NSArray*))finalCallback error:(NSError *)error object:(id)object allPlaylists:(NSMutableArray *)allPlaylists;
 
-+ (void)fetchPlaylistTracks:(SPTSession *)session playlist:(SPTPartialPlaylist *)playlist callback:(void (^)(NSError *, NSArray *))finalCallback;
++ (void)fetchPlaylistTracks:(SPTSession *)session playlist:(SPTPartialPlaylist *)playlist finalCallback:(void (^)(NSError *, NSArray *))finalCallback;
 
-+ (void)didFetchTrackPageForSession:(SPTSession *)session finalCallback:(void (^)(NSError *, NSArray*))finalCallback error:(NSError *)error allTracks:(NSMutableArray *)array;
++ (void)didFetchTrackPageForSession:(SPTSession *)session finalCallback:(void (^)(NSError *error, NSArray *))finalCallback error:(NSError *)error object:(id)object allTracks:(NSMutableArray *)allTracks;
 
 + (void)didFetchNextTrackPageForSession:(SPTSession *)session finalCallback:(void (^)(NSError *, NSArray*))finalCallback error:(NSError *)error object:(id)object allTracks:(NSMutableArray *)allTracks;
 
