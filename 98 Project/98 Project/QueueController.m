@@ -74,7 +74,6 @@
 #pragma mark - PlayerController notifications
 
 -(void)handle_nextTrackPressed:(id)notification {
-    
     NSLog(@"next track pressed");
     if (self.masterQueue) {
         if ([self.masterQueue hasNext]) {
@@ -156,22 +155,24 @@
 
 -(void)startPreviousSong {
     if ([self.masterQueue hasPrevious]) {
-        NSObject *previousSong = [self.masterQueue getPrevious];
         if ([self.masterQueue prevIsMP]) {
-            [self startMPSong:(MPMediaItem *)previousSong];
+            MPMediaItem *previousSong = (MPMediaItem *)[self.masterQueue getPrevious];
+            [self startMPSong:previousSong];
         } else if ([self.masterQueue prevIsSPT]) {
-            [self startSPTSong:(SPTPartialTrack *)previousSong];
+            SPTPartialTrack *previousSong = (SPTPartialTrack *)[self.masterQueue getPrevious];
+            [self startSPTSong:previousSong];
         }
     }
 }
 
 -(void)startNextSong {
     if ([self.masterQueue hasNext]) {
-        NSObject *nextSong = [self.masterQueue getNext];
         if ([self.masterQueue nextIsMP]) {
-            [self startMPSong:(MPMediaItem *)nextSong];
+            MPMediaItem *nextSong = (MPMediaItem *)[self.masterQueue getNext];
+            [self startMPSong: nextSong];
         } else if ([self.masterQueue nextIsSPT]) {
-            [self startSPTSong:(SPTPartialTrack *)nextSong];
+            SPTPartialTrack *nextSong = (SPTPartialTrack *)[self.masterQueue getNext];
+            [self startSPTSong: nextSong];
         }
     }
 }
@@ -264,9 +265,6 @@
             self.masterQueue = [[MultipleMediaQueue alloc] initWithItems: collection];
             MPMediaItem *song = (MPMediaItem *)[self.masterQueue getCurrent];
             [self startMPSong: song];
-//            MPMediaItemCollection *singleSongQueue = [[MPMediaItemCollection alloc] initWithItems:@[song]];
-//            [self.mMusicPlayer setQueueWithItemCollection:singleSongQueue];
-//            [self.mMusicPlayer play];
         } else {
             [self.masterQueue addItemsFromArray: collection];
             if (([self.mMusicPlayer playbackState] == MPMusicPlaybackStateStopped) && !(self.mSPTplayer.isPlaying)) {
@@ -285,12 +283,6 @@
             self.masterQueue = [[MultipleMediaQueue alloc] initWithItems: collection];
             SPTPartialTrack *song = (SPTPartialTrack *)[self.masterQueue getCurrent];
             [self startSPTSong: song];
-//            [self.mSPTplayer playURIs:@[song.playableUri] fromIndex:0 callback:^(NSError *error) {
-//                if (error != nil) {
-//                    NSLog(@"Failed to play track %@", song.name);
-//                    return;
-//                }
-//            }];
         } else {
             [self.masterQueue addItemsFromArray: collection];
             if (([self.mMusicPlayer playbackState] == MPMusicPlaybackStateStopped) && !(self.mSPTplayer.isPlaying)) {
@@ -306,56 +298,6 @@
 - (void) addSpotifyTracks:(NSArray *)selectedTracks {
     [self updateMasterQueueWithSpotifyCollection:selectedTracks];
 }
-
-//- (void) updateQueueWithCollection: (NSArray *) collection {
-//
-//    // Add 'collection' to the music player's playback queue, but only if
-//    //    the user chose at least one song to play.
-//    if (collection) {
-//
-////        // If there's no playback queue yet...
-//        if (self.playQueue == nil) {
-//            self.playQueue = [[MPMediaItemCollection alloc] initWithItems:collection];
-//            [self.mMusicPlayer setQueueWithItemCollection: self.playQueue];
-//            [self.mMusicPlayer play];
-//            NSLog(@"queue was nil, now %@", self.playQueue);
-//        } else {
-////             Obtain the music player's state so it can be restored after
-////                updating the playback queue.
-//            BOOL wasPlaying = NO;
-//            if (self.mMusicPlayer.playbackState == MPMusicPlaybackStatePlaying) {
-//                wasPlaying = YES;
-//            }
-//
-//            // Save the now-playing item and its current playback time.
-//            MPMediaItem *nowPlayingItem        = self.mMusicPlayer.nowPlayingItem;
-//            NSTimeInterval currentPlaybackTime = self.mMusicPlayer.currentPlaybackTime;
-//
-//            // Combine the previously-existing media item collection with
-//            //    the new one
-//            NSMutableArray *combinedMediaItems = [[self.playQueue items] mutableCopy];
-//            NSArray *newMediaItems = collection;
-//            [combinedMediaItems addObjectsFromArray: newMediaItems];
-//
-//            [self setPlayQueue:
-//             [MPMediaItemCollection collectionWithItems:
-//              (NSArray *) combinedMediaItems]];
-//
-//            [self.mMusicPlayer setQueueWithItemCollection: self.playQueue];
-//
-//            // Restore the now-playing item and its current playback time.
-//            self.mMusicPlayer.nowPlayingItem      = nowPlayingItem;
-//            self.mMusicPlayer.currentPlaybackTime = currentPlaybackTime;
-//
-//            if (wasPlaying) {
-//                [self.mMusicPlayer play];
-//            }
-//            NSLog(@"queue not nil, now %@", self.playQueue);
-//        }
-//        [self.tableView reloadData];
-//    }
-//}
-
 
 
 #pragma mark - Table view data source
