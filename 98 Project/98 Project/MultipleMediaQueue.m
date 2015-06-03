@@ -141,7 +141,7 @@
 }
 
 -(NSString *)getArtistAtIndex:(int)index {
-    
+    return nil;
 }
 
 -(NSString *)getAlbumAtIndex:(int)index {
