@@ -32,18 +32,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ez-W5-uaz">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ez-W5-uaz">
                                 <rect key="frame" x="252" y="366" width="97" height="30"/>
                                 <state key="normal" title="Clear Cookies">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2n-Xs-CmD">
-                                <rect key="frame" x="246" y="212" width="109" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RVv-ct-fc9" customClass="SPTConnectButton">
                                 <rect key="frame" x="159" y="250" width="282" height="100"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,10 +45,18 @@
                                     <action selector="loginClicked:" destination="Wwp-Te-KiB" eventType="touchUpInside" id="gZr-EK-odT"/>
                                 </connections>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Current status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2n-Xs-CmD">
+                                <rect key="frame" x="246" y="212" width="109" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="O2n-Xs-CmD" secondAttribute="centerX" id="7KO-Jq-0sy"/>
                             <constraint firstAttribute="centerX" secondItem="RVv-ct-fc9" secondAttribute="centerX" id="ghM-Dc-dZl"/>
+                            <constraint firstAttribute="centerX" secondItem="8Ez-W5-uaz" secondAttribute="centerX" id="vcz-Sh-KmH"/>
                         </constraints>
                     </view>
                     <connections>
@@ -205,7 +207,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="stb-Xt-z0A" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ooS-WR-44j" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-731" y="-2194"/>
+            <point key="canvasLocation" x="-973" y="-2194"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TD7-gA-pag">
